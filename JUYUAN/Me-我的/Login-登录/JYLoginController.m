@@ -19,6 +19,17 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;   
+}
+
+/** pop */
+- (IBAction)goBack
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 /*
 #pragma mark - Navigation
 

@@ -7,6 +7,7 @@
 //
 
 #import "JYMeController.h"
+#import "JYLoginController.h"
 
 @interface JYMeController ()
 
@@ -17,6 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+#pragma mark - 点击方法
+/** 登录 */
+- (IBAction)LoginAction
+{
+    JYLoginController *loginView = [[JYLoginController alloc] init];
+    [self presentViewController:loginView animated:YES completion:nil];
 }
 
 /*

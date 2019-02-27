@@ -274,8 +274,8 @@
 		9789A2C722262BB6007874F3 /* Me-我的 */ = {
 			isa = PBXGroup;
 			children = (
-				9789A398222647B4007874F3 /* Login-登录 */,
 				9789A3972226479F007874F3 /* Main-主控制器 */,
+				9789A398222647B4007874F3 /* Login-登录 */,
 			);
 			path = "Me-我的";
 			sourceTree = "<group>";
