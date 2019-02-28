@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		940B6A2822265E9D0065312E /* JYHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 940B6A2622265E9D0065312E /* JYHomeTableViewCell.m */; };
+		940B6A2922265E9D0065312E /* JYHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940B6A2722265E9D0065312E /* JYHomeTableViewCell.xib */; };
+		940B6A2F222676B70065312E /* JYServiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 940B6A2D222676B70065312E /* JYServiceTableViewCell.m */; };
+		940B6A30222676B70065312E /* JYServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940B6A2E222676B70065312E /* JYServiceTableViewCell.xib */; };
+		940B6A34222678170065312E /* JYServiceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 940B6A32222678170065312E /* JYServiceCollectionViewCell.m */; };
+		940B6A35222678170065312E /* JYServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940B6A33222678170065312E /* JYServiceCollectionViewCell.xib */; };
+		940B6A382226852A0065312E /* JYServiceHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 940B6A372226852A0065312E /* JYServiceHeaderView.m */; };
+		940B6A3A2226853A0065312E /* JYServiceHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940B6A392226853A0065312E /* JYServiceHeaderView.xib */; };
+		94DD4E1622278B7C0074324E /* JYRegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD4E1422278B7C0074324E /* JYRegistViewController.m */; };
+		94DD4E1722278B7C0074324E /* JYRegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DD4E1522278B7C0074324E /* JYRegistViewController.xib */; };
+		94DD4E1B2227AF120074324E /* JYForgetWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD4E192227AF120074324E /* JYForgetWordViewController.m */; };
+		94DD4E1C2227AF120074324E /* JYForgetWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DD4E1A2227AF120074324E /* JYForgetWordViewController.xib */; };
+		94DD4E202227B3080074324E /* JYRoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD4E1E2227B3080074324E /* JYRoomListViewController.m */; };
+		94DD4E212227B3080074324E /* JYRoomListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DD4E1F2227B3080074324E /* JYRoomListViewController.xib */; };
+		94DD4E252227B7FC0074324E /* JYRoomListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD4E232227B7FC0074324E /* JYRoomListCollectionViewCell.m */; };
+		94DD4E262227B7FC0074324E /* JYRoomListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DD4E242227B7FC0074324E /* JYRoomListCollectionViewCell.xib */; };
 		9789A2B122262A98007874F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9789A2B022262A98007874F3 /* AppDelegate.m */; };
 		9789A2B722262A98007874F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9789A2B522262A98007874F3 /* Main.storyboard */; };
 		9789A2B922262A99007874F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9789A2B822262A99007874F3 /* Assets.xcassets */; };
@@ -75,6 +91,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		940B6A2522265E9D0065312E /* JYHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYHomeTableViewCell.h; sourceTree = "<group>"; };
+		940B6A2622265E9D0065312E /* JYHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYHomeTableViewCell.m; sourceTree = "<group>"; };
+		940B6A2722265E9D0065312E /* JYHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYHomeTableViewCell.xib; sourceTree = "<group>"; };
+		940B6A2C222676B70065312E /* JYServiceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYServiceTableViewCell.h; sourceTree = "<group>"; };
+		940B6A2D222676B70065312E /* JYServiceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYServiceTableViewCell.m; sourceTree = "<group>"; };
+		940B6A2E222676B70065312E /* JYServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYServiceTableViewCell.xib; sourceTree = "<group>"; };
+		940B6A31222678170065312E /* JYServiceCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYServiceCollectionViewCell.h; sourceTree = "<group>"; };
+		940B6A32222678170065312E /* JYServiceCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYServiceCollectionViewCell.m; sourceTree = "<group>"; };
+		940B6A33222678170065312E /* JYServiceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYServiceCollectionViewCell.xib; sourceTree = "<group>"; };
+		940B6A362226852A0065312E /* JYServiceHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYServiceHeaderView.h; sourceTree = "<group>"; };
+		940B6A372226852A0065312E /* JYServiceHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYServiceHeaderView.m; sourceTree = "<group>"; };
+		940B6A392226853A0065312E /* JYServiceHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYServiceHeaderView.xib; sourceTree = "<group>"; };
+		94DD4E1322278B7C0074324E /* JYRegistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYRegistViewController.h; sourceTree = "<group>"; };
+		94DD4E1422278B7C0074324E /* JYRegistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYRegistViewController.m; sourceTree = "<group>"; };
+		94DD4E1522278B7C0074324E /* JYRegistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYRegistViewController.xib; sourceTree = "<group>"; };
+		94DD4E182227AF120074324E /* JYForgetWordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYForgetWordViewController.h; sourceTree = "<group>"; };
+		94DD4E192227AF120074324E /* JYForgetWordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYForgetWordViewController.m; sourceTree = "<group>"; };
+		94DD4E1A2227AF120074324E /* JYForgetWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYForgetWordViewController.xib; sourceTree = "<group>"; };
+		94DD4E1D2227B3080074324E /* JYRoomListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYRoomListViewController.h; sourceTree = "<group>"; };
+		94DD4E1E2227B3080074324E /* JYRoomListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYRoomListViewController.m; sourceTree = "<group>"; };
+		94DD4E1F2227B3080074324E /* JYRoomListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYRoomListViewController.xib; sourceTree = "<group>"; };
+		94DD4E222227B7FC0074324E /* JYRoomListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYRoomListCollectionViewCell.h; sourceTree = "<group>"; };
+		94DD4E232227B7FC0074324E /* JYRoomListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYRoomListCollectionViewCell.m; sourceTree = "<group>"; };
+		94DD4E242227B7FC0074324E /* JYRoomListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYRoomListCollectionViewCell.xib; sourceTree = "<group>"; };
 		9789A2AC22262A98007874F3 /* JUYUAN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JUYUAN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9789A2AF22262A98007874F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9789A2B022262A98007874F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -220,6 +260,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		940B6A2322265E560065312E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9789A39F22264863007874F3 /* JYRoomReservationController.h */,
+				9789A3A022264863007874F3 /* JYRoomReservationController.m */,
+				9789A3A122264863007874F3 /* JYRoomReservationController.xib */,
+				94DD4E1D2227B3080074324E /* JYRoomListViewController.h */,
+				94DD4E1E2227B3080074324E /* JYRoomListViewController.m */,
+				94DD4E1F2227B3080074324E /* JYRoomListViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		940B6A2422265E6D0065312E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				940B6A2522265E9D0065312E /* JYHomeTableViewCell.h */,
+				940B6A2622265E9D0065312E /* JYHomeTableViewCell.m */,
+				940B6A2722265E9D0065312E /* JYHomeTableViewCell.xib */,
+				94DD4E222227B7FC0074324E /* JYRoomListCollectionViewCell.h */,
+				94DD4E232227B7FC0074324E /* JYRoomListCollectionViewCell.m */,
+				94DD4E242227B7FC0074324E /* JYRoomListCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		940B6A2A222676900065312E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9789A3A422264872007874F3 /* JYServiceController.h */,
+				9789A3A522264872007874F3 /* JYServiceController.m */,
+				9789A3A622264872007874F3 /* JYServiceController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		940B6A2B2226769B0065312E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				940B6A2C222676B70065312E /* JYServiceTableViewCell.h */,
+				940B6A2D222676B70065312E /* JYServiceTableViewCell.m */,
+				940B6A2E222676B70065312E /* JYServiceTableViewCell.xib */,
+				940B6A31222678170065312E /* JYServiceCollectionViewCell.h */,
+				940B6A32222678170065312E /* JYServiceCollectionViewCell.m */,
+				940B6A33222678170065312E /* JYServiceCollectionViewCell.xib */,
+				940B6A362226852A0065312E /* JYServiceHeaderView.h */,
+				940B6A372226852A0065312E /* JYServiceHeaderView.m */,
+				940B6A392226853A0065312E /* JYServiceHeaderView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9789A2A322262A97007874F3 = {
 			isa = PBXGroup;
 			children = (
@@ -254,9 +346,8 @@
 		9789A2C522262B77007874F3 /* RoomReservation0-订房 */ = {
 			isa = PBXGroup;
 			children = (
-				9789A39F22264863007874F3 /* JYRoomReservationController.h */,
-				9789A3A022264863007874F3 /* JYRoomReservationController.m */,
-				9789A3A122264863007874F3 /* JYRoomReservationController.xib */,
+				940B6A2422265E6D0065312E /* View */,
+				940B6A2322265E560065312E /* Controller */,
 			);
 			path = "RoomReservation0-订房";
 			sourceTree = "<group>";
@@ -264,9 +355,8 @@
 		9789A2C622262B9A007874F3 /* Service-服务 */ = {
 			isa = PBXGroup;
 			children = (
-				9789A3A422264872007874F3 /* JYServiceController.h */,
-				9789A3A522264872007874F3 /* JYServiceController.m */,
-				9789A3A622264872007874F3 /* JYServiceController.xib */,
+				940B6A2B2226769B0065312E /* View */,
+				940B6A2A222676900065312E /* Controller */,
 			);
 			path = "Service-服务";
 			sourceTree = "<group>";
@@ -539,6 +629,12 @@
 				9789A399222647C9007874F3 /* JYLoginController.h */,
 				9789A39A222647C9007874F3 /* JYLoginController.m */,
 				9789A39B222647C9007874F3 /* JYLoginController.xib */,
+				94DD4E1322278B7C0074324E /* JYRegistViewController.h */,
+				94DD4E1422278B7C0074324E /* JYRegistViewController.m */,
+				94DD4E1522278B7C0074324E /* JYRegistViewController.xib */,
+				94DD4E182227AF120074324E /* JYForgetWordViewController.h */,
+				94DD4E192227AF120074324E /* JYForgetWordViewController.m */,
+				94DD4E1A2227AF120074324E /* JYForgetWordViewController.xib */,
 			);
 			path = "Login-登录";
 			sourceTree = "<group>";
@@ -602,14 +698,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				9789A3A822264872007874F3 /* JYServiceController.xib in Resources */,
+				94DD4E262227B7FC0074324E /* JYRoomListCollectionViewCell.xib in Resources */,
+				940B6A30222676B70065312E /* JYServiceTableViewCell.xib in Resources */,
 				9789A2BC22262A99007874F3 /* LaunchScreen.storyboard in Resources */,
+				94DD4E1C2227AF120074324E /* JYForgetWordViewController.xib in Resources */,
 				9789A355222636E4007874F3 /* MJRefresh.bundle in Resources */,
+				940B6A3A2226853A0065312E /* JYServiceHeaderView.xib in Resources */,
 				9789A39622263759007874F3 /* SVProgressHUD.bundle in Resources */,
 				9789A39D222647C9007874F3 /* JYLoginController.xib in Resources */,
+				94DD4E212227B3080074324E /* JYRoomListViewController.xib in Resources */,
+				94DD4E1722278B7C0074324E /* JYRegistViewController.xib in Resources */,
 				9789A2B922262A99007874F3 /* Assets.xcassets in Resources */,
+				940B6A35222678170065312E /* JYServiceCollectionViewCell.xib in Resources */,
 				9789A2E822262F48007874F3 /* JYMeController.xib in Resources */,
 				9789A3A322264863007874F3 /* JYRoomReservationController.xib in Resources */,
 				9789A2B722262A98007874F3 /* Main.storyboard in Resources */,
+				940B6A2922265E9D0065312E /* JYHomeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,21 +728,26 @@
 				9789A31C222636D4007874F3 /* NSObject+MJKeyValue.m in Sources */,
 				9789A365222636E4007874F3 /* MJRefreshAutoFooter.m in Sources */,
 				9789A35D222636E4007874F3 /* MJRefreshAutoGifFooter.m in Sources */,
+				940B6A382226852A0065312E /* JYServiceHeaderView.m in Sources */,
 				9789A2F02226362F007874F3 /* KCUtilMd5.m in Sources */,
 				9789A39422263759007874F3 /* SVProgressHUD.m in Sources */,
 				9789A38822263751007874F3 /* MASLayoutConstraint.m in Sources */,
 				9789A309222636BE007874F3 /* AFSecurityPolicy.m in Sources */,
 				9789A358222636E4007874F3 /* UIView+MJExtension.m in Sources */,
+				94DD4E1B2227AF120074324E /* JYForgetWordViewController.m in Sources */,
 				9789A38A22263751007874F3 /* View+MASAdditions.m in Sources */,
+				940B6A2822265E9D0065312E /* JYHomeTableViewCell.m in Sources */,
 				9789A35C222636E4007874F3 /* MJRefreshAutoStateFooter.m in Sources */,
 				9789A2CF22262DBD007874F3 /* CZTabBarController.m in Sources */,
 				9789A320222636D4007874F3 /* NSObject+MJCoding.m in Sources */,
+				94DD4E1622278B7C0074324E /* JYRegistViewController.m in Sources */,
 				9789A38722263751007874F3 /* MASConstraintMaker.m in Sources */,
 				9789A2D022262DBD007874F3 /* CZNavigationController.m in Sources */,
 				9789A38422263751007874F3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				9789A304222636BE007874F3 /* AFURLResponseSerialization.m in Sources */,
 				9789A35B222636E4007874F3 /* MJRefreshBackNormalFooter.m in Sources */,
 				9789A31D222636D4007874F3 /* MJProperty.m in Sources */,
+				940B6A2F222676B70065312E /* JYServiceTableViewCell.m in Sources */,
 				9789A39522263759007874F3 /* SVIndefiniteAnimatedView.m in Sources */,
 				9789A362222636E4007874F3 /* MJRefreshFooter.m in Sources */,
 				9789A360222636E4007874F3 /* MJRefreshStateHeader.m in Sources */,
@@ -664,15 +773,18 @@
 				9789A308222636BE007874F3 /* AFNetworkReachabilityManager.m in Sources */,
 				9789A38C22263751007874F3 /* MASViewConstraint.m in Sources */,
 				9789A366222636E4007874F3 /* MJRefreshComponent.m in Sources */,
+				940B6A34222678170065312E /* JYServiceCollectionViewCell.m in Sources */,
 				9789A353222636E4007874F3 /* UIScrollView+MJRefresh.m in Sources */,
 				9789A306222636BE007874F3 /* AFURLSessionManager.m in Sources */,
 				9789A35A222636E4007874F3 /* MJRefreshBackStateFooter.m in Sources */,
 				9789A363222636E4007874F3 /* MJRefreshHeader.m in Sources */,
 				9789A3A222264863007874F3 /* JYRoomReservationController.m in Sources */,
 				9789A3692226373D007874F3 /* CZProgressHUD.m in Sources */,
+				94DD4E202227B3080074324E /* JYRoomListViewController.m in Sources */,
 				9789A35F222636E4007874F3 /* MJRefreshNormalHeader.m in Sources */,
 				9789A2F12226362F007874F3 /* GXNetTool.m in Sources */,
 				9789A38522263751007874F3 /* ViewController+MASAdditions.m in Sources */,
+				94DD4E252227B7FC0074324E /* JYRoomListCollectionViewCell.m in Sources */,
 				9789A2B122262A98007874F3 /* AppDelegate.m in Sources */,
 				9789A364222636E4007874F3 /* MJRefreshBackFooter.m in Sources */,
 				9789A354222636E4007874F3 /* MJRefreshConst.m in Sources */,

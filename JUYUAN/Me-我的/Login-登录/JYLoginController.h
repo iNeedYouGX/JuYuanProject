@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JYLoginController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *codeLoginButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *fastLoginButton;
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

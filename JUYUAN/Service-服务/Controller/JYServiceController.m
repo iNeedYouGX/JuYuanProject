@@ -1,0 +1,75 @@
+//
+//  JYServiceController.m
+//  JUYUAN
+//
+//  Created by JasonBourne on 2019/2/27.
+//  Copyright © 2019 JasonBourne. All rights reserved.
+//
+
+#import "JYServiceController.h"
+#import "JYServiceTableViewCell.h"
+#import "JYServiceHeaderView.h"
+
+@interface JYServiceController ()<UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) JYServiceHeaderView *headerView;
+@property (nonatomic, strong) NSArray *titleArray;
+@end
+
+@implementation JYServiceController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+     self.titleArray = @[@"账单查询",@"水电费查询",@"我要开门",@"报修",@"我要续租",@"退房申请",@"投诉建议"];
+    [self.view addSubview:self.tableView];
+    
+}
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, SCR_WIDTH, SCR_HEIGHT - kTabBarHeight - kStatusBarHeight) style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.tableHeaderView = self.headerView;
+        if (SCR_HEIGHT >= 667) {
+             _tableView.scrollEnabled = NO;
+        }
+        [_tableView registerNib:[UINib nibWithNibName:@"JYServiceTableViewCell" bundle:nil] forCellReuseIdentifier:@"JYServiceTableViewCell"];
+        
+    }
+    return _tableView;
+}
+- (JYServiceHeaderView *)headerView {
+    if (!_headerView) {
+        _headerView = [[[NSBundle mainBundle] loadNibNamed:@"JYServiceHeaderView" owner:nil options:nil] firstObject];
+        _headerView.frame = CGRectMake(0, 0, SCR_WIDTH, 190);
+    }
+    return _headerView;
+}
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    JYServiceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JYServiceTableViewCell"];
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCR_WIDTH , 50)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, SCR_WIDTH - 20, 50)];
+    label.text = @"品质服务";
+    label.font = [UIFont boldSystemFontOfSize:22];
+    [view addSubview:label];
+    return view;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 50;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger count = self.titleArray.count % 2 == 0 ? self.titleArray.count / 2 : self.titleArray.count / 2 + 1;
+    return count * (10 + 70);
+}
+@end

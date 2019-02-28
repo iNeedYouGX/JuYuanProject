@@ -5,17 +5,6 @@
       "scale" : "1x"
     },
     {
-      "resizing" : {
-        "mode" : "3-part-horizontal",
-        "center" : {
-          "mode" : "tile",
-          "width" : 52
-        },
-        "cap-insets" : {
-          "right" : 144,
-          "left" : 479
-        }
-      },
       "idiom" : "universal",
       "filename" : "bg2@2x.png",
       "scale" : "2x"
