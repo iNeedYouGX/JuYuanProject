@@ -24,6 +24,8 @@
 #define SCR_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define IMAGE_NAMED(image) [UIImage imageNamed:image]
 #define IsiPhoneX (((int)((SCR_HEIGHT / SCR_WIDTH) * 100) == 216) ? YES : NO)
+#define CZGetX(name) CGRectGetMaxX(name.frame)
+#define CZGetY(name) CGRectGetMaxY(name.frame)
 
 /*状态栏高度*/
 #define kStatusBarHeight (CGFloat)(IsiPhoneX?(44.0):(20.0))
@@ -53,6 +55,12 @@
 /** RGB颜色 */
 #define CZRGBColor(r, g, b) [UIColor colorWithRed: (r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha: 1.0]
 
+/** 255满色为纯白*/
+#define CZGlobalWhiteBg CZRGBColor(255, 255, 255)
+/** 全局深灰色*/
+#define CZGlobalLightGray CZRGBColor(245, 245, 245)
+
 #import "CZProgressHUD.h"
+#import "UIView+GXExtension.h"
  
 #endif /* PrefixHeader_pch */

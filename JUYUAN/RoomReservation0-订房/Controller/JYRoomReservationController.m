@@ -9,22 +9,43 @@
 #import "JYRoomReservationController.h"
 #import "JYHomeTableViewCell.h"
 #import "JYRoomListViewController.h"
+#import "CZHotSearchView.h"
+
 @interface JYRoomReservationController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headerView;
+/** 搜索框 */
+@property (nonatomic, strong) CZHotSearchView *search;
 @end
 
 @implementation JYRoomReservationController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupSearchView];
     [self.view addSubview:self.tableView];
-    
 }
+
+- (void)setupSearchView
+{
+    self.search = [[CZHotSearchView alloc] initWithFrame:CGRectMake(14, IsiPhoneX ? 54 : 30, SCR_WIDTH - 28, 34) msgAction:^(NSString *title){
+        NSLog(@"哈哈哈哈");
+    }];
+    self.search.textFieldActive = NO;
+    [self.view addSubview:self.search];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushSearchController)];
+    [self.search addGestureRecognizer:tap];
+}
+
+#pragma mark - 响应事件
+- (void)pushSearchController
+{
+    NSLog(@"啦啦啦啦");
+}
+
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavBarAndStatusBarHeight, SCR_WIDTH, SCR_HEIGHT - kNavAndTabHeight - 10) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavBarAndStatusBarHeight + 10, SCR_WIDTH, SCR_HEIGHT - kNavAndTabHeight - 10 - 10) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -34,6 +55,7 @@
     }
     return _tableView;
 }
+
 - (UIView *)headerView {
     if (!_headerView) {
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCR_WIDTH, 50)];

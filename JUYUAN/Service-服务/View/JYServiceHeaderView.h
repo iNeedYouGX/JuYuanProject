@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JYServiceHeaderView : UIView
-
+/** <#注释#> */
+@property (nonatomic, strong) NSArray *imageList;
 @end
 
 NS_ASSUME_NONNULL_END

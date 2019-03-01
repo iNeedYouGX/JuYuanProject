@@ -42,8 +42,9 @@
 - (JYServiceHeaderView *)headerView {
     if (!_headerView) {
         _headerView = [[[NSBundle mainBundle] loadNibNamed:@"JYServiceHeaderView" owner:nil options:nil] firstObject];
-        _headerView.frame = CGRectMake(0, 0, SCR_WIDTH, 190);
+        _headerView.frame = CGRectMake(0, 0, SCR_WIDTH, 205);
     }
+    _headerView.imageList =  @[@"http://jipincheng.cn/0d2e3f4e51374ed1ab31ee6210b9fccf", @"http://jipincheng.cn/fa6fd46617d4427e82d4117dc0015364", @"http://jipincheng.cn/0f429dc482af4c0795aeea773f936579"];
     return _headerView;
 }
 
