@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "JYRoomReservationModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JYHomeTableViewCell : UITableViewCell
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statueLabel;
-
+- (void)updateData:(JYRoomReservationModel *)model;
 @end
 
 NS_ASSUME_NONNULL_END

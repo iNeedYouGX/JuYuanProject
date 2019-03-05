@@ -23,6 +23,11 @@
 		94DD4E212227B3080074324E /* JYRoomListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DD4E1F2227B3080074324E /* JYRoomListViewController.xib */; };
 		94DD4E252227B7FC0074324E /* JYRoomListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD4E232227B7FC0074324E /* JYRoomListCollectionViewCell.m */; };
 		94DD4E262227B7FC0074324E /* JYRoomListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DD4E242227B7FC0074324E /* JYRoomListCollectionViewCell.xib */; };
+		94E68D9E222CF56D00F48E88 /* JYUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E68D9D222CF56D00F48E88 /* JYUserInfoManager.m */; };
+		94E68DA1222CF89100F48E88 /* NSDictionary+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E68D9F222CF89000F48E88 /* NSDictionary+Addition.m */; };
+		94E68DA5222D130600F48E88 /* JYRoomReservationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E68DA4222D130600F48E88 /* JYRoomReservationModel.m */; };
+		94E68DA8222D2BE000F48E88 /* JYRoomListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E68DA7222D2BE000F48E88 /* JYRoomListModel.m */; };
+		976A46C1222D1D2700D202E0 /* JYRoomReservationSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 976A46C0222D1D2700D202E0 /* JYRoomReservationSubModel.m */; };
 		9789A2B122262A98007874F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9789A2B022262A98007874F3 /* AppDelegate.m */; };
 		9789A2B722262A98007874F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9789A2B522262A98007874F3 /* Main.storyboard */; };
 		9789A2B922262A99007874F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9789A2B822262A99007874F3 /* Assets.xcassets */; };
@@ -152,6 +157,16 @@
 		94DD4E222227B7FC0074324E /* JYRoomListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYRoomListCollectionViewCell.h; sourceTree = "<group>"; };
 		94DD4E232227B7FC0074324E /* JYRoomListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYRoomListCollectionViewCell.m; sourceTree = "<group>"; };
 		94DD4E242227B7FC0074324E /* JYRoomListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYRoomListCollectionViewCell.xib; sourceTree = "<group>"; };
+		94E68D9C222CF56D00F48E88 /* JYUserInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYUserInfoManager.h; sourceTree = "<group>"; };
+		94E68D9D222CF56D00F48E88 /* JYUserInfoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYUserInfoManager.m; sourceTree = "<group>"; };
+		94E68D9F222CF89000F48E88 /* NSDictionary+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Addition.m"; sourceTree = "<group>"; };
+		94E68DA0222CF89100F48E88 /* NSDictionary+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Addition.h"; sourceTree = "<group>"; };
+		94E68DA3222D130600F48E88 /* JYRoomReservationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYRoomReservationModel.h; sourceTree = "<group>"; };
+		94E68DA4222D130600F48E88 /* JYRoomReservationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYRoomReservationModel.m; sourceTree = "<group>"; };
+		94E68DA6222D2BE000F48E88 /* JYRoomListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYRoomListModel.h; sourceTree = "<group>"; };
+		94E68DA7222D2BE000F48E88 /* JYRoomListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYRoomListModel.m; sourceTree = "<group>"; };
+		976A46BF222D1D2700D202E0 /* JYRoomReservationSubModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYRoomReservationSubModel.h; sourceTree = "<group>"; };
+		976A46C0222D1D2700D202E0 /* JYRoomReservationSubModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYRoomReservationSubModel.m; sourceTree = "<group>"; };
 		9789A2AC22262A98007874F3 /* JUYUAN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JUYUAN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9789A2AF22262A98007874F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9789A2B022262A98007874F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -428,6 +443,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		94E68DA2222D0FC300F48E88 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				94E68DA3222D130600F48E88 /* JYRoomReservationModel.h */,
+				94E68DA4222D130600F48E88 /* JYRoomReservationModel.m */,
+				976A46BF222D1D2700D202E0 /* JYRoomReservationSubModel.h */,
+				976A46C0222D1D2700D202E0 /* JYRoomReservationSubModel.m */,
+				94E68DA6222D2BE000F48E88 /* JYRoomListModel.h */,
+				94E68DA7222D2BE000F48E88 /* JYRoomListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9789A2A322262A97007874F3 = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +490,7 @@
 		9789A2C522262B77007874F3 /* RoomReservation0-订房 */ = {
 			isa = PBXGroup;
 			children = (
+				94E68DA2222D0FC300F48E88 /* Model */,
 				940B6A2422265E6D0065312E /* View */,
 				940B6A2322265E560065312E /* Controller */,
 			);
@@ -850,10 +879,14 @@
 		97EA6ADD2228DBF70010770F /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				94E68DA0222CF89100F48E88 /* NSDictionary+Addition.h */,
+				94E68D9F222CF89000F48E88 /* NSDictionary+Addition.m */,
 				97EA6AE82228F5A70010770F /* UIButton+CZExtension.h */,
 				97EA6AE72228F5A70010770F /* UIButton+CZExtension.m */,
 				97EA6ADE2228DC060010770F /* UIView+GXExtension.h */,
 				97EA6ADF2228DC060010770F /* UIView+GXExtension.m */,
+				94E68D9C222CF56D00F48E88 /* JYUserInfoManager.h */,
+				94E68D9D222CF56D00F48E88 /* JYUserInfoManager.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -979,6 +1012,7 @@
 				97EA6ACA2228DBB30010770F /* SDWebImageCoderHelper.m in Sources */,
 				97EA6AD02228DBB30010770F /* SDImageCache.m in Sources */,
 				9789A362222636E4007874F3 /* MJRefreshFooter.m in Sources */,
+				976A46C1222D1D2700D202E0 /* JYRoomReservationSubModel.m in Sources */,
 				97EA6A7F2228DB860010770F /* PlanADCollectionViewCell.m in Sources */,
 				97EA6ADB2228DBB30010770F /* UIButton+WebCache.m in Sources */,
 				9789A360222636E4007874F3 /* MJRefreshStateHeader.m in Sources */,
@@ -994,6 +1028,7 @@
 				97EA6AC02228DBB30010770F /* UIImage+WebP.m in Sources */,
 				97EA6AD52228DBB30010770F /* NSImage+WebCache.m in Sources */,
 				9789A361222636E4007874F3 /* MJRefreshGifHeader.m in Sources */,
+				94E68DA1222CF89100F48E88 /* NSDictionary+Addition.m in Sources */,
 				97EA6AD22228DBB30010770F /* SDWebImageTransition.m in Sources */,
 				9789A31F222636D4007874F3 /* MJConst.m in Sources */,
 				9789A39C222647C9007874F3 /* JYLoginController.m in Sources */,
@@ -1010,6 +1045,7 @@
 				9789A35E222636E4007874F3 /* MJRefreshAutoNormalFooter.m in Sources */,
 				9789A2BF22262A99007874F3 /* main.m in Sources */,
 				97EA6AC92228DBB30010770F /* UIImage+MultiFormat.m in Sources */,
+				94E68DA8222D2BE000F48E88 /* JYRoomListModel.m in Sources */,
 				9789A321222636D4007874F3 /* NSObject+MJProperty.m in Sources */,
 				97EA6AC72228DBB30010770F /* SDWebImageDownloader.m in Sources */,
 				9789A308222636BE007874F3 /* AFNetworkReachabilityManager.m in Sources */,
@@ -1028,6 +1064,7 @@
 				9789A35A222636E4007874F3 /* MJRefreshBackStateFooter.m in Sources */,
 				9789A363222636E4007874F3 /* MJRefreshHeader.m in Sources */,
 				97EA6AE32228F5360010770F /* CZHotSearchView.m in Sources */,
+				94E68DA5222D130600F48E88 /* JYRoomReservationModel.m in Sources */,
 				9789A3A222264863007874F3 /* JYRoomReservationController.m in Sources */,
 				9789A3692226373D007874F3 /* CZProgressHUD.m in Sources */,
 				97EA6AC22228DBB30010770F /* SDWebImageManager.m in Sources */,
@@ -1039,6 +1076,7 @@
 				9789A2F12226362F007874F3 /* GXNetTool.m in Sources */,
 				9789A38522263751007874F3 /* ViewController+MASAdditions.m in Sources */,
 				94DD4E252227B7FC0074324E /* JYRoomListCollectionViewCell.m in Sources */,
+				94E68D9E222CF56D00F48E88 /* JYUserInfoManager.m in Sources */,
 				9789A2B122262A98007874F3 /* AppDelegate.m in Sources */,
 				9789A364222636E4007874F3 /* MJRefreshBackFooter.m in Sources */,
 				97EA6A7D2228DB860010770F /* PlanPageControl.m in Sources */,
@@ -1185,8 +1223,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = G583M5JELZ;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B778U9UUF6;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JUYUAN/Other-其他/PrefixHeader.pch";
 				INFOPLIST_FILE = JUYUAN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1195,7 +1234,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.testtest.platform.JUYUAN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = GXTEXTProvisioning;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1204,8 +1243,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = G583M5JELZ;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B778U9UUF6;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JUYUAN/Other-其他/PrefixHeader.pch";
 				INFOPLIST_FILE = JUYUAN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1214,7 +1254,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.testtest.platform.JUYUAN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = GXTEXTProvisioning;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

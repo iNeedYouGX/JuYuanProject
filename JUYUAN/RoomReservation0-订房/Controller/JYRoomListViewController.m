@@ -8,21 +8,193 @@
 
 #import "JYRoomListViewController.h"
 #import "JYRoomListCollectionViewCell.h"
+#import "JYRoomListModel.h"
+#import "GXNetTool.h"
+#import "JYRoomReservationSubModel.h"
+
 @interface JYRoomListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@property (weak, nonatomic) IBOutlet UILabel *apartmentLabel;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleViewTop;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
+/** <#注释#> */
+@property (nonatomic, weak) IBOutlet UIView *topView;
+/** 为了挡住动画 */
+@property (nonatomic, weak) IBOutlet UIView *topTopView;
+/** <#注释#> */
+@property (nonatomic, weak) IBOutlet UIView *arrowView;
+/**  */
+@property (nonatomic, weak) IBOutlet UILabel *arrowLable;
+/** <#注释#> */
+@property (nonatomic, strong) UIView *titlesView;
+/** <#注释#> */
+@property (nonatomic, assign) CGFloat titlesH;
+
+/** <#注释#> */
+@property (nonatomic, assign) BOOL isUnfold;
+@property (weak, nonatomic) IBOutlet UIButton *arrowButton;
+
+@property (nonatomic, strong) NSArray<JYRoomListModel *> *dataArray;
+// 楼层model
+@property (nonatomic, strong) NSArray<JYRoomReservationSubModel *> *storeyArray;
+// 当前楼层
 @end
 
 @implementation JYRoomListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    // 获取楼层列表
+    [self getApartmentStoreysListNet];
     self.titleViewTop.constant = kStatusBarHeight;
     [self.view addSubview:self.collectionView];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(arrowAction)];
+    [self.arrowView addGestureRecognizer:tap];
+    self.arrowLable.text = self.name;
+    self.apartmentLabel.text = self.apartmentName;
+    
+    
+    [self getNetwork];
     
 }
+
+
+- (UIView *)titlesView
+{
+    if (_titlesView == nil) {
+        
+        CGFloat btnW = 60;
+        CGFloat btnH = 25;
+        NSInteger cols = 4;
+        
+        NSInteger row = (self.storeyArray.count + (cols - 1)) / cols;
+        UIView *titlesView = [[UIView alloc] init];
+        titlesView.backgroundColor = [UIColor whiteColor];
+        titlesView.width = SCR_WIDTH;
+        titlesView.height = 0;
+        self.titlesH = (row + row + 1) * btnH;
+        titlesView.y = - (kNavBarAndStatusBarHeight + self.titlesH);
+        titlesView.x = 0;
+        _titlesView = titlesView;
+        
+        
+        CGFloat space = (SCR_WIDTH - (38 * 2) - (cols * btnW)) /  (cols - 1);
+        for (int i = 0; i < self.storeyArray.count; i++) {
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            btn.width = btnW;
+            btn.height = btnH;
+            btn.x = 38 + (i % cols) * (btnW + space);
+            btn.y = btnH + (i / cols) * (btnH + btnH);
+            [btn setTitle:self.storeyArray[i].name forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:12];
+            [btn setTitleColor: [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:1.00]forState:UIControlStateNormal];
+            btn.layer.borderWidth = 1;
+            btn.layer.cornerRadius = 2;
+            btn.layer.borderColor = [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:1.00].CGColor;
+            [_titlesView addSubview:btn];
+            if (self.storey_id == self.storeyArray[i].storeyId) {
+                btn.backgroundColor = [UIColor colorWithRed:0.99 green:0.82 blue:0.26 alpha:1.00];
+                [btn setTitleColor: [UIColor blackColor] forState:UIControlStateNormal];
+            } else {
+                btn.backgroundColor = [UIColor whiteColor];
+                [btn setTitleColor: [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:1.00]forState:UIControlStateNormal];
+            }
+            btn.tag = self.storeyArray[i].storeyId;
+            [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+            
+        }
+    }
+    return _titlesView;
+}
+- (void)btnAction:(UIButton *)btn {
+    self.storey_id = btn.tag;
+    [self getNetwork];
+    [self contorlTopView];
+}
+#pragma mark - 网络请求->房间列表
+- (void)getNetwork {
+    
+    
+    /** 胖糊: 这个是将 数据中的key 转换成模型中的属性名 */
+    [JYRoomReservationSubModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{
+                 @"room_id" : @"id"
+                 };
+    }];
+    
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/houses"];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"apt_id"] = @(self.apt_id);
+    param[@"storey_id"] = @(self.storey_id);
+    
+    
+    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+            
+            /**胖糊: 数组转化模型 */
+            self.dataArray = [JYRoomListModel objectArrayWithKeyValuesArray:result[@"bizobj"][@"data"][@"apartment_list"]];
+            [self.collectionView reloadData];
+            
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+#pragma mark - 网络请求->获取公寓楼层列表
+- (void)getApartmentStoreysListNet {
+
+    [JYRoomReservationSubModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{
+                 @"storeyId" : @"id"
+                 };
+    }];
+    
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/storeys"];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"apt_id"] = @(self.apt_id);
+    
+    
+    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+            
+            /**胖糊: 数组转化模型 */
+            self.storeyArray = [JYRoomReservationSubModel objectArrayWithKeyValuesArray:result[@"bizobj"][@"data"][@"store_list"]];
+            NSLog(@"---------%ld",self.storeyArray.firstObject.storeyId);
+            NSLog(@"---------%@",self.storeyArray.firstObject.name);
+            [self.view addSubview:self.titlesView];
+            [self.view bringSubviewToFront:self.topTopView];
+            [self.view bringSubviewToFront:self.topView];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+- (IBAction)didClickedArrowAction:(id)sender {
+    [self contorlTopView];
+}
+
+- (void)arrowAction
+{
+    [self contorlTopView];
+    
+}
+- (void)contorlTopView {
+    if (!self.isUnfold) {
+        [UIView animateWithDuration:0.25 animations:^{
+            self.titlesView.y = kNavBarAndStatusBarHeight;
+            self.titlesView.height = self.titlesH;
+        }];
+    } else {
+        [UIView animateWithDuration:0.25 animations:^{
+            self.titlesView.y = - (kNavBarAndStatusBarHeight + self.titlesH);
+            self.titlesView.height = 0;
+        }];
+    }
+    self.isUnfold = !self.isUnfold;
+}
+
 -(UICollectionView *)collectionView {
     if (!_collectionView) {
         _layout = [[UICollectionViewFlowLayout alloc] init];
@@ -39,10 +211,11 @@
     return _collectionView;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return self.dataArray.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     JYRoomListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"JYRoomListCollectionViewCell" forIndexPath:indexPath];
+    [cell updateData:self.dataArray[indexPath.row]];
     return cell;
 }
 - (IBAction)backAction:(id)sender {

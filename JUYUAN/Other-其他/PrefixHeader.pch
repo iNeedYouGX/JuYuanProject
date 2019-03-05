@@ -11,7 +11,7 @@
 /**
  * 服务器URL
  */
-#define JPSERVER_URL @"http://192.168.1.84:8081/qualityshop-api/"
+#define JPSERVER_URL @"https://apartment.pinecc.cn/" // 测试
 //#define JPSERVER_URL @"https://www.jipincheng.cn/qualityshop-api/"
 
 

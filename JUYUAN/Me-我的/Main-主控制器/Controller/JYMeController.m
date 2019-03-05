@@ -8,16 +8,35 @@
 
 #import "JYMeController.h"
 #import "JYLoginController.h"
+#import "JYUserInfoManager.h"
 
 @interface JYMeController ()
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
 @implementation JYMeController
-
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self checkLoginStatue];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+}
+- (void)checkLoginStatue {
+    if ([JYUserInfoManager getUserToken].length == 0) {
+        [self.loginButton setTitle:@"点击登录" forState:UIControlStateNormal];
+        self.loginButton.enabled = YES;
+    } else {
+        [self.loginButton setTitle:@"已登录" forState:UIControlStateNormal];
+        self.loginButton.enabled = NO;
+    }
+}
+#pragma mark - 临时的退出登录
+- (IBAction)logOut:(id)sender {
+    [JYUserInfoManager removeAllUserInfo];
+    [self checkLoginStatue];
 }
 
 #pragma mark - 点击方法

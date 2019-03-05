@@ -53,8 +53,10 @@
     //(6)发送请求
     NSMutableDictionary *param = [NSMutableDictionary dictionaryWithDictionary:body];
     param[@"client"] = @(2);
+    NSLog(@"param=%@", param);
     [manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *result = responseObject;
+        NSLog(@"result=%@", result);
         success(result);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
@@ -147,10 +149,12 @@
     //(6)发送请求
     
     NSMutableDictionary *param = [NSMutableDictionary dictionaryWithDictionary:body];
+    NSLog(@"param=%@", param);
     [manager POST:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
        
         // 除去NSNUll
         NSDictionary *result = responseObject;
+        NSLog(@"responseObject=%@", result);
         success(result);
         //隐藏菊花
 //        [CZProgressHUD hideAfterDelay:0];
@@ -278,6 +282,7 @@
     GXNetTool *tool = [[self alloc] init];
     maker(tool);
     [tool.manager POST:tool.urlPath parameters:tool.bodyParam progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject=%@", responseObject);
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
@@ -308,5 +313,76 @@
     return timeSp;
     
 }
+
++(void)PutNetWithUrl:(NSString *)url
+                 body:(id)body
+            bodySytle:(GXRequsetStyle)bodyStyle
+               header:(NSDictionary *)headers
+             response:(GXResponseStyle)response
+              success:(blockOfSuccess)success
+              failure:(blockOfFailure)failure
+{
+    //(1)获取网络管理者
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager  manager] initWithBaseURL:[NSURL URLWithString:url]];
+    
+    //(2)请求头的设置
+    for (NSString *key in headers.allKeys) {
+        [manager.requestSerializer setValue:headers[key] forHTTPHeaderField:key];
+    }
+    
+    //(3)设置body数据类型
+    switch (bodyStyle) {
+        case GXRequsetStyleBodyJSON:
+            manager.requestSerializer = [AFJSONRequestSerializer serializer];
+            break;
+        case GXRequsetStyleBodyString:
+            [manager.requestSerializer setQueryStringSerializationWithBlock:^NSString * _Nonnull(NSURLRequest * _Nonnull request, id  _Nonnull parameters, NSError * _Nullable * _Nullable error) {
+                return parameters;
+            }];
+            break;
+        case GXRequsetStyleBodyHTTP:
+            manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+            break;
+            
+        default:
+            break;
+    }
+    
+    //(3)设置返回数据的类型
+    switch (response) {
+        case GXResponseStyleJSON:
+            manager.responseSerializer = [AFJSONResponseSerializer serializer];
+            break;
+        case GXResponseStyleXML:
+            manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+            break;
+        case GXResponseStyleDATA:
+            manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+            break;
+            
+        default:
+            break;
+    }
+    //(4)设置数据响应类型
+    [manager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/css",@"text/plain", @"application/javascript",@"image/jpeg", @"text/vnd.wap.wml",@"application/xml", @"text/xml", nil]];
+    //(5)IOS9--UTF-8转码
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    //(6)发送请求
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithDictionary:body];
+    NSLog(@"param=%@", param);
+    [manager PUT:url parameters:param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject=%@", responseObject);
+         success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+        NSLog(@"%@", error);
+        [CZProgressHUD showProgressHUDWithText:@"网络出错"];
+        [CZProgressHUD hideAfterDelay:2];
+    }];
+}
+
+
 
 @end

@@ -11,7 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JYRoomListViewController : UIViewController
-
+// 公寓id
+@property (nonatomic, assign) NSInteger apt_id;
+//楼层id
+ @property (nonatomic, assign) NSInteger storey_id;
+//楼层名字
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *apartmentName;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "JYRoomListModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JYRoomListCollectionViewCell : UICollectionViewCell
@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *roomImageView;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UILabel *hasOrderLabel;
-
+- (void)updateData:(JYRoomListModel *)model;
 @end
 
 NS_ASSUME_NONNULL_END

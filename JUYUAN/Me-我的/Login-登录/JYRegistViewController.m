@@ -7,6 +7,8 @@
 //
 
 #import "JYRegistViewController.h"
+#import "GXNetTool.h"
+#import "JYUserInfoManager.h"
 
 @interface JYRegistViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *mobileTextField;
@@ -61,10 +63,103 @@
 }
 #pragma mark -- 提交
 - (IBAction)submitAction:(id)sender {
+    if (self.mobileTextField.text.length != 11) {
+        [CZProgressHUD showProgressHUDWithText:@"请输入正确的手机号"];
+        [CZProgressHUD hideAfterDelay:1.5];
+        return;
+    }
+    if (self.codeTextField.text.length == 0) {
+        [CZProgressHUD showProgressHUDWithText:@"请输入验证码"];
+        [CZProgressHUD hideAfterDelay:1.5];
+        return;
+    }
+    // 此处要询问设置密码的规则
+    if (self.passwordTextField.text.length < 6) {
+        [CZProgressHUD showProgressHUDWithText:@"请输入不少于6位的密码"];
+        [CZProgressHUD hideAfterDelay:1.5];
+        return;
+    }
+    // 用户注册
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"mobile"] = self.mobileTextField.text;
+    param[@"verfy_code"] = self.codeTextField.text; 
+    param[@"password"] = self.passwordTextField.text;
+    
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"api/v1/users"];
+    
+    [GXNetTool PostNetWithUrl:url body:param bodySytle:GXRequsetStyleBodyHTTP header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+            
+            [CZProgressHUD showProgressHUDWithText:@"注册成功"];
+            // 存储token
+            NSString *token = result[@"bizobj"][@"data"][@"token"];
+            NSString *refresh_token = result[@"bizobj"][@"data"][@"refresh_token"];
+            [JYUserInfoManager saveUserToken:token];
+            [JYUserInfoManager saveUserRefreshtoken:refresh_token];
+            [self getUserInfomation];
+            //把最前面的视图控制器dismiss掉
+            UIViewController *parentVC = self.presentingViewController;
+            UIViewController *bottomVC;
+            while (parentVC) {
+                bottomVC = parentVC;
+                parentVC = parentVC.presentingViewController;
+            }
+            [bottomVC dismissViewControllerAnimated:NO completion:^{
+                // 如果有需要就切换到需要的视图
+            }];
+            
+        } else {
+            [CZProgressHUD showProgressHUDWithText:@"注册失败"];
+        }
+        [CZProgressHUD hideAfterDelay:1.5];
+    } failure:^(NSError *error) {
+        
+    }];
+    
 }
 #pragma mark -- 获取验证码
 - (IBAction)getCodeAction:(id)sender {
+
+    if (self.mobileTextField.text.length != 11) {
+        [CZProgressHUD showProgressHUDWithText:@"请输入正确的手机号"];
+        [CZProgressHUD hideAfterDelay:1.5];
+        return;
+    }
+    
     self.isCounting = YES;
+    // 发送验证码
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"mobile"] = self.mobileTextField.text;
+    param[@"type"] = @(1); // 码验证类型 1.用户注册 2:快速登录 3:重置密码 4:待拓展
+    
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"api/v1/codes"];
+    
+    [GXNetTool PostNetWithUrl:url body:param bodySytle:GXRequsetStyleBodyHTTP header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+            [CZProgressHUD showProgressHUDWithText:@"验证码发送成功"];
+            
+        } else {
+            [CZProgressHUD showProgressHUDWithText:@"验证码发送失败"];
+        }
+        [CZProgressHUD hideAfterDelay:1.5];
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
+#pragma mark -- 获取个人信息
+- (void)getUserInfomation {
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/users/getUserInfo"];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"token"] = [JYUserInfoManager getUserToken];
+    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+            NSDictionary *dic = result[@"bizobj"][@"data"][@"user_info"];
+            [JYUserInfoManager saveUserInfos:dic];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 #pragma mark -- 同意协议
 - (IBAction)allowProtocolAction:(id)sender {

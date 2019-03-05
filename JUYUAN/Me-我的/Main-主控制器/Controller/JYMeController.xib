@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JYMeController">
             <connections>
+                <outlet property="loginButton" destination="q0n-wW-8fC" id="Z8o-wF-fqD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,6 +23,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAY-BF-h4d">
                     <rect key="frame" x="298" y="37" width="20" height="22"/>
                     <state key="normal" image="sz"/>
+                    <connections>
+                        <action selector="logOut:" destination="-1" eventType="touchUpInside" id="9ja-ok-l1t"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuZ-v7-biZ">
                     <rect key="frame" x="335" y="37" width="20" height="22"/>
