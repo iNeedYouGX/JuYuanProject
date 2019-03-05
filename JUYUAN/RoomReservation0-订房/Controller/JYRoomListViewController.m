@@ -89,17 +89,9 @@
             [btn setTitle:self.storeyArray[i].name forState:UIControlStateNormal];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
             [btn setTitleColor: [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:1.00]forState:UIControlStateNormal];
-            btn.layer.borderWidth = 1;
             btn.layer.cornerRadius = 2;
-            btn.layer.borderColor = [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:1.00].CGColor;
             [_titlesView addSubview:btn];
-            if (self.storey_id == self.storeyArray[i].storeyId) {
-                btn.backgroundColor = [UIColor colorWithRed:0.99 green:0.82 blue:0.26 alpha:1.00];
-                [btn setTitleColor: [UIColor blackColor] forState:UIControlStateNormal];
-            } else {
-                btn.backgroundColor = [UIColor whiteColor];
-                [btn setTitleColor: [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:1.00]forState:UIControlStateNormal];
-            }
+            [self changeBtnUI:btn index:i];
             btn.tag = self.storeyArray[i].storeyId;
             [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
             
@@ -107,8 +99,35 @@
     }
     return _titlesView;
 }
+- (void)changeButtonUI {
+    for (int i = 0; i < self.storeyArray.count; i++) {
+        UIButton *btn = (UIButton *)self.titlesView.subviews[i];
+        [self changeBtnUI:btn index:i] ;
+    }
+}
+- (void)changeBtnUI:(UIButton *)btn index:(NSInteger)i{
+    if (self.storey_id == self.storeyArray[i].storeyId) {
+        btn.backgroundColor = [UIColor colorWithRed:0.99 green:0.82 blue:0.26 alpha:1.00];
+        [btn setTitleColor: [UIColor blackColor] forState:UIControlStateNormal];
+        btn.layer.borderWidth = 0;
+        btn.layer.borderColor = [UIColor whiteColor].CGColor;
+    } else {
+        btn.backgroundColor = [UIColor whiteColor];
+        [btn setTitleColor: [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:1.00]forState:UIControlStateNormal];
+        btn.layer.borderWidth = 1;
+        btn.layer.borderColor = [UIColor colorWithRed:0.59 green:0.59 blue:0.59 alpha:1.00].CGColor;
+    }
+}
+#pragma mark - 点击选择楼层
 - (void)btnAction:(UIButton *)btn {
     self.storey_id = btn.tag;
+    [self changeButtonUI];
+    for (int i = 0; i < self.storeyArray.count; i++) {
+        if (self.storeyArray[i].storeyId == btn.tag) {
+            self.arrowLable.text = self.storeyArray[i].name;
+        }
+    }
+    
     [self getNetwork];
     [self contorlTopView];
 }
@@ -117,7 +136,7 @@
     
     
     /** 胖糊: 这个是将 数据中的key 转换成模型中的属性名 */
-    [JYRoomReservationSubModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+    [JYRoomListModel setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{
                  @"room_id" : @"id"
                  };
@@ -153,15 +172,12 @@
     NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/storeys"];
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"apt_id"] = @(self.apt_id);
+//    param[@"apt_id"] = @(199);
     
     
     [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
         if ([result[@"error_code"] isEqual:@(0)]) {
-            
-            /**胖糊: 数组转化模型 */
             self.storeyArray = [JYRoomReservationSubModel objectArrayWithKeyValuesArray:result[@"bizobj"][@"data"][@"store_list"]];
-            NSLog(@"---------%ld",self.storeyArray.firstObject.storeyId);
-            NSLog(@"---------%@",self.storeyArray.firstObject.name);
             [self.view addSubview:self.titlesView];
             [self.view bringSubviewToFront:self.topTopView];
             [self.view bringSubviewToFront:self.topView];
@@ -180,6 +196,7 @@
     [self contorlTopView];
     
 }
+#pragma mark - 选择楼层箭头 展开/收起
 - (void)contorlTopView {
     if (!self.isUnfold) {
         [UIView animateWithDuration:0.25 animations:^{

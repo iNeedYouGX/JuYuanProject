@@ -271,6 +271,7 @@
         } else {
             [CZProgressHUD showProgressHUDWithText:result[@"msg"]];
         }
+        [CZProgressHUD hideAfterDelay:1.5];
     } failure:^(NSError *error) {
         
     }];
