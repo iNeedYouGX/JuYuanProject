@@ -16,7 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *getCodeButton;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *allowProtocolButton;
-@property (weak, nonatomic) IBOutlet UILabel *protocolLabel;
+@property (weak, nonatomic) IBOutlet UITextView *protocolTextView;
+
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 // 秒数
 @property (nonatomic, assign) NSInteger seconds;
@@ -24,6 +25,9 @@
 @property (nonatomic, strong) NSTimer *timer;
 // 是否在记时
 @property (nonatomic, assign) BOOL isCounting;
+// 是否勾选了用户协议
+@property (nonatomic, assign) BOOL selectProtocol;
+
 @end
 
 @implementation JYRegistViewController
@@ -37,8 +41,42 @@
     self.getCodeButton.layer.borderColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00].CGColor;
     self.getCodeButton.layer.borderWidth = 1;
     self.getCodeButton.layer.cornerRadius = 15;
+    // 用户服务协议富文本设置
+    [self buildProtocolViewUI];
+    
     
 }
+- (void)buildProtocolViewUI{
+
+    self.protocolTextView.delegate = self;
+    NSString *titleString = @"我已阅读并同意";
+    NSString *tapString = @"《8901公寓用户服务协议》";
+    NSMutableAttributedString *titleAttriString = [[NSMutableAttributedString alloc] initWithString:titleString];
+    NSMutableAttributedString *tapAttriString = [[NSMutableAttributedString alloc] initWithString:tapString];
+    NSRange selectedRange = {0, [tapAttriString length]};
+    [tapAttriString beginEditing];
+    [tapAttriString addAttribute:NSLinkAttributeName
+                           value:@"fuwuxiwyi://"
+                           range:selectedRange];
+    [titleAttriString addAttribute:NSForegroundColorAttributeName
+                             value:[UIColor colorWithRed:0.25 green:0.26 blue:0.31 alpha:1.00] // 更改颜色
+                             range:NSMakeRange(0, titleAttriString.length)];
+    [tapAttriString endEditing];
+    [titleAttriString appendAttributedString:tapAttriString];
+    [self.protocolTextView setAttributedText:titleAttriString];
+    //设置linkTextAttributes颜色
+    _protocolTextView.linkTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithRed:0.99 green:0.82 blue:0.26 alpha:1.00]};
+}
+#pragma mark 富文本点击事件-
+
+-(BOOL)textView:(UITextView * )textView shouldInteractWithURL:(NSURL* )URL inRange:(NSRange)characterRange {
+    if ([[URL scheme] isEqualToString:@"fuwuxiwyi"]) {
+        NSLog(@"fuwuxiwyi点击");
+        return NO;
+    }
+    return YES;
+}
+
 - (void)setIsCounting:(BOOL)isCounting {
     _isCounting = isCounting;
     if (isCounting) {
@@ -76,6 +114,11 @@
     // 此处要询问设置密码的规则
     if (self.passwordTextField.text.length < 6) {
         [CZProgressHUD showProgressHUDWithText:@"请输入不少于6位的密码"];
+        [CZProgressHUD hideAfterDelay:1.5];
+        return;
+    }
+    if (!self.selectProtocol) {
+        [CZProgressHUD showProgressHUDWithText:@"请勾选同意隐私政策"];
         [CZProgressHUD hideAfterDelay:1.5];
         return;
     }
@@ -163,6 +206,13 @@
 }
 #pragma mark -- 同意协议
 - (IBAction)allowProtocolAction:(id)sender {
+    
+    if (!self.selectProtocol) {
+        [self.allowProtocolButton setImage:[UIImage imageNamed:@"5"] forState:UIControlStateNormal];
+    } else {
+        [self.allowProtocolButton setImage:[UIImage imageNamed:@"7"] forState:UIControlStateNormal];
+    }
+    self.selectProtocol  = !self.selectProtocol;
 }
 #pragma mark -- 定时器方法
 - (void)timerAction{
@@ -176,6 +226,7 @@
     }
     
 }
+
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     [self.view endEditing:YES];

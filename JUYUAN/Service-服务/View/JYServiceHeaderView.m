@@ -12,6 +12,8 @@
 @interface JYServiceHeaderView ()
 /** <#注释#> */
 @property (nonatomic, weak) IBOutlet UIView *imagesView;
+@property (weak, nonatomic) IBOutlet UIButton *msgButton;
+
 @end
 
 @implementation JYServiceHeaderView
@@ -20,6 +22,11 @@
 {
     [super awakeFromNib];
 
+}
+- (void)controlMegButtonHide:(BOOL)hide {
+    _msgButton.hidden = hide;
+}
+- (IBAction)msgButtonAction:(id)sender {
 }
 
 - (void)setImageList:(NSArray *)imageList

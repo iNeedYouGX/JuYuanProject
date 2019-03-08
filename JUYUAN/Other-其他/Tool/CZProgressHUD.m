@@ -35,8 +35,9 @@ static id _instance;
     if (_textLabel == nil) {
         UILabel *label = [[UILabel alloc] init];
         label.textColor = [UIColor whiteColor];
-        label.font = [UIFont systemFontOfSize:13];
-        label.layer.cornerRadius = 13;
+        label.font = [UIFont systemFontOfSize:15];
+        label.layer.cornerRadius = 5;
+        label.textAlignment = NSTextAlignmentCenter;
         label.layer.masksToBounds = YES;
         label.backgroundColor = [UIColor colorWithRed:21/255.0 green:21/255.0 blue:21/255.0 alpha:0.87];
         _textLabel = label;
@@ -60,7 +61,8 @@ static id _instance;
         hud.textLabel.text = [NSString stringWithFormat:@"　%@　", text];
         [hud.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(hud);
-            make.height.equalTo(@(26));
+            make.height.equalTo(@(60));
+            make.width.equalTo(@(SCR_WIDTH / 2));
         }];
         return hud;
         

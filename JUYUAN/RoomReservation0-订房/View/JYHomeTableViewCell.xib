@@ -11,43 +11,50 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="288" id="KGk-i7-Jjw" customClass="JYHomeTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="288"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="299" id="KGk-i7-Jjw" customClass="JYHomeTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="287.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="298.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Ff-oE-DPb">
-                        <rect key="frame" x="15" y="15" width="345" height="203"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="2Ff-oE-DPb" secondAttribute="height" multiplier="1.7" id="HwL-hs-QcS"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小米公寓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGK-bL-cOb">
-                        <rect key="frame" x="15" y="232" width="73.5" height="21.5"/>
+                        <rect key="frame" x="15" y="232" width="200" height="21.5"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                         <color key="textColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1900-2800元/月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nr1-XW-NxT">
                         <rect key="frame" x="220" y="232" width="140" height="21.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="140" id="8wn-7A-h0L"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                         <color key="textColor" red="0.94117647058823528" green="0.34901960784313724" blue="0.35686274509803922" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址:  XX路XX号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gK-s5-vWP">
-                        <rect key="frame" x="15" y="258.5" width="106.5" height="17"/>
+                        <rect key="frame" x="15" y="258.5" width="205" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.58431372549019611" green="0.59607843137254901" blue="0.63137254901960782" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N个房型 | 50套在租" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtQ-nv-8zF">
-                        <rect key="frame" x="234.5" y="258.5" width="125.5" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N个房型 | 500套在租" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtQ-nv-8zF">
+                        <rect key="frame" x="225" y="258.5" width="135" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="135" id="PoF-eX-1Pu"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.58431372549019611" green="0.59607843137254901" blue="0.63137254901960782" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ff-oE-DPb">
+                        <rect key="frame" x="14" y="10" width="345" height="203"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="2Ff-oE-DPb" secondAttribute="height" multiplier="1.7" id="HwL-hs-QcS"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Nr1-XW-NxT" firstAttribute="trailing" secondItem="2Ff-oE-DPb" secondAttribute="trailing" id="5RW-iO-shD"/>
@@ -60,6 +67,8 @@
                     <constraint firstItem="rtQ-nv-8zF" firstAttribute="trailing" secondItem="2Ff-oE-DPb" secondAttribute="trailing" id="Ni3-0e-BTY"/>
                     <constraint firstItem="Nr1-XW-NxT" firstAttribute="top" secondItem="AGK-bL-cOb" secondAttribute="top" id="WyA-w7-irA"/>
                     <constraint firstItem="0gK-s5-vWP" firstAttribute="top" secondItem="AGK-bL-cOb" secondAttribute="bottom" constant="5" id="XC8-AJ-64L"/>
+                    <constraint firstItem="Nr1-XW-NxT" firstAttribute="leading" secondItem="AGK-bL-cOb" secondAttribute="trailing" constant="5" id="eHi-ND-mcn"/>
+                    <constraint firstItem="rtQ-nv-8zF" firstAttribute="leading" secondItem="0gK-s5-vWP" secondAttribute="trailing" constant="5" id="sMi-kl-Au3"/>
                     <constraint firstItem="AGK-bL-cOb" firstAttribute="leading" secondItem="2Ff-oE-DPb" secondAttribute="leading" id="uab-r5-8tD"/>
                 </constraints>
             </tableViewCellContentView>
@@ -70,7 +79,7 @@
                 <outlet property="priceLabel" destination="Nr1-XW-NxT" id="17t-pc-qP0"/>
                 <outlet property="statueLabel" destination="rtQ-nv-8zF" id="w5l-2r-Wz6"/>
             </connections>
-            <point key="canvasLocation" x="240.80000000000001" y="136.73163418290855"/>
+            <point key="canvasLocation" x="274.39999999999998" y="40.929535232383813"/>
         </tableViewCell>
     </objects>
 </document>

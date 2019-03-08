@@ -31,6 +31,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Udb-Be-5Eg">
                         <rect key="frame" x="0.0" y="0.0" width="185" height="110"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="IIO-lW-lw1">
+                                <rect key="frame" x="-2" y="-2" width="189" height="114"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4D-i9-sjP">
                                 <rect key="frame" x="10" y="37" width="61.5" height="36"/>
                                 <subviews>
@@ -68,11 +71,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="IIO-lW-lw1" firstAttribute="leading" secondItem="Udb-Be-5Eg" secondAttribute="leading" constant="-2" id="5TU-iB-vHw"/>
                             <constraint firstItem="OpX-bZ-1ha" firstAttribute="centerY" secondItem="Udb-Be-5Eg" secondAttribute="centerY" id="Jia-2z-CfS"/>
+                            <constraint firstItem="IIO-lW-lw1" firstAttribute="top" secondItem="Udb-Be-5Eg" secondAttribute="top" constant="-2" id="ZWY-A2-Ck5"/>
                             <constraint firstAttribute="trailing" secondItem="OpX-bZ-1ha" secondAttribute="trailing" constant="10" id="au6-Dw-TIc"/>
                             <constraint firstItem="OpX-bZ-1ha" firstAttribute="height" secondItem="Udb-Be-5Eg" secondAttribute="height" multiplier="1:2" id="bcE-EK-DPr"/>
                             <constraint firstItem="I4D-i9-sjP" firstAttribute="leading" secondItem="Udb-Be-5Eg" secondAttribute="leading" constant="10" id="e9H-Pc-pCt"/>
+                            <constraint firstAttribute="bottom" secondItem="IIO-lW-lw1" secondAttribute="bottom" constant="-2" id="eQn-Hv-MEL"/>
                             <constraint firstItem="I4D-i9-sjP" firstAttribute="centerY" secondItem="Udb-Be-5Eg" secondAttribute="centerY" id="ksC-5z-6NT"/>
+                            <constraint firstAttribute="trailing" secondItem="IIO-lW-lw1" secondAttribute="trailing" constant="-2" id="vxv-v6-irO"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -96,4 +103,7 @@
             <point key="canvasLocation" x="223.19999999999999" y="139.43028485757122"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="1" width="340" height="160"/>
+    </resources>
 </document>

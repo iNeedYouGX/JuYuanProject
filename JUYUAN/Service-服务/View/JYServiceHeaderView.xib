@@ -31,6 +31,9 @@
                                 <constraint firstAttribute="width" secondItem="P2u-18-dkt" secondAttribute="height" id="CQM-uX-rO7"/>
                             </constraints>
                             <state key="normal" title="Button" image="tz1"/>
+                            <connections>
+                                <action selector="msgButtonAction:" destination="VkW-4W-Fjt" eventType="touchUpInside" id="Lgq-vh-Mx9"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,6 +65,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="imagesView" destination="BNB-Tz-Zw0" id="7SH-xg-0yh"/>
+                <outlet property="msgButton" destination="P2u-18-dkt" id="MSA-h0-6Ni"/>
             </connections>
             <point key="canvasLocation" x="627" y="-217"/>
         </view>

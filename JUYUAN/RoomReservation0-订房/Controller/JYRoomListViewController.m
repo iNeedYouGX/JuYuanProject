@@ -30,6 +30,8 @@
 @property (nonatomic, strong) UIView *titlesView;
 /** <#注释#> */
 @property (nonatomic, assign) CGFloat titlesH;
+/** <#注释#> */
+@property (nonatomic, strong) UIView *masksView;
 
 /** <#注释#> */
 @property (nonatomic, assign) BOOL isUnfold;
@@ -45,6 +47,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [JYRoomListModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{
+                 @"room_id" : @"id"
+                 };
+    }];
     // 获取楼层列表
     [self getApartmentStoreysListNet];
     self.titleViewTop.constant = kStatusBarHeight;
@@ -53,10 +60,31 @@
     [self.arrowView addGestureRecognizer:tap];
     self.arrowLable.text = self.name;
     self.apartmentLabel.text = self.apartmentName;
-    
-    
+
     [self getNetwork];
     
+    //创建刷新控件
+    [self setupRefresh];
+}
+
+- (void)setupRefresh
+{
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(reloadNewDiscover)];
+    [self.collectionView.mj_header beginRefreshing];
+    
+    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreDiscover)];
+}
+
+// 加载数据
+- (void)reloadNewDiscover
+{
+    [self.collectionView.mj_header endRefreshing];
+}
+
+// 加载更多数据
+- (void)loadMoreDiscover
+{
+    [self.collectionView.mj_footer endRefreshing];
 }
 
 
@@ -78,6 +106,15 @@
         titlesView.x = 0;
         _titlesView = titlesView;
         
+        self.masksView = [[UIView alloc] init];
+        self.masksView.y = self.titlesH;
+        self.masksView.width = SCR_WIDTH;
+        self.masksView.height = SCR_HEIGHT - self.masksView.y;
+        [self.view addSubview:self.masksView];
+        self.masksView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+        self.masksView.hidden = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(maskViewTapAction)];
+        [self.masksView addGestureRecognizer:tap];
         
         CGFloat space = (SCR_WIDTH - (38 * 2) - (cols * btnW)) /  (cols - 1);
         for (int i = 0; i < self.storeyArray.count; i++) {
@@ -98,6 +135,9 @@
         }
     }
     return _titlesView;
+}
+-(void)maskViewTapAction{
+    [self contorlTopView];
 }
 - (void)changeButtonUI {
     for (int i = 0; i < self.storeyArray.count; i++) {
@@ -134,13 +174,6 @@
 #pragma mark - 网络请求->房间列表
 - (void)getNetwork {
     
-    
-    /** 胖糊: 这个是将 数据中的key 转换成模型中的属性名 */
-    [JYRoomListModel setupReplacedKeyFromPropertyName:^NSDictionary *{
-        return @{
-                 @"room_id" : @"id"
-                 };
-    }];
     
     NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/houses"];
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
@@ -202,11 +235,15 @@
         [UIView animateWithDuration:0.25 animations:^{
             self.titlesView.y = kNavBarAndStatusBarHeight;
             self.titlesView.height = self.titlesH;
+        } completion:^(BOOL finished) {
+            self.masksView.hidden = NO;;
         }];
     } else {
         [UIView animateWithDuration:0.25 animations:^{
             self.titlesView.y = - (kNavBarAndStatusBarHeight + self.titlesH);
             self.titlesView.height = 0;
+        } completion:^(BOOL finished) {
+            self.masksView.hidden = YES;
         }];
     }
     self.isUnfold = !self.isUnfold;
@@ -219,7 +256,7 @@
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.backgroundColor = [UIColor whiteColor];
-        _layout.itemSize = CGSizeMake((SCR_WIDTH - 60)/2.0, 150);
+        _layout.itemSize = CGSizeMake((SCR_WIDTH - 60)/2.0, 160);
         _layout.minimumLineSpacing = 20;
         _layout.minimumInteritemSpacing = 10;
         _layout.sectionInset = UIEdgeInsetsMake(0, 20, 0, 20);

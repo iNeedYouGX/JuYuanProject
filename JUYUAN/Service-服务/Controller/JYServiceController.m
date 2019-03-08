@@ -9,15 +9,48 @@
 #import "JYServiceController.h"
 #import "JYServiceTableViewCell.h"
 #import "JYServiceHeaderView.h"
-
+#import "JYUserInfoManager.h"
+#import "GXNetTool.h"
 @interface JYServiceController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) JYServiceHeaderView *headerView;
 @property (nonatomic, strong) NSArray *titleArray;
+
 @end
 
 @implementation JYServiceController
-
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if ([JYUserInfoManager getUserToken].length > 0) {
+        [self getUserInfomation];
+    } else {
+        [self.headerView controlMegButtonHide:YES];
+    }
+    
+}
+#pragma mark -- 获取个人信息
+- (void)getUserInfomation {
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/users/getUserInfo"];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"token"] = [JYUserInfoManager getUserToken];
+    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+            NSDictionary *dic = result[@"bizobj"][@"data"][@"user_info"];
+            // 是否有合同
+            
+            NSInteger has_contract = [dic[@"has_contract"] integerValue];
+            if (has_contract == 1) {
+                [self.headerView controlMegButtonHide:NO];
+            } else {
+                [self.headerView controlMegButtonHide:YES];
+                [CZProgressHUD showProgressHUDWithText:@"没有履行中的合同"];
+                [CZProgressHUD hideAfterDelay:1.5];
+            }
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.titleArray = @[@"账单查询",@"水电费查询",@"我要开门",@"报修",@"我要续租",@"退房申请",@"投诉建议"];

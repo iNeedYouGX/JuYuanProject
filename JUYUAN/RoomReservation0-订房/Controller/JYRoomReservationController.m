@@ -23,7 +23,7 @@
 @property (nonatomic, strong) CZHotSearchView *search;
 
 /** 公寓数组 */
-@property (nonatomic, strong) NSArray <JYRoomReservationModel *> *roomsArray;
+@property (nonatomic, strong) NSMutableArray <JYRoomReservationModel *> *roomsArray;
 @end
 
 @implementation JYRoomReservationController
@@ -32,20 +32,92 @@
     NSInteger page_size ;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    page = 1;
-    page_size = 10;
-    [self getNetwork];
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [JYRoomReservationModel setupObjectClassInArray:^NSDictionary *{
+        return  @{
+                  @"storey_list" : @"JYRoomReservationSubModel"
+                  }; 
+    }];
+    [JYRoomReservationModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{
+                 @"apartment_id" : @"id"
+                 };
+    }];
+    
+    [JYRoomReservationSubModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{
+                 @"storeyId" : @"id"
+                 };
+    }];
     [self setupSearchView];
     [self.view addSubview:self.tableView];
-    
-    
-    
+    //创建刷新控件
+    [self setupRefresh];
 }
+
+- (void)setupRefresh
+{
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(reloadNewDiscover)];
+    [self.tableView.mj_header beginRefreshing];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreDiscover)];
+}
+
+// 加载数据
+- (void)reloadNewDiscover
+{
+    page = 1;
+    page_size = 10;
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/apts"];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"house_name"] = self.search.searchText;
+    param[@"page"] = @(page);
+    param[@"page_size"] = @(page_size);
+    
+    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+            self.roomsArray = [JYRoomReservationModel objectArrayWithKeyValuesArray:result[@"bizobj"][@"data"][@"apartment_list"]];
+            [self.tableView reloadData];
+            // 结束刷新
+            [self.tableView.mj_header endRefreshing];
+        }
+    } failure:^(NSError *error) {
+        // 结束刷新
+        [self.tableView.mj_header endRefreshing];
+    }];
+}
+
+// 加载更多数据
+- (void)loadMoreDiscover
+{
+    // 结束刷新
+    [self.tableView.mj_header endRefreshing];
+    
+    page++;
+    page_size = 10;
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/apts"];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"house_name"] = self.search.searchText;
+    param[@"page"] = @(page);
+    param[@"page_size"] = @(page_size);
+    
+    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+            NSArray *newArr = [JYRoomReservationModel objectArrayWithKeyValuesArray:result[@"bizobj"][@"data"][@"apartment_list"]];
+            [self.roomsArray addObjectsFromArray:newArr];
+            [self.tableView reloadData];
+            // 结束刷新
+            [self.tableView.mj_footer endRefreshing];
+        }
+    } failure:^(NSError *error) {
+        // 结束刷新
+        [self.tableView.mj_footer endRefreshing];
+    }];
+}
+
+
+
 
 - (void)setupSearchView
 {
@@ -92,45 +164,9 @@
 #pragma mark - 网络请求
 - (void)getNetwork {
     
-    /** 胖糊: 这个是将 模型中的数组 中的内容 转成其他类 */
-    [JYRoomReservationModel setupObjectClassInArray:^NSDictionary *{
-        return  @{
-                  @"storey_list" : @"JYRoomReservationSubModel"
-                  }; 
-    }];
-    [JYRoomReservationModel setupReplacedKeyFromPropertyName:^NSDictionary *{
-        return @{
-                 @"apartment_id" : @"id"
-                 };
-    }];
-     /** 胖糊: 这个是将 数据中的key 转换成模型中的属性名 */
-    [JYRoomReservationSubModel setupReplacedKeyFromPropertyName:^NSDictionary *{
-        return @{
-                 @"storeyId" : @"id"
-                 };
-    }];
-    
-    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/apts"];
-    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    param[@"house_name"] = self.search.searchText;
-    param[@"page"] = @(page);
-    param[@"page_size"] = @(page_size);
-    
-    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
-        if ([result[@"error_code"] isEqual:@(0)]) {
-            
-            /**胖糊: 数组转化模型 */
-            self.roomsArray = [JYRoomReservationModel objectArrayWithKeyValuesArray:result[@"bizobj"][@"data"][@"apartment_list"]];
-            
-//            NSString *idid = self.roomsArray[0].storey_list[0].storeyId;
-//            NSLog(@"%@", idid);
-            [self.tableView reloadData];
-            
-        }
-    } failure:^(NSError *error) {
-        
-    }];
+ 
 }
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     JYHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JYHomeTableViewCell"];
@@ -145,6 +181,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return (SCR_WIDTH - 30 ) / 1.7 + 75;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     JYRoomListViewController *vc = [[JYRoomListViewController alloc] init];
     // 最低楼层

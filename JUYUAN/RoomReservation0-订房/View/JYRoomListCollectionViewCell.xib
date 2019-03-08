@@ -12,24 +12,27 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="JYRoomListCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="196" height="167"/>
+            <rect key="frame" x="0.0" y="0.0" width="196" height="161"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="196" height="167"/>
+                <rect key="frame" x="0.0" y="0.0" width="196" height="161"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Toy-nJ-hL9">
-                        <rect key="frame" x="0.0" y="0.0" width="196" height="167"/>
+                        <rect key="frame" x="0.0" y="0.0" width="196" height="161"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="NDb-6W-54R">
+                                <rect key="frame" x="-2" y="-2" width="200" height="165"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="swJ-lC-vuK">
-                                <rect key="frame" x="0.0" y="0.0" width="196" height="90"/>
-                                <color key="backgroundColor" red="0.97647058819999999" green="0.40784313729999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="4" y="4" width="188" height="90"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="aPM-Yo-369"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucC-1z-ma2">
-                                <rect key="frame" x="0.0" y="90" width="196" height="77"/>
+                                <rect key="frame" x="0.0" y="94" width="196" height="67"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2800元/月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbe-dd-eQR">
                                         <rect key="frame" x="10" y="35" width="176" height="20"/>
@@ -50,7 +53,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Wbe-dd-eQR" firstAttribute="leading" secondItem="mm2-8h-LOj" secondAttribute="leading" id="K0F-Fn-PcP"/>
                                     <constraint firstItem="Wbe-dd-eQR" firstAttribute="trailing" secondItem="mm2-8h-LOj" secondAttribute="trailing" id="TS8-Lp-oZn"/>
@@ -61,7 +64,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dsb-OY-cf9">
-                                <rect key="frame" x="66" y="13" width="64" height="64"/>
+                                <rect key="frame" x="66" y="17" width="64" height="64"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.61341502568493156" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="Pkf-SP-PYA"/>
@@ -69,7 +72,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已出租" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ag-iq-gP7">
-                                <rect key="frame" x="75" y="36" width="46" height="18"/>
+                                <rect key="frame" x="75" y="40" width="46" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -79,14 +82,18 @@
                         <constraints>
                             <constraint firstItem="ucC-1z-ma2" firstAttribute="leading" secondItem="Toy-nJ-hL9" secondAttribute="leading" id="4ph-w4-paf"/>
                             <constraint firstItem="5ag-iq-gP7" firstAttribute="centerY" secondItem="Dsb-OY-cf9" secondAttribute="centerY" id="6mQ-Z3-1Pr"/>
-                            <constraint firstItem="swJ-lC-vuK" firstAttribute="top" secondItem="Toy-nJ-hL9" secondAttribute="top" id="Me6-4m-kzZ"/>
+                            <constraint firstAttribute="bottom" secondItem="NDb-6W-54R" secondAttribute="bottom" constant="-2" id="E8H-76-heb"/>
+                            <constraint firstItem="swJ-lC-vuK" firstAttribute="top" secondItem="Toy-nJ-hL9" secondAttribute="top" constant="4" id="Me6-4m-kzZ"/>
                             <constraint firstAttribute="bottom" secondItem="ucC-1z-ma2" secondAttribute="bottom" id="MwQ-we-ZzP"/>
+                            <constraint firstItem="NDb-6W-54R" firstAttribute="leading" secondItem="Toy-nJ-hL9" secondAttribute="leading" constant="-2" id="NoP-4J-bnc"/>
                             <constraint firstItem="5ag-iq-gP7" firstAttribute="centerX" secondItem="Dsb-OY-cf9" secondAttribute="centerX" id="SXz-zG-7wS"/>
                             <constraint firstItem="Dsb-OY-cf9" firstAttribute="centerX" secondItem="swJ-lC-vuK" secondAttribute="centerX" id="Uvw-qz-Sx7"/>
+                            <constraint firstItem="NDb-6W-54R" firstAttribute="top" secondItem="Toy-nJ-hL9" secondAttribute="top" constant="-2" id="WkW-r5-6s1"/>
                             <constraint firstAttribute="trailing" secondItem="ucC-1z-ma2" secondAttribute="trailing" id="YBQ-wn-FXD"/>
-                            <constraint firstAttribute="trailing" secondItem="swJ-lC-vuK" secondAttribute="trailing" id="bKW-GD-TyQ"/>
+                            <constraint firstAttribute="trailing" secondItem="NDb-6W-54R" secondAttribute="trailing" constant="-2" id="afe-0k-ih4"/>
+                            <constraint firstAttribute="trailing" secondItem="swJ-lC-vuK" secondAttribute="trailing" constant="4" id="bKW-GD-TyQ"/>
                             <constraint firstItem="ucC-1z-ma2" firstAttribute="top" secondItem="swJ-lC-vuK" secondAttribute="bottom" id="jvV-O5-Hq9"/>
-                            <constraint firstItem="swJ-lC-vuK" firstAttribute="leading" secondItem="Toy-nJ-hL9" secondAttribute="leading" id="k6J-u2-b58"/>
+                            <constraint firstItem="swJ-lC-vuK" firstAttribute="leading" secondItem="Toy-nJ-hL9" secondAttribute="leading" constant="4" id="k6J-u2-b58"/>
                             <constraint firstItem="Dsb-OY-cf9" firstAttribute="centerY" secondItem="swJ-lC-vuK" secondAttribute="centerY" id="pbC-DN-ZNq"/>
                         </constraints>
                     </view>
@@ -98,7 +105,7 @@
                 <constraint firstItem="Toy-nJ-hL9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="we3-rF-LMu"/>
                 <constraint firstItem="Toy-nJ-hL9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yEI-Jj-Tyz"/>
             </constraints>
-            <size key="customSize" width="196" height="167"/>
+            <size key="customSize" width="196" height="161"/>
             <connections>
                 <outlet property="bgView" destination="Toy-nJ-hL9" id="C1n-s0-0sa"/>
                 <outlet property="circleView" destination="Dsb-OY-cf9" id="c5y-n3-vLq"/>
@@ -107,7 +114,10 @@
                 <outlet property="roomImageView" destination="swJ-lC-vuK" id="ODE-vK-hCA"/>
                 <outlet property="roomNumberLabel" destination="mm2-8h-LOj" id="vTU-Ke-Wv9"/>
             </connections>
-            <point key="canvasLocation" x="140.80000000000001" y="67.916041979010501"/>
+            <point key="canvasLocation" x="140.80000000000001" y="65.217391304347828"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="1" width="340" height="160"/>
+    </resources>
 </document>

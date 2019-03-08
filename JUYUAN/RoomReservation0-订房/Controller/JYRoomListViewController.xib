@@ -41,7 +41,7 @@
                                 <constraint firstAttribute="width" secondItem="esP-Rq-rrf" secondAttribute="height" id="sqc-5f-bD5"/>
                                 <constraint firstAttribute="width" constant="20" id="yDM-Km-N7W"/>
                             </constraints>
-                            <state key="normal" image="wx"/>
+                            <state key="normal" image="2"/>
                             <connections>
                                 <action selector="backAction:" destination="-1" eventType="touchUpInside" id="z5j-Qp-eJn"/>
                             </connections>
@@ -74,7 +74,7 @@
                                         <constraint firstAttribute="width" constant="13" id="DtW-hq-zsO"/>
                                         <constraint firstAttribute="height" constant="13" id="lOU-2N-zCh"/>
                                     </constraints>
-                                    <state key="normal" title="Button" image="wx"/>
+                                    <state key="normal" title="Button" image="4"/>
                                     <connections>
                                         <action selector="didClickedArrowAction:" destination="-1" eventType="touchUpInside" id="ike-u9-Bpw"/>
                                     </connections>
@@ -119,7 +119,8 @@
         </view>
     </objects>
     <resources>
+        <image name="2" width="33" height="31"/>
+        <image name="4" width="6" height="6"/>
         <image name="tz1" width="20" height="20"/>
-        <image name="wx" width="30" height="30"/>
     </resources>
 </document>

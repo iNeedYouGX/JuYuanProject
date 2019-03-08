@@ -16,7 +16,7 @@
                 <outlet property="getCodeButton" destination="q8U-BH-4KC" id="dp2-ZO-syx"/>
                 <outlet property="mobileTextField" destination="4Zx-fk-hrW" id="3JG-EQ-p2s"/>
                 <outlet property="passwordTextField" destination="suQ-sq-Jwd" id="VUj-mg-EsA"/>
-                <outlet property="protocolLabel" destination="i2U-e7-YfT" id="XMx-qh-Cyf"/>
+                <outlet property="protocolTextView" destination="TIG-44-J18" id="d2W-Fg-ZbI"/>
                 <outlet property="submitButton" destination="HGU-Xd-JJp" id="8oV-7C-TU4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -117,14 +117,8 @@
                         <constraint firstItem="nyl-p6-AbM" firstAttribute="leading" secondItem="2zD-ck-WI6" secondAttribute="leading" id="ysH-dp-8PW"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我已阅读并同意《8901公寓用户服务协议》" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2U-e7-YfT">
-                    <rect key="frame" x="62" y="357.5" width="217.5" height="13.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGU-Xd-JJp">
-                    <rect key="frame" x="55" y="426" width="265" height="44"/>
+                    <rect key="frame" x="55" y="434" width="265" height="44"/>
                     <color key="backgroundColor" red="0.99215686270000003" green="0.81960784310000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="ifP-CA-yED"/>
@@ -143,7 +137,7 @@
                         <constraint firstAttribute="height" constant="20" id="G0y-yd-ICT"/>
                         <constraint firstAttribute="width" secondItem="4tr-lp-jW7" secondAttribute="height" id="utt-KN-gwS"/>
                     </constraints>
-                    <state key="normal" title="Button" image="wx"/>
+                    <state key="normal" title="Button" image="2"/>
                     <connections>
                         <action selector="backAction:" destination="-1" eventType="touchUpInside" id="G4g-7U-0P0"/>
                     </connections>
@@ -154,7 +148,7 @@
                         <constraint firstAttribute="width" constant="12" id="Hno-jD-7oL"/>
                         <constraint firstAttribute="width" secondItem="vcG-lk-bgJ" secondAttribute="height" id="Mcn-4z-g9L"/>
                     </constraints>
-                    <state key="normal" title="Button" image="wx"/>
+                    <state key="normal" title="Button" image="7"/>
                     <connections>
                         <action selector="allowProtocolAction:" destination="-1" eventType="touchUpInside" id="QXh-NK-ia2"/>
                     </connections>
@@ -187,12 +181,20 @@
                         <constraint firstAttribute="trailing" secondItem="XGz-DF-G2I" secondAttribute="trailing" id="zDT-Vm-YKI"/>
                     </constraints>
                 </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="1111" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TIG-44-J18">
+                    <rect key="frame" x="57" y="349" width="298" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Cy5-gW-vTw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vcG-lk-bgJ" firstAttribute="top" secondItem="Ljg-jg-K31" secondAttribute="bottom" constant="30" id="0Vb-cz-jh9"/>
                 <constraint firstItem="ixB-jp-8TW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="5IO-hd-60B"/>
-                <constraint firstItem="HGU-Xd-JJp" firstAttribute="top" secondItem="i2U-e7-YfT" secondAttribute="bottom" constant="55" id="9oz-lq-Iwp"/>
                 <constraint firstItem="4tr-lp-jW7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="C2k-bH-SYz"/>
                 <constraint firstItem="Ljg-jg-K31" firstAttribute="top" secondItem="2zD-ck-WI6" secondAttribute="bottom" id="D2y-FP-Hla"/>
                 <constraint firstAttribute="trailing" secondItem="HGU-Xd-JJp" secondAttribute="trailing" constant="55" id="ELd-MV-1fi"/>
@@ -202,23 +204,26 @@
                 <constraint firstItem="Ljg-jg-K31" firstAttribute="leading" secondItem="pcc-tA-fBU" secondAttribute="leading" id="UdI-yL-Mfn"/>
                 <constraint firstItem="2zD-ck-WI6" firstAttribute="trailing" secondItem="pcc-tA-fBU" secondAttribute="trailing" id="UuE-Su-zNa"/>
                 <constraint firstItem="pcc-tA-fBU" firstAttribute="leading" secondItem="ixB-jp-8TW" secondAttribute="leading" id="V7d-sT-RGQ"/>
-                <constraint firstItem="vcG-lk-bgJ" firstAttribute="centerY" secondItem="i2U-e7-YfT" secondAttribute="centerY" id="WQx-7l-DI9"/>
-                <constraint firstItem="i2U-e7-YfT" firstAttribute="leading" secondItem="vcG-lk-bgJ" secondAttribute="trailing" constant="10" id="XOq-Ae-Ocr"/>
                 <constraint firstItem="pcc-tA-fBU" firstAttribute="top" secondItem="ixB-jp-8TW" secondAttribute="bottom" constant="20" id="Xfl-Wu-QS1"/>
                 <constraint firstItem="Ljg-jg-K31" firstAttribute="height" secondItem="pcc-tA-fBU" secondAttribute="height" id="Z5b-jK-QKS"/>
                 <constraint firstAttribute="trailing" secondItem="pcc-tA-fBU" secondAttribute="trailing" constant="40" id="ZNR-CB-mes"/>
                 <constraint firstItem="2zD-ck-WI6" firstAttribute="height" secondItem="pcc-tA-fBU" secondAttribute="height" id="acf-BK-x2h"/>
+                <constraint firstItem="TIG-44-J18" firstAttribute="leading" secondItem="vcG-lk-bgJ" secondAttribute="trailing" constant="5" id="cSr-d3-HSJ"/>
+                <constraint firstItem="HGU-Xd-JJp" firstAttribute="top" secondItem="TIG-44-J18" secondAttribute="bottom" constant="55" id="f4p-aL-UWL"/>
+                <constraint firstItem="vcG-lk-bgJ" firstAttribute="centerY" secondItem="TIG-44-J18" secondAttribute="centerY" id="fft-HB-ZuY"/>
                 <constraint firstItem="2zD-ck-WI6" firstAttribute="leading" secondItem="pcc-tA-fBU" secondAttribute="leading" id="h5O-Af-n5j"/>
                 <constraint firstItem="ixB-jp-8TW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="hqM-3x-gdz"/>
                 <constraint firstItem="Ljg-jg-K31" firstAttribute="trailing" secondItem="pcc-tA-fBU" secondAttribute="trailing" id="iLi-Ap-NBR"/>
                 <constraint firstItem="HGU-Xd-JJp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="55" id="mhz-3X-rGx"/>
                 <constraint firstItem="4tr-lp-jW7" firstAttribute="width" secondItem="4tr-lp-jW7" secondAttribute="height" id="tx2-2h-xry"/>
                 <constraint firstItem="2zD-ck-WI6" firstAttribute="top" secondItem="pcc-tA-fBU" secondAttribute="bottom" id="uAQ-Wm-9V1"/>
+                <constraint firstAttribute="trailing" secondItem="TIG-44-J18" secondAttribute="trailing" constant="20" id="xDd-vd-weQ"/>
             </constraints>
             <point key="canvasLocation" x="125.59999999999999" y="57.121439280359823"/>
         </view>
     </objects>
     <resources>
-        <image name="wx" width="30" height="30"/>
+        <image name="2" width="33" height="31"/>
+        <image name="7" width="25" height="25"/>
     </resources>
 </document>

@@ -21,13 +21,16 @@
 
 @property (weak, nonatomic) IBOutlet UIView *lineView;
 @property (weak, nonatomic) IBOutlet UIButton *getCodeButton;
+@property (weak, nonatomic) IBOutlet UITextView *protocolTextView;
 
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *mobileTextField;
 
 @property (weak, nonatomic) IBOutlet UIButton *registButton;
 @property (weak, nonatomic) IBOutlet UIButton *forgetwordButton;
-@property (weak, nonatomic) IBOutlet UILabel *protocolLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *getCodeButtonTrailing;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *getCodeButtonBottom;
+
 // 页面类型 0:密码登录 1:快捷登录
 @property (nonatomic, assign) NSInteger pageType;
 // 秒数
@@ -38,6 +41,9 @@
 @property (nonatomic, assign) BOOL isCounting;
 // 密码是否加密
 @property (nonatomic, assign) BOOL isSecret;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *getCodeButtonWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *geCodeButtonTop;
+
 @end
 
 @implementation JYLoginController
@@ -51,8 +57,41 @@
         self.middleViewTop.constant = 15;
         self.middleViewBottom.constant = 20;
     }
+    self.getCodeButtonWidth.constant = 15;
+    self.getCodeButtonTrailing.constant = 10;
+    self.getCodeButtonBottom.constant = 17;
+    self.geCodeButtonTop.constant = 17;
+    [self buildProtocolViewUI];
     
-    
+}
+- (void)buildProtocolViewUI{
+    self.protocolTextView.delegate = self;
+    NSString *titleString = @"登录即代表您同意";
+    NSString *tapString = @"《8901公寓用户服务协议》";
+    NSMutableAttributedString *titleAttriString = [[NSMutableAttributedString alloc] initWithString:titleString];
+    NSMutableAttributedString *tapAttriString = [[NSMutableAttributedString alloc] initWithString:tapString];
+    NSRange selectedRange = {0, [tapAttriString length]};
+    [tapAttriString beginEditing];
+    [tapAttriString addAttribute:NSLinkAttributeName
+                           value:@"fuwuxiwyi://"
+                           range:selectedRange];
+    [titleAttriString addAttribute:NSForegroundColorAttributeName
+                             value:[UIColor colorWithRed:0.25 green:0.26 blue:0.31 alpha:1.00] // 更改颜色
+                             range:NSMakeRange(0, titleAttriString.length)];
+    [tapAttriString endEditing];
+    [titleAttriString appendAttributedString:tapAttriString];
+    [self.protocolTextView setAttributedText:titleAttriString];
+    //设置linkTextAttributes颜色
+    _protocolTextView.linkTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithRed:0.99 green:0.82 blue:0.26 alpha:1.00]};
+}
+#pragma mark 富文本点击事件-
+
+-(BOOL)textView:(UITextView * )textView shouldInteractWithURL:(NSURL* )URL inRange:(NSRange)characterRange {
+    if ([[URL scheme] isEqualToString:@"fuwuxiwyi"]) {
+        NSLog(@"fuwuxiwyi点击");
+        return NO;
+    }
+    return YES;
 }
 
 - (void)setIsCounting:(BOOL)isCounting {
@@ -88,9 +127,12 @@
     self.forgetwordButton.hidden = !isCodeLogin;
     self.codeTextField.text = @"";
     if (isCodeLogin) {
-        [self.getCodeButton setImage:[UIImage imageNamed:@"wx"] forState:UIControlStateNormal];
+        [self.getCodeButton setImage:[UIImage imageNamed:@"6"] forState:UIControlStateNormal];
         [self.getCodeButton setTitle:@"" forState:UIControlStateNormal];
-        self.protocolLabel.text = @"登录即代表您同意《8901公寓用户服务协议》";
+        self.getCodeButtonWidth.constant = 15;
+        self.getCodeButtonTrailing.constant = 10;
+        self.getCodeButtonBottom.constant = 17;
+        self.geCodeButtonTop.constant = 17;
         self.codeTextField.placeholder = @"密码";
         self.bgImageView.image = [UIImage imageNamed:@"bg1"];
         self.mobileTextField.placeholder = @"账号/手机号";
@@ -98,7 +140,10 @@
     } else {
         [self.getCodeButton setImage:nil forState:UIControlStateNormal];
         [self.getCodeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
-        self.protocolLabel.text = @"登录即代表您同意《8901公寓用户服务协议》和《隐私政策》";
+        self.getCodeButtonWidth.constant = 70;
+        self.getCodeButtonTrailing.constant = 0;
+        self.getCodeButtonBottom.constant = 0;
+        self.geCodeButtonTop.constant = 0;
         self.codeTextField.placeholder = @"短信验证码";
          self.bgImageView.image = [UIImage imageNamed:@"bg2"];
         _isSecret = NO;
@@ -282,10 +327,10 @@
 -(void)setIsSecret:(BOOL)isSecret {
     _isSecret = isSecret;
     if (!_isSecret) {
-        [self.getCodeButton setImage:[UIImage imageNamed:@"wx"] forState:UIControlStateNormal];
+        [self.getCodeButton setImage:[UIImage imageNamed:@"6"] forState:UIControlStateNormal];
         self.codeTextField.secureTextEntry = NO;
     } else {
-        [self.getCodeButton setImage:[UIImage imageNamed:@"QQ"] forState:UIControlStateNormal];
+        [self.getCodeButton setImage:[UIImage imageNamed:@"3"] forState:UIControlStateNormal];
         self.codeTextField.secureTextEntry = YES;
     }
 }

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JYServiceHeaderView : UIView
 /** <#注释#> */
 @property (nonatomic, strong) NSArray *imageList;
+- (void)controlMegButtonHide:(BOOL)hide;
 @end
 
 NS_ASSUME_NONNULL_END
