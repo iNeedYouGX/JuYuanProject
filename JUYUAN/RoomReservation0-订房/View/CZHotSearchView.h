@@ -20,6 +20,8 @@
 @property (nonatomic, assign) id<CZHotSearchViewDelegate> delegate;
 /** 右边按钮事件 */
 @property (nonatomic, copy) void (^msgBlock)(NSString *title);
+/** 确定按钮 */
+@property (nonatomic, copy) void (^confirmBlock)(NSString *title);
 /** 右边文字 */
 @property (nonatomic, strong) NSString *msgTitle;
 /** 文本框是否允许输入 */
@@ -31,7 +33,7 @@
 /** 未读数量 */
 @property (nonatomic, assign) NSInteger unreaderCount;
 
-- (instancetype)initWithFrame:(CGRect)frame msgAction:(void (^)(NSString *))block;
+- (instancetype)initWithFrame:(CGRect)frame msgAction:(void (^)(NSString *))block confirmAction:(void (^)(NSString *)) confirmBlock;
 @end
 
 

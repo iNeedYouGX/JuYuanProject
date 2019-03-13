@@ -15,6 +15,7 @@
 		940B6A35222678170065312E /* JYServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940B6A33222678170065312E /* JYServiceCollectionViewCell.xib */; };
 		940B6A382226852A0065312E /* JYServiceHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 940B6A372226852A0065312E /* JYServiceHeaderView.m */; };
 		940B6A3A2226853A0065312E /* JYServiceHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940B6A392226853A0065312E /* JYServiceHeaderView.xib */; };
+		94992D942236305700EDB4E7 /* JYHtmlDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94992D932236305700EDB4E7 /* JYHtmlDetailViewController.m */; };
 		94DD4E1622278B7C0074324E /* JYRegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD4E1422278B7C0074324E /* JYRegistViewController.m */; };
 		94DD4E1722278B7C0074324E /* JYRegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DD4E1522278B7C0074324E /* JYRegistViewController.xib */; };
 		94DD4E1B2227AF120074324E /* JYForgetWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD4E192227AF120074324E /* JYForgetWordViewController.m */; };
@@ -145,6 +146,8 @@
 		940B6A362226852A0065312E /* JYServiceHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYServiceHeaderView.h; sourceTree = "<group>"; };
 		940B6A372226852A0065312E /* JYServiceHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYServiceHeaderView.m; sourceTree = "<group>"; };
 		940B6A392226853A0065312E /* JYServiceHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYServiceHeaderView.xib; sourceTree = "<group>"; };
+		94992D922236305700EDB4E7 /* JYHtmlDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYHtmlDetailViewController.h; sourceTree = "<group>"; };
+		94992D932236305700EDB4E7 /* JYHtmlDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYHtmlDetailViewController.m; sourceTree = "<group>"; };
 		94DD4E1322278B7C0074324E /* JYRegistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYRegistViewController.h; sourceTree = "<group>"; };
 		94DD4E1422278B7C0074324E /* JYRegistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYRegistViewController.m; sourceTree = "<group>"; };
 		94DD4E1522278B7C0074324E /* JYRegistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYRegistViewController.xib; sourceTree = "<group>"; };
@@ -535,6 +538,8 @@
 				9789A2CB22262DBD007874F3 /* CZTabBarController.m */,
 				9789A2CC22262DBD007874F3 /* CZNavigationController.h */,
 				9789A2CE22262DBD007874F3 /* CZNavigationController.m */,
+				94992D922236305700EDB4E7 /* JYHtmlDetailViewController.h */,
+				94992D932236305700EDB4E7 /* JYHtmlDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1058,6 +1063,7 @@
 				97EA6AD12228DBB30010770F /* SDWebImageDownloaderOperation.m in Sources */,
 				9789A353222636E4007874F3 /* UIScrollView+MJRefresh.m in Sources */,
 				97EA6AD82228DBB30010770F /* UIView+WebCacheOperation.m in Sources */,
+				94992D942236305700EDB4E7 /* JYHtmlDetailViewController.m in Sources */,
 				97EA6AE62228F5820010770F /* CZTextField.m in Sources */,
 				97EA6ACC2228DBB30010770F /* SDWebImagePrefetcher.m in Sources */,
 				9789A306222636BE007874F3 /* AFURLSessionManager.m in Sources */,
@@ -1228,11 +1234,12 @@
 				DEVELOPMENT_TEAM = G583M5JELZ;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JUYUAN/Other-其他/PrefixHeader.pch";
 				INFOPLIST_FILE = JUYUAN/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.testtest.platform.JUYUAN;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testtest.platform.JUYUAN2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = GXTEXTProvisioning;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1248,11 +1255,12 @@
 				DEVELOPMENT_TEAM = G583M5JELZ;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JUYUAN/Other-其他/PrefixHeader.pch";
 				INFOPLIST_FILE = JUYUAN/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.testtest.platform.JUYUAN;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testtest.platform.JUYUAN2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = GXTEXTProvisioning;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -11,8 +11,13 @@
 #import "JYRoomListModel.h"
 #import "GXNetTool.h"
 #import "JYRoomReservationSubModel.h"
+#import "JYHtmlDetailViewController.h"
+#import "JYUserInfoManager.h"
+#import "JYLoginController.h"
 
 @interface JYRoomListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@property (weak, nonatomic) IBOutlet UIButton *msgButton;
+
 @property (weak, nonatomic) IBOutlet UILabel *apartmentLabel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleViewTop;
@@ -272,9 +277,27 @@
     [cell updateData:self.dataArray[indexPath.row]];
     return cell;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    JYHtmlDetailViewController *vc = [[JYHtmlDetailViewController alloc] init];
+    NSString *name = [self.apartmentName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSString *html = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/selectDetail?apt_id=%ld&apt_name=%@&houseId=%ld",self.apt_id,name,self.dataArray[indexPath.row].room_id];
+    vc.urlString = html;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 - (IBAction)backAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)msgAction:(id)sender {
+    if ([JYUserInfoManager getUserToken].length > 0) {
+        JYHtmlDetailViewController *htmlVc = [[JYHtmlDetailViewController alloc] init];
+        htmlVc.urlString = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/information?token=%@",[JYUserInfoManager getUserToken]];
+        [self.navigationController pushViewController:htmlVc animated:true];
+    } else {
+        JYLoginController *loginView = [[JYLoginController alloc] init];
+        [self presentViewController:loginView animated:YES completion:nil];
+    }
+}
 
 @end

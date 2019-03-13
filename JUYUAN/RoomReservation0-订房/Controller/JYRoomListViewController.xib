@@ -15,6 +15,7 @@
                 <outlet property="arrowButton" destination="Vs8-KU-Yjt" id="K0F-YC-bX3"/>
                 <outlet property="arrowLable" destination="3Vr-by-IxY" id="aWb-qn-w3L"/>
                 <outlet property="arrowView" destination="51d-Ml-ZSF" id="Qcz-WF-DOT"/>
+                <outlet property="msgButton" destination="Lgj-AS-S9Q" id="ch7-o2-8rJ"/>
                 <outlet property="titleViewTop" destination="qu4-5v-iCt" id="v0S-KG-PdW"/>
                 <outlet property="topTopView" destination="0hw-2Y-CUA" id="lOn-w3-gdw"/>
                 <outlet property="topView" destination="YNE-6i-iee" id="pqd-fk-DwY"/>
@@ -58,6 +59,9 @@
                                 <constraint firstAttribute="width" constant="20" id="DfD-5r-fiE"/>
                             </constraints>
                             <state key="normal" title="Button" image="tz1"/>
+                            <connections>
+                                <action selector="msgAction:" destination="-1" eventType="touchUpInside" id="v90-3n-LYa"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51d-Ml-ZSF">
                             <rect key="frame" x="227" y="0.0" width="50" height="44"/>

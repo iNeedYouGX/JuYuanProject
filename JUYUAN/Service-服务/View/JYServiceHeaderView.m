@@ -27,6 +27,7 @@
     _msgButton.hidden = hide;
 }
 - (IBAction)msgButtonAction:(id)sender {
+    self.block();
 }
 
 - (void)setImageList:(NSArray *)imageList

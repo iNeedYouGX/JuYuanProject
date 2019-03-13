@@ -257,6 +257,7 @@
             [JYUserInfoManager saveUserToken:token];
             [JYUserInfoManager saveUserRefreshtoken:refresh_token];
             [self getUserInfomation];
+            [self postLoginCenter];
             [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             [CZProgressHUD showProgressHUDWithText:result[@"msg"]];
@@ -312,6 +313,7 @@
             [JYUserInfoManager saveUserToken:token];
             [JYUserInfoManager saveUserRefreshtoken:refresh_token];
             [self getUserInfomation];
+            [self postLoginCenter];
             [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             [CZProgressHUD showProgressHUDWithText:result[@"msg"]];
@@ -349,6 +351,12 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     [self.view endEditing:YES];
+}
+
+- (void)postLoginCenter
+{
+    NSString *postLoginCenterNotfi = @"postLoginCenterNotfi";
+    [[NSNotificationCenter defaultCenter] postNotificationName:postLoginCenterNotfi object:nil];
 }
 
 @end

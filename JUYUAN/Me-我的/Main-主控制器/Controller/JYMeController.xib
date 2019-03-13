@@ -11,7 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JYMeController">
             <connections>
+                <outlet property="discountCoupon" destination="4fD-Xt-Cdh" id="0jb-Zb-kEk"/>
                 <outlet property="loginButton" destination="q0n-wW-8fC" id="Z8o-wF-fqD"/>
+                <outlet property="mineContract" destination="T6X-Z6-b7U" id="Rsh-1e-fTZ"/>
+                <outlet property="msgButton" destination="XuZ-v7-biZ" id="EYU-G3-8Db"/>
+                <outlet property="personInfoView" destination="nEB-m6-Tt2" id="aBh-nL-Siw"/>
+                <outlet property="photoImageView" destination="vfe-MB-XZe" id="MuX-x1-z9F"/>
+                <outlet property="roomManager" destination="7n0-wj-cRv" id="ycy-A8-ulA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,13 +30,16 @@
                     <rect key="frame" x="298" y="37" width="20" height="22"/>
                     <state key="normal" image="sz"/>
                     <connections>
-                        <action selector="logOut:" destination="-1" eventType="touchUpInside" id="9ja-ok-l1t"/>
+                        <action selector="setAction:" destination="-1" eventType="touchUpInside" id="PPZ-o0-1KG"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuZ-v7-biZ">
                     <rect key="frame" x="335" y="37" width="20" height="22"/>
                     <state key="normal" image="tz2"/>
                     <state key="selected" image="tz1"/>
+                    <connections>
+                        <action selector="messageAction:" destination="-1" eventType="touchUpInside" id="ldE-0M-zlW"/>
+                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tx" translatesAutoresizingMaskIntoConstraints="NO" id="vfe-MB-XZe">
                     <rect key="frame" x="34" y="65" width="80" height="80"/>

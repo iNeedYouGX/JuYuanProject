@@ -20,11 +20,12 @@
 
 @implementation CZHotSearchView
 
-- (instancetype)initWithFrame:(CGRect)frame msgAction:(void (^)(NSString *))block
+- (instancetype)initWithFrame:(CGRect)frame msgAction:(void (^)(NSString *))block confirmAction:(void (^)(NSString *)) confirmBlock
 {
     self = [super initWithFrame:frame];
     if (self) {
         self.msgBlock = block;
+        [self setConfirmBlock:confirmBlock];
         [self setup];
     }
     return self;
@@ -103,6 +104,7 @@
 - (void)msgAction
 {
     !self.msgBlock ? : self.msgBlock(self.msgTitle);
+    
 }
 
 - (void)textFieldAction:(CZTextField *)textField
@@ -127,7 +129,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    !self.msgBlock ? : self.msgBlock(self.msgTitle);
+    !self.confirmBlock ? : self.confirmBlock(_searchText);
     return YES;
 }
 

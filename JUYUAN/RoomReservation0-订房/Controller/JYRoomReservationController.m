@@ -14,7 +14,9 @@
 
 #import "JYRoomReservationModel.h"
 #import "JYRoomReservationSubModel.h"
-
+#import "JYUserInfoManager.h"
+#import "JYHtmlDetailViewController.h"
+#import "JYLoginController.h"
 
 @interface JYRoomReservationController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -24,6 +26,7 @@
 
 /** 公寓数组 */
 @property (nonatomic, strong) NSMutableArray <JYRoomReservationModel *> *roomsArray;
+@property (nonatomic, strong) JYHtmlDetailViewController *htmlVC;
 @end
 
 @implementation JYRoomReservationController
@@ -31,7 +34,12 @@
     NSInteger page ;
     NSInteger page_size ;
 }
-
+- (JYHtmlDetailViewController *)htmlVC {
+    if (_htmlVC == nil) {
+        _htmlVC = [[JYHtmlDetailViewController alloc] init];
+    }
+    return _htmlVC;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [JYRoomReservationModel setupObjectClassInArray:^NSDictionary *{
@@ -74,7 +82,7 @@
     param[@"house_name"] = self.search.searchText;
     param[@"page"] = @(page);
     param[@"page_size"] = @(page_size);
-    
+    [CZProgressHUD showProgressHUDWithText:nil];
     [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
         if ([result[@"error_code"] isEqual:@(0)]) {
             self.roomsArray = [JYRoomReservationModel objectArrayWithKeyValuesArray:result[@"bizobj"][@"data"][@"apartment_list"]];
@@ -82,6 +90,7 @@
             // 结束刷新
             [self.tableView.mj_header endRefreshing];
         }
+        [CZProgressHUD hideAfterDelay:0];
     } failure:^(NSError *error) {
         // 结束刷新
         [self.tableView.mj_header endRefreshing];
@@ -102,6 +111,7 @@
     param[@"page"] = @(page);
     param[@"page_size"] = @(page_size);
     
+    [CZProgressHUD showProgressHUDWithText:nil];
     [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
         if ([result[@"error_code"] isEqual:@(0)]) {
             NSArray *newArr = [JYRoomReservationModel objectArrayWithKeyValuesArray:result[@"bizobj"][@"data"][@"apartment_list"]];
@@ -110,6 +120,7 @@
             // 结束刷新
             [self.tableView.mj_footer endRefreshing];
         }
+        [CZProgressHUD hideAfterDelay:0];
     } failure:^(NSError *error) {
         // 结束刷新
         [self.tableView.mj_footer endRefreshing];
@@ -122,19 +133,23 @@
 - (void)setupSearchView
 {
     self.search = [[CZHotSearchView alloc] initWithFrame:CGRectMake(14, IsiPhoneX ? 54 : 30, SCR_WIDTH - 28, 34) msgAction:^(NSString *title){
-        NSLog(@"哈哈哈哈");
+        if ([JYUserInfoManager getUserToken].length > 0) {
+            self.htmlVC.urlString = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/information?token=%@",[JYUserInfoManager getUserToken]];
+            [self.navigationController pushViewController:self.htmlVC animated:true];
+        } else {
+            JYLoginController *loginView = [[JYLoginController alloc] init];
+            [self presentViewController:loginView animated:YES completion:nil];
+        }
+    } confirmAction:^(NSString *title) {
+        [self.view endEditing:YES];
+        if (title.length == 0) return;
+        [self reloadNewDiscover];
     }];
-    self.search.textFieldActive = NO;
+    self.search.textFieldActive = YES;
     [self.view addSubview:self.search];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushSearchController)];
-    [self.search addGestureRecognizer:tap];
+
 }
 
-#pragma mark - 响应事件
-- (void)pushSearchController
-{
-    NSLog(@"啦啦啦啦");
-}
 
 - (UITableView *)tableView {
     if (!_tableView) {
@@ -143,6 +158,7 @@
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableHeaderView = self.headerView;
+        _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         [_tableView registerNib:[UINib nibWithNibName:@"JYHomeTableViewCell" bundle:nil] forCellReuseIdentifier:@"JYHomeTableViewCell"];
         
     }
@@ -160,11 +176,6 @@
         [_headerView addSubview:name];
     }
     return _headerView;
-}
-#pragma mark - 网络请求
-- (void)getNetwork {
-    
- 
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
