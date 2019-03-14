@@ -25,10 +25,7 @@
     [super viewWillAppear:animated];
     if ([JYUserInfoManager getUserToken].length > 0) {
         [self getUserInfomation];
-    } else {
-        [self.headerView controlMegButtonHide:YES];
-    }
-    
+    } 
 }
 
 - (void)getBrandImage
@@ -62,12 +59,9 @@
             // 是否有合同
             
             NSInteger has_contract = [dic[@"has_contract"] integerValue];
-            if (has_contract == 1) {
-                [self.headerView controlMegButtonHide:NO];
-            } else {
-                [self.headerView controlMegButtonHide:NO];
+            if (has_contract != 1) {
                 [CZProgressHUD showProgressHUDWithText:@"没有履行中的合同"];
-                [CZProgressHUD hideAfterDelay:1.5];
+                [CZProgressHUD hideAfterDelay:1];
             }
         }
     } failure:^(NSError *error) {
@@ -78,6 +72,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self getBrandImage];
+//    [self.headerView controlMegButtonHide:NO];
      self.titleArray = @[@"账单查询",@"水电费查询",@"我要开门",@"报修",@"我要续租",@"退房申请",@"投诉建议"];
     [self.view addSubview:self.tableView];
     

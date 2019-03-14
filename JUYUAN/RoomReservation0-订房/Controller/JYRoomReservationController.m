@@ -11,7 +11,6 @@
 #import "JYRoomListViewController.h"
 #import "CZHotSearchView.h"
 #import "GXNetTool.h"
-
 #import "JYRoomReservationModel.h"
 #import "JYRoomReservationSubModel.h"
 #import "JYUserInfoManager.h"
@@ -19,6 +18,7 @@
 #import "JYLoginController.h"
 
 #import "JYAlipayTool.h"
+#import "JYWXPayTool.h"
 
 @interface JYRoomReservationController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -196,14 +196,23 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    JYRoomListViewController *vc = [[JYRoomListViewController alloc] init];
-//    // 最低楼层
-//    vc.storey_id = self.roomsArray[indexPath.row].storey_list.firstObject.storeyId;
-//    vc.apt_id = self.roomsArray[indexPath.row].apartment_id;
-//    vc.name = self.roomsArray[indexPath.row].storey_list.firstObject.name;
-//    vc.apartmentName = self.roomsArray[indexPath.row].name;
-//    [self.navigationController pushViewController:vc animated:YES];
+    JYRoomListViewController *vc = [[JYRoomListViewController alloc] init];
+    // 最低楼层
+    vc.storey_id = self.roomsArray[indexPath.row].storey_list.firstObject.storeyId;
+    vc.apt_id = self.roomsArray[indexPath.row].apartment_id;
+    vc.name = self.roomsArray[indexPath.row].storey_list.firstObject.name;
+    vc.apartmentName = self.roomsArray[indexPath.row].name;
+    [self.navigationController pushViewController:vc animated:YES];
     
-    [JYAlipayTool alipayOrder:@"dafdasfasdfasd"];
+//    [JYAlipayTool alipayOrder:@"dafdasfasdfasd"];
+//     NSString *succees = [[JYWXPayTool WXPayTool] wxPay];
+//    NSLog(@"%@", succees);
+//     [[JYWXPayTool WXPayTool] wxSendAuth];
+    
+    
 }
+
+
+
+
 @end

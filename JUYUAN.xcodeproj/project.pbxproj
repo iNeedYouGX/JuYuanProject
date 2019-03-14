@@ -107,6 +107,11 @@
 		97BC3925223A3BEB00DC4D67 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BC3924223A3BEB00DC4D67 /* CFNetwork.framework */; };
 		97BC3927223A3BF600DC4D67 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BC3926223A3BF600DC4D67 /* CoreMotion.framework */; };
 		97BC392A223A3C5E00DC4D67 /* JYAlipayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC3929223A3C5E00DC4D67 /* JYAlipayTool.m */; };
+		97BC393A223A492300DC4D67 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 97BC3937223A492300DC4D67 /* README.txt */; };
+		97BC393B223A492300DC4D67 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BC3939223A492300DC4D67 /* libWeChatSDK.a */; };
+		97BC393D223A498A00DC4D67 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BC393C223A498A00DC4D67 /* Security.framework */; };
+		97BC393F223A49CA00DC4D67 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BC393E223A49CA00DC4D67 /* libsqlite3.0.tbd */; };
+		97BC3942223A54DA00DC4D67 /* JYWXPayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC3941223A54DA00DC4D67 /* JYWXPayTool.m */; };
 		97EA6A7D2228DB860010770F /* PlanPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EA6A792228DB860010770F /* PlanPageControl.m */; };
 		97EA6A7E2228DB860010770F /* PlanADScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EA6A7A2228DB860010770F /* PlanADScrollView.m */; };
 		97EA6A7F2228DB860010770F /* PlanADCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EA6A7C2228DB860010770F /* PlanADCollectionViewCell.m */; };
@@ -329,6 +334,15 @@
 		97BC3926223A3BF600DC4D67 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		97BC3928223A3C5E00DC4D67 /* JYAlipayTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYAlipayTool.h; sourceTree = "<group>"; };
 		97BC3929223A3C5E00DC4D67 /* JYAlipayTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYAlipayTool.m; sourceTree = "<group>"; };
+		97BC3935223A492300DC4D67 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		97BC3936223A492300DC4D67 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		97BC3937223A492300DC4D67 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		97BC3938223A492300DC4D67 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		97BC3939223A492300DC4D67 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		97BC393C223A498A00DC4D67 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		97BC393E223A49CA00DC4D67 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		97BC3940223A54DA00DC4D67 /* JYWXPayTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYWXPayTool.h; sourceTree = "<group>"; };
+		97BC3941223A54DA00DC4D67 /* JYWXPayTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYWXPayTool.m; sourceTree = "<group>"; };
 		97EA6A772228DB860010770F /* PlanADScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanADScrollView.h; sourceTree = "<group>"; };
 		97EA6A782228DB860010770F /* PlanADCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanADCollectionViewCell.h; sourceTree = "<group>"; };
 		97EA6A792228DB860010770F /* PlanPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPageControl.m; sourceTree = "<group>"; };
@@ -411,6 +425,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97BC393F223A49CA00DC4D67 /* libsqlite3.0.tbd in Frameworks */,
+				97BC393D223A498A00DC4D67 /* Security.framework in Frameworks */,
+				97BC393B223A492300DC4D67 /* libWeChatSDK.a in Frameworks */,
 				97BC3927223A3BF600DC4D67 /* CoreMotion.framework in Frameworks */,
 				97BC3925223A3BEB00DC4D67 /* CFNetwork.framework in Frameworks */,
 				97BC3923223A3BDF00DC4D67 /* UIKit.framework in Frameworks */,
@@ -608,6 +625,7 @@
 		9789A2F422263635007874F3 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				97BC3933223A482300DC4D67 /* 微信支付 */,
 				97BC390E223A3B0700DC4D67 /* 支付宝 */,
 				97EA6ADD2228DBF70010770F /* Category */,
 				97EA6A832228DBB30010770F /* SDWebImage */,
@@ -846,6 +864,8 @@
 		97BC3913223A3B5D00DC4D67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				97BC393E223A49CA00DC4D67 /* libsqlite3.0.tbd */,
+				97BC393C223A498A00DC4D67 /* Security.framework */,
 				97BC3926223A3BF600DC4D67 /* CoreMotion.framework */,
 				97BC3924223A3BEB00DC4D67 /* CFNetwork.framework */,
 				97BC3922223A3BDF00DC4D67 /* UIKit.framework */,
@@ -858,6 +878,28 @@
 				97BC3914223A3B5E00DC4D67 /* libc++.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		97BC3933223A482300DC4D67 /* 微信支付 */ = {
+			isa = PBXGroup;
+			children = (
+				97BC3934223A492300DC4D67 /* WechtSDK1.8.2 */,
+			);
+			path = "微信支付";
+			sourceTree = "<group>";
+		};
+		97BC3934223A492300DC4D67 /* WechtSDK1.8.2 */ = {
+			isa = PBXGroup;
+			children = (
+				97BC3935223A492300DC4D67 /* WXApi.h */,
+				97BC3936223A492300DC4D67 /* WXApiObject.h */,
+				97BC3937223A492300DC4D67 /* README.txt */,
+				97BC3938223A492300DC4D67 /* WechatAuthSDK.h */,
+				97BC3939223A492300DC4D67 /* libWeChatSDK.a */,
+				97BC3940223A54DA00DC4D67 /* JYWXPayTool.h */,
+				97BC3941223A54DA00DC4D67 /* JYWXPayTool.m */,
+			);
+			path = WechtSDK1.8.2;
 			sourceTree = "<group>";
 		};
 		97EA6A762228DB860010770F /* PlanADScrollView */ = {
@@ -1038,6 +1080,7 @@
 				940B6A35222678170065312E /* JYServiceCollectionViewCell.xib in Resources */,
 				9789A2E822262F48007874F3 /* JYMeController.xib in Resources */,
 				9789A3A322264863007874F3 /* JYRoomReservationController.xib in Resources */,
+				97BC393A223A492300DC4D67 /* README.txt in Resources */,
 				9789A2B722262A98007874F3 /* Main.storyboard in Resources */,
 				940B6A2922265E9D0065312E /* JYHomeTableViewCell.xib in Resources */,
 			);
@@ -1079,6 +1122,7 @@
 				9789A38422263751007874F3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				9789A304222636BE007874F3 /* AFURLResponseSerialization.m in Sources */,
 				9789A35B222636E4007874F3 /* MJRefreshBackNormalFooter.m in Sources */,
+				97BC3942223A54DA00DC4D67 /* JYWXPayTool.m in Sources */,
 				97EA6AD92228DBB30010770F /* UIView+WebCache.m in Sources */,
 				97BC392A223A3C5E00DC4D67 /* JYAlipayTool.m in Sources */,
 				9789A31D222636D4007874F3 /* MJProperty.m in Sources */,
@@ -1301,7 +1345,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = G583M5JELZ;
+				DEVELOPMENT_TEAM = V59X68H8H2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/JUYUAN/Other-其他/Tool/支付宝",
@@ -1313,9 +1357,17 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.testtest.platform.JUYUAN2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JUYUAN/Other-其他/Tool/微信支付/WechtSDK1.8.2",
+				);
+				OTHER_LDFLAGS = (
+					"-Objc",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.jipinshop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = GXTEXTProvisioning;
+				PROVISIONING_PROFILE_SPECIFIER = JIPINDevelopment;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1326,7 +1378,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = G583M5JELZ;
+				DEVELOPMENT_TEAM = V59X68H8H2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/JUYUAN/Other-其他/Tool/支付宝",
@@ -1338,9 +1390,17 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.testtest.platform.JUYUAN2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JUYUAN/Other-其他/Tool/微信支付/WechtSDK1.8.2",
+				);
+				OTHER_LDFLAGS = (
+					"-Objc",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.jipinshop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = GXTEXTProvisioning;
+				PROVISIONING_PROFILE_SPECIFIER = JIPINDevelopment;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

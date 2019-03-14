@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "CZTabBarController.h"
 #import "AlipaySDK/AlipaySDK.h"
+#import "JYWXPayTool.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +23,11 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[CZTabBarController alloc] init];
     [self.window makeKeyAndVisible];
+    
+    
+    // 注册微信appid
+    [WXApi registerApp:@"wxfd2e92db2568030a" enableMTA:YES];
+    
     return YES;
 }
 
@@ -33,6 +39,10 @@
             NSLog(@"result = %@",resultDic[@"memo"]);
         }];
     }
+    // 微信回调
+    [WXApi handleOpenURL:url delegate:[JYWXPayTool WXPayTool]];
+    
+    
     return YES;
 }
 

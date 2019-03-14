@@ -67,7 +67,7 @@
                 <outlet property="imagesView" destination="BNB-Tz-Zw0" id="7SH-xg-0yh"/>
                 <outlet property="msgButton" destination="P2u-18-dkt" id="MSA-h0-6Ni"/>
             </connections>
-            <point key="canvasLocation" x="410" y="-236"/>
+            <point key="canvasLocation" x="194" y="-282"/>
         </view>
     </objects>
     <resources>
