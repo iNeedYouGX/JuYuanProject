@@ -11,6 +11,7 @@
 #import "JYUserInfoManager.h"
 #import "JYHtmlDetailViewController.h"
 #import "UIImageView+WebCache.h"
+#import "GXNetTool.h"
 @interface JYMeController ()
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
@@ -28,8 +29,27 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self checkLoginStatue];
+    [self getUserInfomation];
+    
+//    self.photoImageView.layer.cornerRadius = self.photoImageView.width / 2.0;
+//    self.photoImageView.layer.masksToBounds = YES;
 }
 
+#pragma mark -- 获取个人信息
+- (void)getUserInfomation {
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/users/getUserInfo"];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"token"] = [JYUserInfoManager getUserToken];
+    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+            NSDictionary *dic = result[@"bizobj"][@"data"][@"user_info"];
+            [JYUserInfoManager saveUserInfos:dic];
+            [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"head_img"]] placeholderImage:[UIImage imageNamed:@"tx"]];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 
 - (void)viewDidLoad {
@@ -52,8 +72,6 @@
     } else {
         [self.loginButton setTitle:@"已登录" forState:UIControlStateNormal];
         self.loginButton.enabled = NO;
-        NSString *photo = [JYUserInfoManager getUserInfos][@"head_img"];
-        [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:[UIImage imageNamed:@"tx"]];
     }
 }
 

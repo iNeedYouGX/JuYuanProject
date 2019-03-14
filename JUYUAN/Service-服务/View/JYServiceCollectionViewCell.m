@@ -8,12 +8,33 @@
 
 #import "JYServiceCollectionViewCell.h"
 
+@interface JYServiceCollectionViewCell ()
+/** <#注释#> */
+@property (nonatomic, weak) IBOutlet UIView *backView;
+@end
+
 @implementation JYServiceCollectionViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    self.backView.layer.cornerRadius = 6;
+//    self.backView.layer.borderWidth = 0.5;
+//    self.backView.layer.borderColor = [[UIColor grayColor] CGColor];
+    
+    //添加阴影
+    self.backView.layer.shadowColor = [[UIColor grayColor] CGColor];
+    self.backView.layer.shadowOffset = CGSizeMake(0, 0); //阴影向右及向下偏移量
+    self.backView.layer.shadowRadius = 4; //阴影宽度
+    self.backView.layer.shadowOpacity = 0.2;//阴影透明度
+    
+    
+    self.layer.masksToBounds = NO;
+    
+    
+    
 }
+
 // 边界添加阴影效果
 //-(void)layoutSubviews{
 //
@@ -27,7 +48,6 @@
 //    [self.layer setShadowPath:path];
 //
 //}
-
 
 // 添加分割线
 //-(void)drawRect:(CGRect)rect{

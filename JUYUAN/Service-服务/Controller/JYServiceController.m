@@ -65,7 +65,7 @@
             if (has_contract == 1) {
                 [self.headerView controlMegButtonHide:NO];
             } else {
-                [self.headerView controlMegButtonHide:YES];
+                [self.headerView controlMegButtonHide:NO];
                 [CZProgressHUD showProgressHUDWithText:@"没有履行中的合同"];
                 [CZProgressHUD hideAfterDelay:1.5];
             }
@@ -102,15 +102,16 @@
     if (!_headerView) {
         _headerView = [[[NSBundle mainBundle] loadNibNamed:@"JYServiceHeaderView" owner:nil options:nil] firstObject];
         _headerView.frame = CGRectMake(0, 0, SCR_WIDTH, 205);
+        __weak typeof(self) weakSelf = self;
         _headerView.block = ^{
             if ([JYUserInfoManager getUserToken].length > 0) {
-                
-                self.htmlVC.urlString = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/information?token=%@",[JYUserInfoManager getUserToken]];
-                NSLog(@"%@",self.htmlVC.urlString);
-                [self.navigationController pushViewController:self.htmlVC animated:true];
+                JYHtmlDetailViewController *htmlVC = [[JYHtmlDetailViewController alloc] init];
+                htmlVC.urlString = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/information?token=%@",[JYUserInfoManager getUserToken]];
+                NSLog(@"%@",htmlVC.urlString);
+                [weakSelf.navigationController pushViewController:htmlVC animated:true];
             } else {
                 JYLoginController *loginView = [[JYLoginController alloc] init];
-                [self presentViewController:loginView animated:YES completion:nil];
+                [weakSelf presentViewController:loginView animated:YES completion:nil];
             }
         };
         

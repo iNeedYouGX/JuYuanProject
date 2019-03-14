@@ -23,7 +23,7 @@
 //        [placeholder addAttribute:NSFontAttributeName
 //                            value:[UIFont fontWithName:@"PingFangSC-Regular" size: 13]
 //                            range:NSMakeRange(0, 5)];
-        self.placeholder = @"输入商品";
+        self.placeholder = @"输入公寓";
         UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav-search"]];
         self.leftView = image;
         self.leftViewMode = UITextFieldViewModeAlways;

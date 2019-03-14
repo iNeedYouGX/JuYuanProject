@@ -24,13 +24,13 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2u-18-dkt">
-                            <rect key="frame" x="368" y="10" width="20" height="20"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2u-18-dkt">
+                            <rect key="frame" x="338" y="10" width="50" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="20" id="3ry-3N-6QM"/>
-                                <constraint firstAttribute="width" secondItem="P2u-18-dkt" secondAttribute="height" id="CQM-uX-rO7"/>
+                                <constraint firstAttribute="height" constant="40" id="3ry-3N-6QM"/>
+                                <constraint firstAttribute="width" constant="50" id="lQq-P0-aEC"/>
                             </constraints>
-                            <state key="normal" title="Button" image="tz1"/>
+                            <state key="normal" image="tz1"/>
                             <connections>
                                 <action selector="msgButtonAction:" destination="VkW-4W-Fjt" eventType="touchUpInside" id="Lgq-vh-Mx9"/>
                             </connections>
@@ -67,7 +67,7 @@
                 <outlet property="imagesView" destination="BNB-Tz-Zw0" id="7SH-xg-0yh"/>
                 <outlet property="msgButton" destination="P2u-18-dkt" id="MSA-h0-6Ni"/>
             </connections>
-            <point key="canvasLocation" x="627" y="-217"/>
+            <point key="canvasLocation" x="410" y="-236"/>
         </view>
     </objects>
     <resources>

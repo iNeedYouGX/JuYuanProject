@@ -23,10 +23,12 @@
     self.titleEnArray = @[@"BILL",@"ELECTRICITY",@"OPEN DOOR",@"SERVICE",@"RENEWAL",@"CHECK OUT",@"COMPLAINT"];
     self.titleImageArray = @[@"zdcx",@"sdcx",@"ms",@"bx",@"xz",@"tfsq",@"tsjy"];
     [self setupCollection];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 - (void)setupCollection {
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    self.collectionView.layer.masksToBounds = NO;
 //    self.collectionView.backgroundColor = [UIColor greenColor];
     [self.collectionView registerNib:[UINib nibWithNibName:@ "JYServiceCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"JYServiceCollectionViewCell"];
     self.layout.minimumLineSpacing = 10;

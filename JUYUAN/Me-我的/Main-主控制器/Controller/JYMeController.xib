@@ -41,12 +41,18 @@
                         <action selector="messageAction:" destination="-1" eventType="touchUpInside" id="ldE-0M-zlW"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tx" translatesAutoresizingMaskIntoConstraints="NO" id="vfe-MB-XZe">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tx" translatesAutoresizingMaskIntoConstraints="NO" id="vfe-MB-XZe">
                     <rect key="frame" x="34" y="65" width="80" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="80" id="Oim-jg-7Dp"/>
-                        <constraint firstAttribute="width" constant="80" id="gke-89-0we"/>
+                        <constraint firstAttribute="width" constant="80" id="gsN-Tf-Wtw"/>
+                        <constraint firstAttribute="height" constant="80" id="yeh-1d-REQ"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="40"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0n-wW-8fC">
                     <rect key="frame" x="33" y="169" width="82" height="36"/>
@@ -250,7 +256,7 @@
                 <constraint firstItem="4fD-Xt-Cdh" firstAttribute="trailing" secondItem="nEB-m6-Tt2" secondAttribute="trailing" id="sPd-a1-5ct"/>
                 <constraint firstItem="q0n-wW-8fC" firstAttribute="centerX" secondItem="vfe-MB-XZe" secondAttribute="centerX" id="vTK-wP-5cx"/>
             </constraints>
-            <point key="canvasLocation" x="585" y="-165"/>
+            <point key="canvasLocation" x="-332" y="-163"/>
         </view>
     </objects>
     <resources>

@@ -31,7 +31,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Udb-Be-5Eg">
                         <rect key="frame" x="0.0" y="0.0" width="185" height="110"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="IIO-lW-lw1">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="IIO-lW-lw1">
                                 <rect key="frame" x="-2" y="-2" width="189" height="114"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4D-i9-sjP">
@@ -96,6 +96,7 @@
             </constraints>
             <size key="customSize" width="185" height="110"/>
             <connections>
+                <outlet property="backView" destination="Udb-Be-5Eg" id="r2v-gJ-vMe"/>
                 <outlet property="iconImage" destination="OpX-bZ-1ha" id="yl7-nf-y0e"/>
                 <outlet property="titleChLabel" destination="EeW-yQ-yv7" id="oNg-G9-shO"/>
                 <outlet property="titleEnLabel" destination="W3A-yN-Cua" id="qgJ-HD-f8w"/>

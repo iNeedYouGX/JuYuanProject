@@ -52,7 +52,7 @@
     
     //(6)发送请求
     NSMutableDictionary *param = [NSMutableDictionary dictionaryWithDictionary:body];
-    param[@"client"] = @(2);
+//    param[@"client"] = @(2);
     NSLog(@"param=%@", param);
     [manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *result = responseObject;
