@@ -28,8 +28,9 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    
     [self checkLoginStatue];
-    [self getUserInfomation];
     
 //    self.photoImageView.layer.cornerRadius = self.photoImageView.width / 2.0;
 //    self.photoImageView.layer.masksToBounds = YES;
@@ -44,7 +45,12 @@
         if ([result[@"error_code"] isEqual:@(0)]) {
             NSDictionary *dic = result[@"bizobj"][@"data"][@"user_info"];
             [JYUserInfoManager saveUserInfos:dic];
-            [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"head_img"]] placeholderImage:[UIImage imageNamed:@"tx"]];
+            NSString *head_img = [JYUserInfoManager getUserInfos][@"head_img"];
+            if ([head_img hasPrefix:@"http"]) {
+                [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"head_img"]] placeholderImage:[UIImage imageNamed:@"tx"]];
+            }
+            [self refreshUserName];
+            
         }
     } failure:^(NSError *error) {
         
@@ -68,13 +74,23 @@
 - (void)checkLoginStatue {
     if ([JYUserInfoManager getUserToken].length == 0) {
         [self.loginButton setTitle:@"点击登录" forState:UIControlStateNormal];
+        self.photoImageView.image = [UIImage imageNamed:@"tx"];
         self.loginButton.enabled = YES;
     } else {
-        [self.loginButton setTitle:@"已登录" forState:UIControlStateNormal];
         self.loginButton.enabled = NO;
+        [self getUserInfomation];
+        
     }
 }
 
+- (void)refreshUserName{
+    NSString *user_name = [JYUserInfoManager getUserInfos][@"user_name"];
+    if (user_name.length > 0) {
+        [self.loginButton setTitle:user_name forState:UIControlStateNormal];
+    } else {
+        [self.loginButton setTitle:@"已登录" forState:UIControlStateNormal];
+    }
+}
 
 #pragma mark - 点击方法
 /** 登录 */

@@ -26,6 +26,7 @@
             UIImageView *imageView = [[UIImageView alloc] init];
             imageView.contentMode = UIViewContentModeScaleAspectFill;
             imageView.layer.masksToBounds = YES;
+            imageView.layer.cornerRadius = 4;
             imageView.frame = CGRectMake(0, 0, self.width, self.height);
             [imageView sd_setImageWithURL:[NSURL URLWithString:[self.imgList firstObject]] placeholderImage:nil];
             [self addSubview:imageView];

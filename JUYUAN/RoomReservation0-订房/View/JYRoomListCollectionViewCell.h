@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *roomImageView;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UILabel *hasOrderLabel;
+/** 最外面的图层 */
+@property (nonatomic, weak) IBOutlet UIView *backView;
 - (void)updateData:(JYRoomListModel *)model;
 @end
 

@@ -17,8 +17,26 @@
 - (void)setupUI{
     self.circleView.clipsToBounds = YES;
     self.circleView.layer.cornerRadius = 32;
-    self.bgView.layer.cornerRadius = 4;
+    
     self.circleView.backgroundColor = [UIColor colorWithRed:0.45 green:0.45 blue:0.45 alpha:0.61];
+    self.bgView.layer.cornerRadius = 5;
+    self.bgView.layer.masksToBounds = YES;
+    //添加阴影
+//    self.bgView.layer.shadowColor = [[UIColor grayColor] CGColor];
+//    self.bgView.layer.shadowOffset = CGSizeMake(0, 0); //阴影向右及向下偏移量
+//    self.bgView.layer.shadowRadius = 5; //阴影宽度
+//    self.bgView.layer.shadowOpacity = 0.2;//阴影透明度
+    
+    self.backView.layer.shadowColor = [[UIColor grayColor] CGColor];
+    self.backView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.backView.layer.shadowRadius = 5;
+    self.backView.layer.shadowOpacity = 0.3;
+    self.backView.layer.cornerRadius = 5;
+    
+    
+    
+    self.layer.masksToBounds = NO;
+    
 }
 - (void)updateData:(JYRoomListModel *)model {
     if (model.status == 1) {

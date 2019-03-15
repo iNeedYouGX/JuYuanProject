@@ -66,8 +66,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51d-Ml-ZSF">
                             <rect key="frame" x="227" y="0.0" width="50" height="44"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="二楼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vr-by-IxY">
-                                    <rect key="frame" x="0.0" y="15.5" width="22.5" height="13"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="二楼" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vr-by-IxY">
+                                    <rect key="frame" x="0.0" y="15.5" width="32" height="13"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -91,7 +91,7 @@
                                 <constraint firstItem="3Vr-by-IxY" firstAttribute="centerY" secondItem="51d-Ml-ZSF" secondAttribute="centerY" id="TmV-M0-cGv"/>
                                 <constraint firstAttribute="trailing" secondItem="Vs8-KU-Yjt" secondAttribute="trailing" constant="2" id="b6W-c8-6Bg"/>
                                 <constraint firstItem="3Vr-by-IxY" firstAttribute="top" secondItem="Vs8-KU-Yjt" secondAttribute="top" id="bNp-0l-u6S"/>
-                                <constraint firstItem="Vs8-KU-Yjt" firstAttribute="leading" secondItem="3Vr-by-IxY" secondAttribute="trailing" constant="12.5" id="p6L-BA-g9z"/>
+                                <constraint firstItem="Vs8-KU-Yjt" firstAttribute="leading" secondItem="3Vr-by-IxY" secondAttribute="trailing" constant="3" id="p6L-BA-g9z"/>
                             </constraints>
                         </view>
                     </subviews>

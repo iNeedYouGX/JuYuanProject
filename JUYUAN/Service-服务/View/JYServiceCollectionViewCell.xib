@@ -101,7 +101,7 @@
                 <outlet property="titleChLabel" destination="EeW-yQ-yv7" id="oNg-G9-shO"/>
                 <outlet property="titleEnLabel" destination="W3A-yN-Cua" id="qgJ-HD-f8w"/>
             </connections>
-            <point key="canvasLocation" x="223.19999999999999" y="139.43028485757122"/>
+            <point key="canvasLocation" x="222.40000000000001" y="139.43028485757122"/>
         </collectionViewCell>
     </objects>
     <resources>

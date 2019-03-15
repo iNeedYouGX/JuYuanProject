@@ -72,6 +72,7 @@
         JYLoginController *loginView = [[JYLoginController alloc] init];
         [self presentViewController:loginView animated:YES completion:nil];
         decisionHandler(WKNavigationActionPolicyCancel);
+        // 退出登录
     } else if ([urlStr isEqualToString:loginOut]) {
         [JYUserInfoManager removeAllUserInfo];
         [self.navigationController popViewControllerAnimated:YES];
