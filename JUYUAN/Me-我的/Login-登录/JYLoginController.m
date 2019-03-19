@@ -63,6 +63,9 @@
     self.geCodeButtonTop.constant = 17;
     [self buildProtocolViewUI];
     
+    [self.getCodeButton setImage:[UIImage imageNamed:@"3"] forState:UIControlStateNormal];
+    self.codeTextField.secureTextEntry = YES;
+    
 }
 - (void)buildProtocolViewUI{
     self.protocolTextView.delegate = self;

@@ -281,7 +281,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     JYHtmlDetailViewController *vc = [[JYHtmlDetailViewController alloc] init];
     NSString *name = [self.apartmentName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSString *html = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/selectDetail?apt_id=%ld&apt_name=%@&houseId=%ld",self.apt_id,name,self.dataArray[indexPath.row].room_id];
+    NSString *html = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/selectDetail?apt_id=%ld&apt_name=%@&houseId=%ld&token=%@",(long)self.apt_id,name,(long)self.dataArray[indexPath.row].room_id, [JYUserInfoManager getUserToken]];
     vc.urlString = html;
     [self.navigationController pushViewController:vc animated:YES];
 }

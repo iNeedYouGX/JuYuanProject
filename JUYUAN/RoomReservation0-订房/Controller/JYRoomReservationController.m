@@ -208,8 +208,6 @@
 //     NSString *succees = [[JYWXPayTool WXPayTool] wxPay];
 //    NSLog(@"%@", succees);
 //     [[JYWXPayTool WXPayTool] wxSendAuth];
-    
-    
 }
 
 

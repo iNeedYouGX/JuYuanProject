@@ -50,23 +50,7 @@
 
 #pragma mark -- 获取个人信息
 - (void)getUserInfomation {
-    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/users/getUserInfo"];
-    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    param[@"token"] = [JYUserInfoManager getUserToken];
-    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
-        if ([result[@"error_code"] isEqual:@(0)]) {
-            NSDictionary *dic = result[@"bizobj"][@"data"][@"user_info"];
-            // 是否有合同
-            
-            NSInteger has_contract = [dic[@"has_contract"] integerValue];
-            if (has_contract != 1) {
-                [CZProgressHUD showProgressHUDWithText:@"没有履行中的合同"];
-                [CZProgressHUD hideAfterDelay:1];
-            }
-        }
-    } failure:^(NSError *error) {
-        
-    }];
+    
 }
 
 - (void)viewDidLoad {
@@ -121,9 +105,28 @@
     
     cell.block = ^(NSInteger row) {
         if ([JYUserInfoManager getUserToken].length > 0) {
-            self.htmlVC = [[JYHtmlDetailViewController alloc] init];
-            self.htmlVC.urlString = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/%@?token=%@",[self getHTMLUrlWithIndex:row], [JYUserInfoManager getUserToken]];
-            [self.navigationController pushViewController:self.htmlVC animated:YES];
+            NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/users/getUserInfo"];
+            NSMutableDictionary *param = [NSMutableDictionary dictionary];
+            param[@"token"] = [JYUserInfoManager getUserToken];
+            [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+                if ([result[@"error_code"] isEqual:@(0)]) {
+                    NSDictionary *dic = result[@"bizobj"][@"data"][@"user_info"];
+                    // 是否有合同
+                    
+                    NSInteger has_contract = [dic[@"has_contract"] integerValue];
+                    if (has_contract != 1) {
+                        [CZProgressHUD showProgressHUDWithText:@"没有履行中的合同"];
+                        [CZProgressHUD hideAfterDelay:1];
+                    } else {
+                        self.htmlVC = [[JYHtmlDetailViewController alloc] init];
+                        self.htmlVC.urlString = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/%@?token=%@",[self getHTMLUrlWithIndex:row], [JYUserInfoManager getUserToken]];
+                        [self.navigationController pushViewController:self.htmlVC animated:YES];
+                    }
+                }
+            } failure:^(NSError *error) {
+                
+            }];
+
         } else {
             JYLoginController *loginView = [[JYLoginController alloc] init];
             [self presentViewController:loginView animated:YES completion:nil];
