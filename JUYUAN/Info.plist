@@ -39,7 +39,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>uyuanApp</string>
+				<string>juyuanApp</string>
 			</array>
 		</dict>
 	</array>

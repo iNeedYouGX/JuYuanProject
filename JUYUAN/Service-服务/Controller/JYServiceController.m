@@ -123,10 +123,8 @@
                         [self.navigationController pushViewController:self.htmlVC animated:YES];
                     }
                 }
-            } failure:^(NSError *error) {
-                
-            }];
-
+            } failure:^(NSError *error) {}];
+            
         } else {
             JYLoginController *loginView = [[JYLoginController alloc] init];
             [self presentViewController:loginView animated:YES completion:nil];
@@ -154,8 +152,8 @@
         default:
             return @"";
     }
-    
 }
+
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
