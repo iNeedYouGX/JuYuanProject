@@ -59,7 +59,6 @@
 //    [self.headerView controlMegButtonHide:NO];
      self.titleArray = @[@"账单查询",@"水电费查询",@"我要开门",@"报修",@"我要续租",@"退房申请",@"投诉建议"];
     [self.view addSubview:self.tableView];
-    
 }
 
 - (UITableView *)tableView {
@@ -73,10 +72,10 @@
              _tableView.scrollEnabled = NO;
         }
         [_tableView registerNib:[UINib nibWithNibName:@"JYServiceTableViewCell" bundle:nil] forCellReuseIdentifier:@"JYServiceTableViewCell"];
-        
     }
     return _tableView;
 }
+
 - (JYServiceHeaderView *)headerView {
     if (!_headerView) {
         _headerView = [[[NSBundle mainBundle] loadNibNamed:@"JYServiceHeaderView" owner:nil options:nil] firstObject];

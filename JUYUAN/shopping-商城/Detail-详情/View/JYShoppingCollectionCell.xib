@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="JYShoppingItem" id="gTV-IL-0wX" customClass="JYShoppingCollectionCell">
+            <rect key="frame" x="0.0" y="0.0" width="201" height="237"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="201" height="237"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WX20190409-154151" translatesAutoresizingMaskIntoConstraints="NO" id="73M-BH-qxu">
+                        <rect key="frame" x="35" y="27" width="131" height="120"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="120" id="9r5-fs-wes"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="树可 花砖珐琅泡面晚方杯" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nO-Zz-wTL">
+                        <rect key="frame" x="20" y="179.5" width="161" height="16"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥119" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O43-DT-pZf">
+                        <rect key="frame" x="20" y="205.5" width="25.5" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                        <color key="textColor" red="0.88860207800000002" green="0.079048879439999997" blue="0.21190962199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="O43-DT-pZf" secondAttribute="bottom" constant="18" id="D9d-3f-aYc"/>
+                <constraint firstItem="O43-DT-pZf" firstAttribute="top" secondItem="3nO-Zz-wTL" secondAttribute="bottom" constant="10" id="Qgp-kl-TAL"/>
+                <constraint firstAttribute="trailing" secondItem="73M-BH-qxu" secondAttribute="trailing" constant="35" id="bYf-dP-kXJ"/>
+                <constraint firstItem="73M-BH-qxu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="35" id="boX-hs-8Hv"/>
+                <constraint firstItem="3nO-Zz-wTL" firstAttribute="leading" secondItem="O43-DT-pZf" secondAttribute="leading" id="cgB-lh-09K"/>
+                <constraint firstAttribute="trailing" secondItem="3nO-Zz-wTL" secondAttribute="trailing" constant="20" id="jCZ-Ld-JR3"/>
+                <constraint firstItem="73M-BH-qxu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="27" id="kcE-sO-JhE"/>
+                <constraint firstItem="O43-DT-pZf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="nr8-w2-LVg"/>
+            </constraints>
+            <size key="customSize" width="201" height="237"/>
+            <connections>
+                <outlet property="bigImage" destination="73M-BH-qxu" id="aES-Og-Pam"/>
+                <outlet property="priceLabel" destination="O43-DT-pZf" id="RUL-yr-pRp"/>
+                <outlet property="titleLabel" destination="3nO-Zz-wTL" id="pRN-1c-mbz"/>
+            </connections>
+            <point key="canvasLocation" x="-89.130434782608702" y="-9.7098214285714288"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="WX20190409-154151" width="143" height="138"/>
+    </resources>
+</document>

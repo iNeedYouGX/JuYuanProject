@@ -87,7 +87,7 @@
         self.unreadLabel.hidden = YES;
     } else {
         self.unreadLabel.hidden = NO;
-        self.unreadLabel.text = [NSString stringWithFormat:@"%ld", unreaderCount];
+        self.unreadLabel.text = [NSString stringWithFormat:@"%ld", (long)unreaderCount];
     }
 }
 

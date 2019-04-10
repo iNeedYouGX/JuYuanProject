@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSDictionary *)getUserInfos;
 /** 清除NSUserDefaults所有信息 */
 + (void)removeAllUserInfo;
+// 保存房间号
++ (void)saveUserHouseNumber:(NSString *)number;
++ (NSString *)getUserHouseNumber;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CZTextField : UITextField
-
+/** <#注释#> */
+@property (nonatomic, strong) NSString *placeholderStr;
 @end

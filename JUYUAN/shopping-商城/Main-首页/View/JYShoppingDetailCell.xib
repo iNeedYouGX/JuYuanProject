@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="JYShoppingDetailCell" id="MlT-sd-Rc7" customClass="JYShoppingDetailCell">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="273"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="273"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WX20190409-154151" translatesAutoresizingMaskIntoConstraints="NO" id="o38-O8-hWL">
+                        <rect key="frame" x="0.0" y="0.0" width="342" height="95"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="95" id="2c9-5y-TEs"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="树可 花砖珐琅泡面晚方杯" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADF-NH-Dhf">
+                        <rect key="frame" x="0.0" y="105" width="342" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥119" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzU-Vd-Zrf">
+                        <rect key="frame" x="0.0" y="259.5" width="342" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.88860207800000002" green="0.079048879439999997" blue="0.21190962199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ZzU-Vd-Zrf" secondAttribute="trailing" id="IHU-XX-jsg"/>
+                <constraint firstItem="o38-O8-hWL" firstAttribute="leading" secondItem="MlT-sd-Rc7" secondAttribute="leading" id="NIX-Kf-Oob"/>
+                <constraint firstAttribute="trailing" secondItem="o38-O8-hWL" secondAttribute="trailing" id="Qwu-6P-HhH"/>
+                <constraint firstItem="ADF-NH-Dhf" firstAttribute="top" secondItem="o38-O8-hWL" secondAttribute="bottom" constant="10" id="VH8-53-FRe"/>
+                <constraint firstItem="ZzU-Vd-Zrf" firstAttribute="leading" secondItem="MlT-sd-Rc7" secondAttribute="leading" id="e7r-ke-e8g"/>
+                <constraint firstItem="ADF-NH-Dhf" firstAttribute="leading" secondItem="MlT-sd-Rc7" secondAttribute="leading" id="f0z-H4-S2a"/>
+                <constraint firstItem="o38-O8-hWL" firstAttribute="top" secondItem="MlT-sd-Rc7" secondAttribute="top" id="gW1-lG-Fk6"/>
+                <constraint firstAttribute="bottom" secondItem="ZzU-Vd-Zrf" secondAttribute="bottom" id="iD5-v6-dBo"/>
+                <constraint firstAttribute="trailing" secondItem="ADF-NH-Dhf" secondAttribute="trailing" id="wPi-o8-adU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="0WB-U4-LOb"/>
+            <size key="customSize" width="342" height="273"/>
+            <connections>
+                <outlet property="bigImage" destination="o38-O8-hWL" id="WXq-uD-yTl"/>
+                <outlet property="priceLabel" destination="ZzU-Vd-Zrf" id="NlQ-dH-ofa"/>
+                <outlet property="titleLabel" destination="ADF-NH-Dhf" id="4g1-1x-PbN"/>
+            </connections>
+            <point key="canvasLocation" x="-13" y="8"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="WX20190409-154151" width="143" height="138"/>
+    </resources>
+</document>

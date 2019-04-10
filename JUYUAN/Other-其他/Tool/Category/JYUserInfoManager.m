@@ -9,6 +9,21 @@
 #import "JYUserInfoManager.h"
 #import "NSDictionary+Addition.h"
 @implementation JYUserInfoManager
+// 保存房间号
++ (void)saveUserHouseNumber:(NSString *)number
+{
+    [[NSUserDefaults standardUserDefaults] setObject:number forKey:@"UserHouseNumber"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+// 读取房间号
++ (NSString *)getUserHouseNumber {
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserHouseNumber"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    return token;
+}
+
+
 // 保存token
 + (void)saveUserToken:(NSString *)token {
     [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
@@ -47,6 +62,7 @@
 + (void)removeAllUserInfo {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userInfo"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"refresh_token"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"refresh_token"];
     [[NSUserDefaults standardUserDefaults] synchronize];;
     

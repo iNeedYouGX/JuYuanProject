@@ -29,6 +29,17 @@
 		94E68DA5222D130600F48E88 /* JYRoomReservationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E68DA4222D130600F48E88 /* JYRoomReservationModel.m */; };
 		94E68DA8222D2BE000F48E88 /* JYRoomListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E68DA7222D2BE000F48E88 /* JYRoomListModel.m */; };
 		976A46C1222D1D2700D202E0 /* JYRoomReservationSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 976A46C0222D1D2700D202E0 /* JYRoomReservationSubModel.m */; };
+		977E809D225C73D90041A126 /* CZMutContentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 977E809C225C73D90041A126 /* CZMutContentButton.m */; };
+		977E80A1225C77660041A126 /* JYShoppingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 977E809F225C77660041A126 /* JYShoppingCell.m */; };
+		977E80A2225C77660041A126 /* JYShoppingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 977E80A0225C77660041A126 /* JYShoppingCell.xib */; };
+		977E80A7225C81980041A126 /* JYShoppingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 977E80A5225C81980041A126 /* JYShoppingCollectionCell.m */; };
+		977E80A8225C81980041A126 /* JYShoppingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 977E80A6225C81980041A126 /* JYShoppingCollectionCell.xib */; };
+		977E80AB225CD4820041A126 /* JYShoppingDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977E80AA225CD4820041A126 /* JYShoppingDetailController.m */; };
+		977E80AF225CD5B50041A126 /* CZNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 977E80AE225CD5B40041A126 /* CZNavigationView.m */; };
+		977E80B3225D8E4F0041A126 /* JYShoppingDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 977E80B1225D8E4F0041A126 /* JYShoppingDetailCell.m */; };
+		977E80B4225D8E4F0041A126 /* JYShoppingDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 977E80B2225D8E4F0041A126 /* JYShoppingDetailCell.xib */; };
+		977E80B7225D9CD30041A126 /* JYShoppingSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977E80B6225D9CD30041A126 /* JYShoppingSearchController.m */; };
+		977E80BC225DD8E10041A126 /* File.json in Resources */ = {isa = PBXBuildFile; fileRef = 977E80BB225DD8E10041A126 /* File.json */; };
 		9789A2B122262A98007874F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9789A2B022262A98007874F3 /* AppDelegate.m */; };
 		9789A2B722262A98007874F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9789A2B522262A98007874F3 /* Main.storyboard */; };
 		9789A2B922262A99007874F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9789A2B822262A99007874F3 /* Assets.xcassets */; };
@@ -94,6 +105,9 @@
 		9789A3A322264863007874F3 /* JYRoomReservationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9789A3A122264863007874F3 /* JYRoomReservationController.xib */; };
 		9789A3A722264872007874F3 /* JYServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9789A3A522264872007874F3 /* JYServiceController.m */; };
 		9789A3A822264872007874F3 /* JYServiceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9789A3A622264872007874F3 /* JYServiceController.xib */; };
+		97AB0C0F2253004600072426 /* JYShoppingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AB0C0E2253004600072426 /* JYShoppingController.m */; };
+		97AB0C122253043400072426 /* JYShoppingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AB0C112253043400072426 /* JYShoppingHeaderView.m */; };
+		97AB0C142253044200072426 /* JYShoppingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97AB0C132253044200072426 /* JYShoppingHeaderView.xib */; };
 		97BC3911223A3B2000DC4D67 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BC390F223A3B2000DC4D67 /* AlipaySDK.framework */; };
 		97BC3912223A3B2000DC4D67 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97BC3910223A3B2000DC4D67 /* AlipaySDK.bundle */; };
 		97BC3915223A3B5E00DC4D67 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BC3914223A3B5E00DC4D67 /* libc++.tbd */; };
@@ -188,6 +202,24 @@
 		94E68DA7222D2BE000F48E88 /* JYRoomListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYRoomListModel.m; sourceTree = "<group>"; };
 		976A46BF222D1D2700D202E0 /* JYRoomReservationSubModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYRoomReservationSubModel.h; sourceTree = "<group>"; };
 		976A46C0222D1D2700D202E0 /* JYRoomReservationSubModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYRoomReservationSubModel.m; sourceTree = "<group>"; };
+		977E809B225C73D90041A126 /* CZMutContentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZMutContentButton.h; sourceTree = "<group>"; };
+		977E809C225C73D90041A126 /* CZMutContentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZMutContentButton.m; sourceTree = "<group>"; };
+		977E809E225C77660041A126 /* JYShoppingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYShoppingCell.h; sourceTree = "<group>"; };
+		977E809F225C77660041A126 /* JYShoppingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYShoppingCell.m; sourceTree = "<group>"; };
+		977E80A0225C77660041A126 /* JYShoppingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYShoppingCell.xib; sourceTree = "<group>"; };
+		977E80A4225C81980041A126 /* JYShoppingCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYShoppingCollectionCell.h; sourceTree = "<group>"; };
+		977E80A5225C81980041A126 /* JYShoppingCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYShoppingCollectionCell.m; sourceTree = "<group>"; };
+		977E80A6225C81980041A126 /* JYShoppingCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYShoppingCollectionCell.xib; sourceTree = "<group>"; };
+		977E80A9225CD4820041A126 /* JYShoppingDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYShoppingDetailController.h; sourceTree = "<group>"; };
+		977E80AA225CD4820041A126 /* JYShoppingDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYShoppingDetailController.m; sourceTree = "<group>"; };
+		977E80AD225CD5B40041A126 /* CZNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZNavigationView.h; sourceTree = "<group>"; };
+		977E80AE225CD5B40041A126 /* CZNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZNavigationView.m; sourceTree = "<group>"; };
+		977E80B0225D8E4F0041A126 /* JYShoppingDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYShoppingDetailCell.h; sourceTree = "<group>"; };
+		977E80B1225D8E4F0041A126 /* JYShoppingDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYShoppingDetailCell.m; sourceTree = "<group>"; };
+		977E80B2225D8E4F0041A126 /* JYShoppingDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYShoppingDetailCell.xib; sourceTree = "<group>"; };
+		977E80B5225D9CD30041A126 /* JYShoppingSearchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYShoppingSearchController.h; sourceTree = "<group>"; };
+		977E80B6225D9CD30041A126 /* JYShoppingSearchController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYShoppingSearchController.m; sourceTree = "<group>"; };
+		977E80BB225DD8E10041A126 /* File.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = File.json; sourceTree = "<group>"; };
 		9789A2AC22262A98007874F3 /* JUYUAN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JUYUAN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9789A2AF22262A98007874F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9789A2B022262A98007874F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -320,6 +352,11 @@
 		9789A3A422264872007874F3 /* JYServiceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYServiceController.h; sourceTree = "<group>"; };
 		9789A3A522264872007874F3 /* JYServiceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYServiceController.m; sourceTree = "<group>"; };
 		9789A3A622264872007874F3 /* JYServiceController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYServiceController.xib; sourceTree = "<group>"; };
+		97AB0C0D2253004600072426 /* JYShoppingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYShoppingController.h; sourceTree = "<group>"; };
+		97AB0C0E2253004600072426 /* JYShoppingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYShoppingController.m; sourceTree = "<group>"; };
+		97AB0C102253043400072426 /* JYShoppingHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYShoppingHeaderView.h; sourceTree = "<group>"; };
+		97AB0C112253043400072426 /* JYShoppingHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYShoppingHeaderView.m; sourceTree = "<group>"; };
+		97AB0C132253044200072426 /* JYShoppingHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYShoppingHeaderView.xib; sourceTree = "<group>"; };
 		97BC390F223A3B2000DC4D67 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		97BC3910223A3B2000DC4D67 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		97BC3914223A3B5E00DC4D67 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -514,6 +551,73 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		977E809A225C73CB0041A126 /* 按钮 */ = {
+			isa = PBXGroup;
+			children = (
+				977E809B225C73D90041A126 /* CZMutContentButton.h */,
+				977E809C225C73D90041A126 /* CZMutContentButton.m */,
+			);
+			path = "按钮";
+			sourceTree = "<group>";
+		};
+		977E80A3225C81540041A126 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				97AB0C102253043400072426 /* JYShoppingHeaderView.h */,
+				97AB0C112253043400072426 /* JYShoppingHeaderView.m */,
+				97AB0C132253044200072426 /* JYShoppingHeaderView.xib */,
+				977E809E225C77660041A126 /* JYShoppingCell.h */,
+				977E809F225C77660041A126 /* JYShoppingCell.m */,
+				977E80A0225C77660041A126 /* JYShoppingCell.xib */,
+				977E80B0225D8E4F0041A126 /* JYShoppingDetailCell.h */,
+				977E80B1225D8E4F0041A126 /* JYShoppingDetailCell.m */,
+				977E80B2225D8E4F0041A126 /* JYShoppingDetailCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		977E80AC225CD5A90041A126 /* 视图工具 */ = {
+			isa = PBXGroup;
+			children = (
+				977E80AD225CD5B40041A126 /* CZNavigationView.h */,
+				977E80AE225CD5B40041A126 /* CZNavigationView.m */,
+			);
+			path = "视图工具";
+			sourceTree = "<group>";
+		};
+		977E80B8225DA19A0041A126 /* Main-首页 */ = {
+			isa = PBXGroup;
+			children = (
+				977E80A3225C81540041A126 /* View */,
+				97AB0C0D2253004600072426 /* JYShoppingController.h */,
+				97AB0C0E2253004600072426 /* JYShoppingController.m */,
+				977E80BB225DD8E10041A126 /* File.json */,
+			);
+			path = "Main-首页";
+			sourceTree = "<group>";
+		};
+		977E80B9225DA1AF0041A126 /* Detail-详情 */ = {
+			isa = PBXGroup;
+			children = (
+				977E80A9225CD4820041A126 /* JYShoppingDetailController.h */,
+				977E80AA225CD4820041A126 /* JYShoppingDetailController.m */,
+				977E80B5225D9CD30041A126 /* JYShoppingSearchController.h */,
+				977E80B6225D9CD30041A126 /* JYShoppingSearchController.m */,
+				977E80BA225DA1C20041A126 /* View */,
+			);
+			path = "Detail-详情";
+			sourceTree = "<group>";
+		};
+		977E80BA225DA1C20041A126 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				977E80A4225C81980041A126 /* JYShoppingCollectionCell.h */,
+				977E80A5225C81980041A126 /* JYShoppingCollectionCell.m */,
+				977E80A6225C81980041A126 /* JYShoppingCollectionCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9789A2A322262A97007874F3 = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +640,7 @@
 			children = (
 				9789A2C522262B77007874F3 /* RoomReservation0-订房 */,
 				9789A2C622262B9A007874F3 /* Service-服务 */,
+				97AB0C0C2253002800072426 /* shopping-商城 */,
 				9789A2C722262BB6007874F3 /* Me-我的 */,
 				9789A2C822262BC3007874F3 /* Other-其他 */,
 				9789A2B522262A98007874F3 /* Main.storyboard */,
@@ -559,8 +664,8 @@
 		9789A2C622262B9A007874F3 /* Service-服务 */ = {
 			isa = PBXGroup;
 			children = (
-				940B6A2B2226769B0065312E /* View */,
 				940B6A2A222676900065312E /* Controller */,
+				940B6A2B2226769B0065312E /* View */,
 			);
 			path = "Service-服务";
 			sourceTree = "<group>";
@@ -625,6 +730,8 @@
 		9789A2F422263635007874F3 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				977E80AC225CD5A90041A126 /* 视图工具 */,
+				977E809A225C73CB0041A126 /* 按钮 */,
 				97BC3933223A482300DC4D67 /* 微信支付 */,
 				97BC390E223A3B0700DC4D67 /* 支付宝 */,
 				97EA6ADD2228DBF70010770F /* Category */,
@@ -850,6 +957,15 @@
 			path = "Login-登录";
 			sourceTree = "<group>";
 		};
+		97AB0C0C2253002800072426 /* shopping-商城 */ = {
+			isa = PBXGroup;
+			children = (
+				977E80B8225DA19A0041A126 /* Main-首页 */,
+				977E80B9225DA1AF0041A126 /* Detail-详情 */,
+			);
+			path = "shopping-商城";
+			sourceTree = "<group>";
+		};
 		97BC390E223A3B0700DC4D67 /* 支付宝 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1064,17 +1180,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977E80B4225D8E4F0041A126 /* JYShoppingDetailCell.xib in Resources */,
+				977E80BC225DD8E10041A126 /* File.json in Resources */,
 				97BC3912223A3B2000DC4D67 /* AlipaySDK.bundle in Resources */,
 				9789A3A822264872007874F3 /* JYServiceController.xib in Resources */,
 				94DD4E262227B7FC0074324E /* JYRoomListCollectionViewCell.xib in Resources */,
 				940B6A30222676B70065312E /* JYServiceTableViewCell.xib in Resources */,
+				97AB0C142253044200072426 /* JYShoppingHeaderView.xib in Resources */,
 				9789A2BC22262A99007874F3 /* LaunchScreen.storyboard in Resources */,
 				94DD4E1C2227AF120074324E /* JYForgetWordViewController.xib in Resources */,
 				9789A355222636E4007874F3 /* MJRefresh.bundle in Resources */,
+				977E80A8225C81980041A126 /* JYShoppingCollectionCell.xib in Resources */,
 				940B6A3A2226853A0065312E /* JYServiceHeaderView.xib in Resources */,
 				9789A39622263759007874F3 /* SVProgressHUD.bundle in Resources */,
 				9789A39D222647C9007874F3 /* JYLoginController.xib in Resources */,
 				94DD4E212227B3080074324E /* JYRoomListViewController.xib in Resources */,
+				977E80A2225C77660041A126 /* JYShoppingCell.xib in Resources */,
 				94DD4E1722278B7C0074324E /* JYRegistViewController.xib in Resources */,
 				9789A2B922262A99007874F3 /* Assets.xcassets in Resources */,
 				940B6A35222678170065312E /* JYServiceCollectionViewCell.xib in Resources */,
@@ -1116,10 +1237,12 @@
 				9789A2CF22262DBD007874F3 /* CZTabBarController.m in Sources */,
 				9789A320222636D4007874F3 /* NSObject+MJCoding.m in Sources */,
 				94DD4E1622278B7C0074324E /* JYRegistViewController.m in Sources */,
+				977E80A1225C77660041A126 /* JYShoppingCell.m in Sources */,
 				97EA6AC32228DBB30010770F /* UIImageView+HighlightedWebCache.m in Sources */,
 				9789A38722263751007874F3 /* MASConstraintMaker.m in Sources */,
 				9789A2D022262DBD007874F3 /* CZNavigationController.m in Sources */,
 				9789A38422263751007874F3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				977E80AB225CD4820041A126 /* JYShoppingDetailController.m in Sources */,
 				9789A304222636BE007874F3 /* AFURLResponseSerialization.m in Sources */,
 				9789A35B222636E4007874F3 /* MJRefreshBackNormalFooter.m in Sources */,
 				97BC3942223A54DA00DC4D67 /* JYWXPayTool.m in Sources */,
@@ -1127,6 +1250,7 @@
 				97BC392A223A3C5E00DC4D67 /* JYAlipayTool.m in Sources */,
 				9789A31D222636D4007874F3 /* MJProperty.m in Sources */,
 				940B6A2F222676B70065312E /* JYServiceTableViewCell.m in Sources */,
+				97AB0C0F2253004600072426 /* JYShoppingController.m in Sources */,
 				9789A39522263759007874F3 /* SVIndefiniteAnimatedView.m in Sources */,
 				97EA6ACA2228DBB30010770F /* SDWebImageCoderHelper.m in Sources */,
 				97EA6AD02228DBB30010770F /* SDImageCache.m in Sources */,
@@ -1134,10 +1258,12 @@
 				976A46C1222D1D2700D202E0 /* JYRoomReservationSubModel.m in Sources */,
 				97EA6A7F2228DB860010770F /* PlanADCollectionViewCell.m in Sources */,
 				97EA6ADB2228DBB30010770F /* UIButton+WebCache.m in Sources */,
+				97AB0C122253043400072426 /* JYShoppingHeaderView.m in Sources */,
 				9789A360222636E4007874F3 /* MJRefreshStateHeader.m in Sources */,
 				97EA6AE02228DC060010770F /* UIView+GXExtension.m in Sources */,
 				9789A359222636E4007874F3 /* MJRefreshBackGifFooter.m in Sources */,
 				9789A323222636D4007874F3 /* MJFoundation.m in Sources */,
+				977E80AF225CD5B50041A126 /* CZNavigationView.m in Sources */,
 				9789A38D22263751007874F3 /* MASViewAttribute.m in Sources */,
 				97EA6AC82228DBB30010770F /* UIImage+GIF.m in Sources */,
 				97EA6ACD2228DBB30010770F /* SDWebImageCoder.m in Sources */,
@@ -1168,17 +1294,20 @@
 				9789A321222636D4007874F3 /* NSObject+MJProperty.m in Sources */,
 				97EA6AC72228DBB30010770F /* SDWebImageDownloader.m in Sources */,
 				9789A308222636BE007874F3 /* AFNetworkReachabilityManager.m in Sources */,
+				977E80B7225D9CD30041A126 /* JYShoppingSearchController.m in Sources */,
 				97EA6ACB2228DBB30010770F /* SDWebImageCompat.m in Sources */,
 				9789A38C22263751007874F3 /* MASViewConstraint.m in Sources */,
 				97EA6AE92228F5A70010770F /* UIButton+CZExtension.m in Sources */,
 				9789A366222636E4007874F3 /* MJRefreshComponent.m in Sources */,
 				97EA6AC12228DBB30010770F /* MKAnnotationView+WebCache.m in Sources */,
 				940B6A34222678170065312E /* JYServiceCollectionViewCell.m in Sources */,
+				977E80A7225C81980041A126 /* JYShoppingCollectionCell.m in Sources */,
 				97EA6AD12228DBB30010770F /* SDWebImageDownloaderOperation.m in Sources */,
 				9789A353222636E4007874F3 /* UIScrollView+MJRefresh.m in Sources */,
 				97EA6AD82228DBB30010770F /* UIView+WebCacheOperation.m in Sources */,
 				94992D942236305700EDB4E7 /* JYHtmlDetailViewController.m in Sources */,
 				97EA6AE62228F5820010770F /* CZTextField.m in Sources */,
+				977E80B3225D8E4F0041A126 /* JYShoppingDetailCell.m in Sources */,
 				97EA6ACC2228DBB30010770F /* SDWebImagePrefetcher.m in Sources */,
 				9789A306222636BE007874F3 /* AFURLSessionManager.m in Sources */,
 				9789A35A222636E4007874F3 /* MJRefreshBackStateFooter.m in Sources */,
@@ -1196,6 +1325,7 @@
 				9789A2F12226362F007874F3 /* GXNetTool.m in Sources */,
 				9789A38522263751007874F3 /* ViewController+MASAdditions.m in Sources */,
 				94DD4E252227B7FC0074324E /* JYRoomListCollectionViewCell.m in Sources */,
+				977E809D225C73D90041A126 /* CZMutContentButton.m in Sources */,
 				94E68D9E222CF56D00F48E88 /* JYUserInfoManager.m in Sources */,
 				9789A2B122262A98007874F3 /* AppDelegate.m in Sources */,
 				9789A364222636E4007874F3 /* MJRefreshBackFooter.m in Sources */,

@@ -12,6 +12,9 @@
 #import "JYRoomReservationController.h"
 #import "JYServiceController.h"
 #import "JYMeController.h"
+#import "JYShoppingController.h"
+
+#import "JYShoppingDetailController.h"
 
 @interface CZTabBarController ()<UITabBarControllerDelegate>
 
@@ -43,9 +46,14 @@
     self.delegate = self;
     [self setupWithController:[[JYRoomReservationController alloc] init] title:@"定房" image:@"index" selectedImage:@"index2"];
     [self setupWithController:[[JYServiceController alloc] init] title:@"服务" image:@"fw2" selectedImage:@"fw"];
+    
+    
+//    JYShoppingDetailController *vc = [[JYShoppingDetailController alloc] init];
+    JYShoppingController *vc = [[JYShoppingController alloc] init];
+    [self setupWithController:vc title:@"商城" image:@"fw2" selectedImage:@"fw"];
     [self setupWithController:[[JYMeController alloc] init] title:@"我的" image:@"grzx" selectedImage:@"grzx2"];
     
-    self.selectedIndex = 0;
+    self.selectedIndex = 2;
 //    self.tabBar.clipsToBounds = YES;
 }
 

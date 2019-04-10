@@ -33,6 +33,12 @@
     return self;
 }
 
+- (void)setPlaceholderStr:(NSString *)placeholderStr
+{
+    _placeholderStr = placeholderStr;
+    self.placeholder = @"";
+}
+
 /**
  * 控制左侧视图位置
  */
