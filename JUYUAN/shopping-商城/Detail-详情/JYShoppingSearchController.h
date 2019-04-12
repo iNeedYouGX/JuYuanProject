@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JYShoppingSearchController : UIViewController
-
+/** 房间号 */
+@property (nonatomic, strong) NSString *userHouseNumber;
 @end
 
 NS_ASSUME_NONNULL_END

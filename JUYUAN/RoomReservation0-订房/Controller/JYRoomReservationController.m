@@ -36,12 +36,42 @@
     NSInteger page ;
     NSInteger page_size ;
 }
+// 获取信息
+- (void)getNotice
+{
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/notice"];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"token"] = [JYUserInfoManager getUserToken];
+    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+            NSArray *images = result[@"bizobj"];
+            if (images.count > 0) {
+                self.search.unreaderCount = 1;
+            } else {
+                self.search.unreaderCount = 1;
+            }
+        }
+    } failure:^(NSError *error) {
+
+    }];
+}
+
+
 - (JYHtmlDetailViewController *)htmlVC {
     if (_htmlVC == nil) {
         _htmlVC = [[JYHtmlDetailViewController alloc] init];
     }
     return _htmlVC;
 }
+
+#pragma mark - 周期
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    // 获取信息
+    [self getNotice];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [JYRoomReservationModel setupObjectClassInArray:^NSDictionary *{
@@ -65,6 +95,7 @@
     //创建刷新控件
     [self setupRefresh];
 }
+#pragma mark -- end
 
 - (void)setupRefresh
 {
@@ -148,6 +179,8 @@
         [self reloadNewDiscover];
     }];
     self.search.textFieldActive = YES;
+
+
     [self.view addSubview:self.search];
 
 }

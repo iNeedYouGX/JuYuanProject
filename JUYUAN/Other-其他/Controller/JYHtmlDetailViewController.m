@@ -56,8 +56,9 @@
 
 - (void)goBack:(UIButton *)sender
 {
-    sender.hidden = YES;
-    [self.webView goBack];
+//    sender.hidden = YES;
+//    [self.webView goBack];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 // 根据WebView对于即将跳转的HTTP请求头信息和相关信息来决定是否跳转
@@ -70,6 +71,7 @@
 //    btn.width = 20;
 //    btn.height = 20;
 //    [btn addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btn];
     
     NSString * urlStr = navigationAction.request.URL.absoluteString;
     NSLog(@"发送跳转请求：%@",urlStr);

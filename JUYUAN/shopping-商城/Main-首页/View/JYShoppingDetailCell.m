@@ -25,7 +25,7 @@
     _dataDic = dataDic;
     [self.bigImage sd_setImageWithURL:[NSURL URLWithString:dataDic[@"original_img"]]];
     self.titleLabel.text = dataDic[@"goods_name"];
-    self.priceLabel.text =  [NSString stringWithFormat:@"¥%@", dataDic[@"shop_price"]] ;
+    self.priceLabel.text =  [NSString stringWithFormat:@"¥%@元", dataDic[@"shop_price"]] ;
 }
 
 - (void)awakeFromNib {

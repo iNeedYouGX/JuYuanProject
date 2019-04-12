@@ -7,8 +7,9 @@
 //
 
 #import "JYShoppingCell.h"
-//#import "JYShoppingCollectionCell.h"
+#import "JYHtmlDetailViewController.h"
 #import "JYShoppingDetailCell.h"
+#import "JYUserInfoManager.h" // 用户信息
 
 @interface JYShoppingCell ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (strong, nonatomic) UICollectionView *collectionView;
@@ -65,7 +66,29 @@
     return self.hotSaleDataArr.count;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSDictionary *paramDic = self.hotSaleDataArr[indexPath.row];
+    JYHtmlDetailViewController *vc = [[JYHtmlDetailViewController alloc] init];
+    //    NSString *name = [self.apartmentName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSString *html = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/goodsDetail?token=%@&goodsId=%@", [JYUserInfoManager getUserToken], paramDic[@"goods_id"]];
+    NSLog(@"%@", html);
+    vc.urlString = html;
+    UIViewController *navVc = [self viewController];
+    [navVc.navigationController pushViewController:vc animated:YES];
+}
 
+// 找到父控制器
+- (UIViewController *)viewController {
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+    }
+    return nil;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

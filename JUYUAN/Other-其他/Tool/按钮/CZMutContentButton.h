@@ -11,4 +11,6 @@
 @interface CZMutContentButton : UIButton
 /** 数据 */
 @property (nonatomic, strong) NSDictionary *btnParam;
+/** <#注释#> */
+@property (nonatomic, assign) NSInteger flag;
 @end

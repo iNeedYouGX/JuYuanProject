@@ -15,6 +15,8 @@ typedef void(^HeaderBlock)(void);
 @property (nonatomic, strong) NSArray *imageList;
 - (void)controlMegButtonHide:(BOOL)hide;
 @property (nonatomic, copy) HeaderBlock block;
+/** 未读数量 */
+@property (nonatomic, assign) NSInteger unreaderCount;
 @end
 
 NS_ASSUME_NONNULL_END

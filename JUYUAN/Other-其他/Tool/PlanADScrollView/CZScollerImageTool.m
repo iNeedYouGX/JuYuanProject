@@ -9,11 +9,16 @@
 #import "CZScollerImageTool.h"
 #import "PlanADScrollView.h"
 
+@interface CZScollerImageTool () <PlanADScrollViewDelegate>
+
+@end
+
 @implementation CZScollerImageTool
 
 - (void)setImgList:(NSArray *)imgList
 {
     _imgList = imgList;
+    [self removeFromSuperview];
     [self setupSubViews];
 }
 
@@ -33,6 +38,7 @@
         } else {
             // 初始化控件
             PlanADScrollView *ad = [[PlanADScrollView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height) imageUrls:self.imgList placeholderimage:nil];
+            ad.delegate = self;
             [self addSubview:ad];
         }
     } else {
@@ -42,5 +48,11 @@
         imageView.image = [UIImage imageNamed:@"headDefault"];
         [self addSubview:imageView];
     }
+}
+
+
+- (void)PlanADScrollViewdidSelectAtIndex:(NSInteger )index
+{
+    !self.block ? : self.block(index); 
 }
 @end

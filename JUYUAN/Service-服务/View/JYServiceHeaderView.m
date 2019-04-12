@@ -18,6 +18,17 @@
 
 @implementation JYServiceHeaderView
 
+- (void)setUnreaderCount:(NSInteger)unreaderCount
+{
+    _unreaderCount = unreaderCount;
+
+    if (unreaderCount <= 0) {
+        [self.msgButton setImage:[UIImage imageNamed:@"tz2"] forState:UIControlStateNormal];
+    } else {
+        [self.msgButton setImage:[UIImage imageNamed:@"tz1"] forState:UIControlStateNormal];
+    }
+}
+
 - (void)awakeFromNib
 {
     [super awakeFromNib];

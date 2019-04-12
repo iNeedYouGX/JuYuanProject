@@ -21,12 +21,7 @@
 @end
 
 @implementation JYServiceController
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if ([JYUserInfoManager getUserToken].length > 0) {
-        [self getUserInfomation];
-    } 
-}
+
 
 - (void)getBrandImage
 {
@@ -53,13 +48,46 @@
     
 }
 
+// 获取信息
+- (void)getNotice
+{
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/notice"];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"token"] = [JYUserInfoManager getUserToken];
+    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+            NSArray *images = result[@"bizobj"];
+            if (images.count > 0) {
+                self.headerView.unreaderCount = 1;
+            } else {
+                self.headerView.unreaderCount = 1;
+            }
+        }
+    } failure:^(NSError *error) {
+
+    }];
+}
+
+#pragma mark - 周期
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // 获取信息
+    [self getNotice];
+    if ([JYUserInfoManager getUserToken].length > 0) {
+        [self getUserInfomation];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     [self getBrandImage];
 //    [self.headerView controlMegButtonHide:NO];
      self.titleArray = @[@"账单查询",@"水电费查询",@"我要开门",@"报修",@"我要续租",@"退房申请",@"投诉建议"];
     [self.view addSubview:self.tableView];
 }
+
+#pragma mark -- end
 
 - (UITableView *)tableView {
     if (!_tableView) {

@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JYShoppingHeaderView">
-            <rect key="frame" x="0.0" y="0.0" width="489" height="258"/>
+            <rect key="frame" x="0.0" y="0.0" width="489" height="261"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SG2-RQ-s7v">
@@ -25,20 +25,26 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEw-Y5-Uh8">
-                            <rect key="frame" x="419" y="10" width="50" height="40"/>
+                            <rect key="frame" x="434" y="10" width="35" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="55N-3u-mmf"/>
+                                <constraint firstAttribute="width" constant="35" id="55N-3u-mmf"/>
                                 <constraint firstAttribute="height" constant="40" id="XhO-Ge-HTJ"/>
                             </constraints>
-                            <state key="normal" image="tz1"/>
+                            <state key="normal" image="tz2"/>
+                            <connections>
+                                <action selector="msgButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Dot-1Z-YRV"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fcw-Ms-hEu">
-                            <rect key="frame" x="369" y="10" width="50" height="40"/>
+                            <rect key="frame" x="384" y="10" width="50" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="2yJ-j6-dBm"/>
                                 <constraint firstAttribute="height" constant="40" id="Ifr-WJ-FWr"/>
                             </constraints>
-                            <state key="normal" image="tz1"/>
+                            <state key="normal" image="WX20190411-130041"/>
+                            <connections>
+                                <action selector="shoppingCart:" destination="iN0-l3-epB" eventType="touchUpInside" id="T1c-Cj-lCS"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,11 +92,13 @@
                 <outlet property="imagesView" destination="FDg-nd-wGV" id="jor-zM-zwK"/>
                 <outlet property="msgButton" destination="PEw-Y5-Uh8" id="Y9X-jE-Ghb"/>
                 <outlet property="searchView" destination="eyO-d5-Nnp" id="qZC-S2-yKW"/>
+                <outlet property="topView" destination="SG2-RQ-s7v" id="UC2-Re-gvE"/>
             </connections>
-            <point key="canvasLocation" x="-1322.4000000000001" y="-317.54122938530736"/>
+            <point key="canvasLocation" x="-2022" y="-335"/>
         </view>
     </objects>
     <resources>
-        <image name="tz1" width="20" height="20"/>
+        <image name="WX20190411-130041" width="39" height="39"/>
+        <image name="tz2" width="20" height="20"/>
     </resources>
 </document>

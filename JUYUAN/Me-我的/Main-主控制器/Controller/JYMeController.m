@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *msgButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+/** 我的订单 */
+@property (nonatomic, weak) IBOutlet UIView *orderView;
 @property (weak, nonatomic) IBOutlet UIView *personInfoView;
 @property (weak, nonatomic) IBOutlet UIView *mineContract;
 @property (weak, nonatomic) IBOutlet UIView *roomManager;
@@ -61,6 +63,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UITapGestureRecognizer *tap0 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(orderViewAction)];
+    [self.orderView addGestureRecognizer:tap0];
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPersonInfoView)];
     [self.personInfoView addGestureRecognizer:tap1];
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMineContract)];
@@ -122,6 +126,20 @@
     }
     
 }
+
+#pragma mark -- 我的订单
+- (void)orderViewAction
+{
+    if ([JYUserInfoManager getUserToken].length > 0) {
+        JYHtmlDetailViewController *htmlVc = [[JYHtmlDetailViewController alloc] init]; 
+        htmlVc.urlString = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/order?token=%@",[JYUserInfoManager getUserToken]];
+        [self.navigationController pushViewController:htmlVc animated:true];
+    } else {
+        [self LoginAction];
+    }
+}
+
+
 #pragma mark -- 个人资料
 - (void)tapPersonInfoView {
     if ([JYUserInfoManager getUserToken].length > 0) {

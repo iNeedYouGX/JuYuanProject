@@ -56,7 +56,7 @@
     [self addSubview:textF];
     
     UIButton *msgBtn = [[UIButton alloc] init];
-    [msgBtn setImage:[UIImage imageNamed:@"tz1"] forState:UIControlStateNormal];
+    [msgBtn setImage:[UIImage imageNamed:@"tz2"] forState:UIControlStateNormal];
     msgBtn.x = CGRectGetMaxX(textF.frame);
     msgBtn.size = CGSizeMake(40, self.height);
     msgBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -83,11 +83,17 @@
 - (void)setUnreaderCount:(NSInteger)unreaderCount
 {
     _unreaderCount = unreaderCount;
+//    if (unreaderCount <= 0) {
+//        self.unreadLabel.hidden = YES;
+//    } else {
+//        self.unreadLabel.hidden = NO;
+//        self.unreadLabel.text = [NSString stringWithFormat:@"%ld", (long)unreaderCount];
+//    }
+
     if (unreaderCount <= 0) {
-        self.unreadLabel.hidden = YES;
+        [self.rightBtn setImage:[UIImage imageNamed:@"tz2"] forState:UIControlStateNormal];
     } else {
-        self.unreadLabel.hidden = NO;
-        self.unreadLabel.text = [NSString stringWithFormat:@"%ld", (long)unreaderCount];
+        [self.rightBtn setImage:[UIImage imageNamed:@"tz1"] forState:UIControlStateNormal];
     }
 }
 

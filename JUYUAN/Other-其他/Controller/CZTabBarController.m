@@ -50,10 +50,10 @@
     
 //    JYShoppingDetailController *vc = [[JYShoppingDetailController alloc] init];
     JYShoppingController *vc = [[JYShoppingController alloc] init];
-    [self setupWithController:vc title:@"商城" image:@"fw2" selectedImage:@"fw"];
+    [self setupWithController:vc title:@"商城" image:@"WX20190411-normal" selectedImage:@"WX20190411-selected"];
     [self setupWithController:[[JYMeController alloc] init] title:@"我的" image:@"grzx" selectedImage:@"grzx2"];
     
-    self.selectedIndex = 2;
+    self.selectedIndex = 0;
 //    self.tabBar.clipsToBounds = YES;
 }
 

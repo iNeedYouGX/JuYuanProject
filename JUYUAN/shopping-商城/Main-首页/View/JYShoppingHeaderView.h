@@ -11,11 +11,18 @@
 NS_ASSUME_NONNULL_BEGIN
 typedef void(^HeaderBlock)(void);
 @interface JYShoppingHeaderView : UIView
+/** <#注释#> */
+@property (nonatomic, weak) IBOutlet UIView *topView;
 + (instancetype)shoppingHeaderView;
 - (void)setupSearchView;
 /** 轮播图数组 */
 @property (nonatomic, strong) NSArray *imageList;
 @property (nonatomic, copy) HeaderBlock block;
+
+/** 图片ID数组 */
+@property (nonatomic, strong) NSArray *imageListId;
+/** 未读数量 */
+@property (nonatomic, assign) NSInteger unreaderCount;
 @end
 
 NS_ASSUME_NONNULL_END
