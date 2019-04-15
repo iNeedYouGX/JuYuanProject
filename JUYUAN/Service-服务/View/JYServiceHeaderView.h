@@ -13,6 +13,9 @@ typedef void(^HeaderBlock)(void);
 @interface JYServiceHeaderView : UIView
 /** <#注释#> */
 @property (nonatomic, strong) NSArray *imageList;
+/** 图片ID数组 */
+@property (nonatomic, strong) NSArray *imageListId;
+
 - (void)controlMegButtonHide:(BOOL)hide;
 @property (nonatomic, copy) HeaderBlock block;
 /** 未读数量 */

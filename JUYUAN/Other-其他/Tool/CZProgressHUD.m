@@ -48,7 +48,7 @@ static id _instance;
 + (instancetype)showProgressHUDWithText:(NSString *)text
 {
     if (text == nil) {
-        [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.5]];
+        [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:1 alpha:0]];
         [SVProgressHUD setForegroundColor:[UIColor blackColor]];
         [SVProgressHUD show];
         return nil;

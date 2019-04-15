@@ -24,6 +24,8 @@
 @property (nonatomic, strong) UIView *titlesView;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) JYShoppingHeaderView *headerView;
+/** 没有数据图片 */
+@property (nonatomic, strong) UIView *backView;
 /** <#注释#> */
 @property (nonatomic, strong) NSArray *HeaderTitleArr;
 /** <#注释#> */
@@ -75,9 +77,10 @@
     NSMutableArray *imageArrId = [NSMutableArray array];
     for (NSDictionary *imageStr in images) {
         [imageArr addObject:imageStr[@"ad_code"]];
-        [imageArrId addObject:imageStr[@"ad_code"]];
+        [imageArrId addObject:imageStr[@"goods_id"]];
     }
     self.headerView.imageList = imageArr;
+    self.headerView.imageListId = imageArrId;
 }
 
 // 顶部视图 
@@ -242,7 +245,7 @@
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"token"] = [JYUserInfoManager getUserToken];
     
-    [CZProgressHUD showProgressHUDWithText:nil];
+//    [CZProgressHUD showProgressHUDWithText:nil];
     [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
         if ([result[@"error_code"] isEqual:@(0)]) {
             // 创建轮播图
@@ -262,10 +265,12 @@
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"token"] = [JYUserInfoManager getUserToken];
     
-    [CZProgressHUD showProgressHUDWithText:nil];
+//    [CZProgressHUD showProgressHUDWithText:nil];
     [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
         if ([result[@"error_code"] isEqual:@(0)]) {
-            if ([result[@"bizobj"] count] != 0) {
+            BOOL isCount = [result[@"bizobj"] count] != 0;
+            if (isCount) {
+                [self.backView removeFromSuperview];
                 // 有房间号
                 self.storeyArray = result[@"bizobj"];
                 if (!self.rightBtn) {                
@@ -282,6 +287,7 @@
                 [self.view addSubview:self.headerView];
                 self.headerView.y = (IsiPhoneX ? 44 : 20);
                 UIView *backView = [[UIView alloc] init];
+                self.backView = backView;
                 backView.backgroundColor = [UIColor whiteColor];
                 backView.y = CZGetY(self.headerView) - 125 - 20;
                 backView.x = 0;
@@ -311,7 +317,7 @@
     param[@"is_hot"] = @(1);
     param[@"store_id"] = self.userHouseNumber;
     
-    [CZProgressHUD showProgressHUDWithText:nil];
+//    [CZProgressHUD showProgressHUDWithText:nil];
     [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
         if ([result[@"error_code"] isEqual:@(0)]) {
             
@@ -382,7 +388,7 @@
     param[@"is_recommend"] = @(1); // 默认数据 不传全部数据
         
     
-    [CZProgressHUD showProgressHUDWithText:nil];
+//    [CZProgressHUD showProgressHUDWithText:nil];
     [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
         if ([result[@"error_code"] isEqual:@(0)]) {
             
@@ -523,6 +529,7 @@
             [self.rightBtn setTitle:self.storeyArray[i][@"store_name"] forState:UIControlStateNormal];
             [self.rightBtn sizeToFit];
             self.userHouseNumber = self.storeyArray[i][@"user_house_id"];
+            [JYUserInfoManager saveUserHouseNumber:self.userHouseNumber];
             // 获取热卖数据
             [self getHotSaleDataSource];
         }

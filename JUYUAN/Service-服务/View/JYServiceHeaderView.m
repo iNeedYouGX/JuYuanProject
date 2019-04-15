@@ -8,6 +8,8 @@
 
 #import "JYServiceHeaderView.h"
 #import "CZScollerImageTool.h"
+#import "JYHtmlDetailViewController.h"
+#import "JYUserInfoManager.h"
 
 @interface JYServiceHeaderView ()
 /** <#注释#> */
@@ -47,8 +49,27 @@
     // 创建轮播图
     CZScollerImageTool *imageView = [[CZScollerImageTool alloc] initWithFrame:CGRectMake(0, 0, SCR_WIDTH - 40, 125)];
     imageView.imgList = imageList;
+    __weak typeof(self) weakSelf = self;
+    imageView.block = ^(NSInteger index) {
+        NSLog(@"hahah ---- %ld", index);
+        JYHtmlDetailViewController *htmlVc = [[JYHtmlDetailViewController alloc] init];
+        htmlVc.urlString = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/adDetail?token=%@&brandId=%@",[JYUserInfoManager getUserToken], weakSelf.imageListId[index]];
+        NSLog(@"%@", htmlVc.urlString);
+        UIViewController *vc = [weakSelf viewController];
+        [vc.navigationController pushViewController:htmlVc animated:true];
+    };
     [self.imagesView addSubview:imageView];
 }
 
+// 找到父控制器
+- (UIViewController *)viewController {
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+    }
+    return nil;
+}
 
 @end

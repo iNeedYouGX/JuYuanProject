@@ -32,11 +32,14 @@
         if ([result[@"error_code"] isEqual:@(0)]) {
             NSArray *images = result[@"bizobj"];
             NSMutableArray *mutArr = [NSMutableArray array];
+            NSMutableArray *imageArrId = [NSMutableArray array];
             for (NSDictionary *dic in images) {
                 [mutArr addObject:dic[@"logo"]];
+                [imageArrId addObject:dic[@"id"]];
             }
             NSLog(@"%@", mutArr);
             self.headerView.imageList = mutArr;
+            self.headerView.imageListId = imageArrId;
         }
     } failure:^(NSError *error) {
         

@@ -226,7 +226,7 @@
     NSDictionary *paramDic = self.hotSaleDataArr[indexPath.row];
     JYHtmlDetailViewController *vc = [[JYHtmlDetailViewController alloc] init];
 //    NSString *name = [self.apartmentName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSString *html = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/goodsDetail?token=%@&goodsId=%@", [JYUserInfoManager getUserToken], paramDic[@"goods_id"]];
+    NSString *html = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/goodsDetail?token=%@&goodsId=%@&aptId=%@", [JYUserInfoManager getUserToken], paramDic[@"goods_id"], self.userHouseNumber];
     NSLog(@"%@", html);
     vc.urlString = html;
     [self.navigationController pushViewController:vc animated:YES];

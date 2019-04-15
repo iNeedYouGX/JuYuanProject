@@ -51,7 +51,7 @@
 
     static NSString *itemId = @"JYShoppingDetailCell";
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JYShoppingDetailCell class]) bundle:nil] forCellWithReuseIdentifier:itemId];
-}
+} 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -72,7 +72,7 @@
     NSDictionary *paramDic = self.hotSaleDataArr[indexPath.row];
     JYHtmlDetailViewController *vc = [[JYHtmlDetailViewController alloc] init];
     //    NSString *name = [self.apartmentName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSString *html = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/goodsDetail?token=%@&goodsId=%@", [JYUserInfoManager getUserToken], paramDic[@"goods_id"]];
+    NSString *html = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/goodsDetail?token=%@&goodsId=%@&aptId=%@", [JYUserInfoManager getUserToken], paramDic[@"goods_id"],  [JYUserInfoManager getUserHouseNumber]];
     NSLog(@"%@", html);
     vc.urlString = html;
     UIViewController *navVc = [self viewController];

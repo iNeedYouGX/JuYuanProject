@@ -81,7 +81,7 @@
         _imageView.block = ^(NSInteger index) {
             NSLog(@"hahah ---- %ld", index);
             JYHtmlDetailViewController *htmlVc = [[JYHtmlDetailViewController alloc] init]; 
-            htmlVc.urlString = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/adDetail?token=%@&brandId=%@",[JYUserInfoManager getUserToken], weakSelf.imageList[index]];
+            htmlVc.urlString = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/adDetail?token=%@&brandId=%@",[JYUserInfoManager getUserToken], weakSelf.imageListId[index]];
             NSLog(@"%@", htmlVc.urlString);
             UIViewController *vc = [weakSelf viewController];
             [vc.navigationController pushViewController:htmlVc animated:true];
