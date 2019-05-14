@@ -62,6 +62,13 @@
                                     <constraint firstItem="Wbe-dd-eQR" firstAttribute="top" secondItem="mm2-8h-LOj" secondAttribute="bottom" constant="5" id="kQw-KB-kEC"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="swJ-lC-vuK">
+                                <rect key="frame" x="0.0" y="0.0" width="262" height="90"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="aPM-Yo-369"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dsb-OY-cf9">
                                 <rect key="frame" x="99" y="13" width="64" height="64"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.61341502568493156" colorSpace="calibratedRGB"/>
@@ -76,13 +83,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="swJ-lC-vuK">
-                                <rect key="frame" x="0.0" y="0.0" width="262" height="90"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="aPM-Yo-369"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>

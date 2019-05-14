@@ -52,7 +52,10 @@
                 [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"head_img"]] placeholderImage:[UIImage imageNamed:@"tx"]];
             }
             [self refreshUserName];
-            
+        } else {
+            [JYUserInfoManager removeAllUserInfo];
+            JYLoginController *loginView = [[JYLoginController alloc] init];
+            [self presentViewController:loginView animated:YES completion:nil];
         }
     } failure:^(NSError *error) {
         
@@ -75,6 +78,7 @@
     [self.discountCoupon addGestureRecognizer:tap4];
     
 }
+
 - (void)checkLoginStatue {
     if ([JYUserInfoManager getUserToken].length == 0) {
         [self.loginButton setTitle:@"点击登录" forState:UIControlStateNormal];
@@ -83,7 +87,6 @@
     } else {
         self.loginButton.enabled = NO;
         [self getUserInfomation];
-        
     }
 }
 
@@ -139,7 +142,6 @@
     }
 }
 
-
 #pragma mark -- 个人资料
 - (void)tapPersonInfoView {
     if ([JYUserInfoManager getUserToken].length > 0) {
@@ -149,9 +151,8 @@
     } else {
         [self LoginAction];
     }
-    
-    
 }
+
 #pragma mark -- 我的合同
 - (void)tapMineContract {
     if ([JYUserInfoManager getUserToken].length > 0) {
@@ -161,8 +162,8 @@
     } else {
         [self LoginAction];
     }
-    
 }
+
 #pragma mark -- 我的房管员
 - (void)tapRoomManager {
     if ([JYUserInfoManager getUserToken].length > 0) {
@@ -172,8 +173,8 @@
     } else {
         [self LoginAction];
     }
-    
 }
+
 #pragma mark -- 我的优惠券
 - (void)tapDiscountCoupon {
     if ([JYUserInfoManager getUserToken].length > 0) {
@@ -183,6 +184,6 @@
     } else {
         [self LoginAction];
     }
-    
 }
+
 @end

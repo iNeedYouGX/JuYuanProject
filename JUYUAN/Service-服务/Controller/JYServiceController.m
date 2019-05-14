@@ -13,16 +13,17 @@
 #import "GXNetTool.h"
 #import "JYHtmlDetailViewController.h"
 #import "JYLoginController.h"
+
 @interface JYServiceController ()<UITableViewDelegate, UITableViewDataSource>
+
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) JYServiceHeaderView *headerView;
 @property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, strong) JYHtmlDetailViewController *htmlVC;
+
 @end
 
 @implementation JYServiceController
-
-
 - (void)getBrandImage
 {
     NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"api/v1/brand"];
@@ -41,9 +42,7 @@
             self.headerView.imageList = mutArr;
             self.headerView.imageListId = imageArrId;
         }
-    } failure:^(NSError *error) {
-        
-    }];
+    } failure:^(NSError *error) {}];
 }
 
 #pragma mark -- 获取个人信息
@@ -144,7 +143,7 @@
                     // 是否有合同
                     
                     NSInteger has_contract = [dic[@"has_contract"] integerValue];
-                    if (has_contract != 1) {
+                    if (has_contract == 2) { // 1.有履行中的合同 2:无合同 3.有待确认的合同
                         [CZProgressHUD showProgressHUDWithText:@"没有履行中的合同"];
                         [CZProgressHUD hideAfterDelay:1];
                     } else {

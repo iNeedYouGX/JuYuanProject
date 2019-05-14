@@ -49,6 +49,10 @@
 @end
 
 @implementation JYRoomListViewController
+{
+    NSInteger page ;
+    NSInteger page_size ;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -83,13 +87,60 @@
 // 加载数据
 - (void)reloadNewDiscover
 {
-    [self.collectionView.mj_header endRefreshing];
+
+    page = 1;
+    page_size = 10;
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/houses"];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"apt_id"] = @(self.apt_id);
+    param[@"storey_id"] = @(self.storey_id);
+    param[@"page"] = @(page);
+    param[@"page_size"] = @(page_size);
+
+
+    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+
+            /**胖糊: 数组转化模型 */
+            self.dataArray = [JYRoomListModel objectArrayWithKeyValuesArray:result[@"bizobj"][@"data"][@"apartment_list"]];
+            [self.collectionView reloadData];
+            [self.collectionView.mj_header endRefreshing];
+        }
+    } failure:^(NSError *error) {
+        [self.collectionView.mj_header endRefreshing];
+    }];
 }
 
 // 加载更多数据
 - (void)loadMoreDiscover
 {
-    [self.collectionView.mj_footer endRefreshing];
+    page++;
+    page_size = 10;
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/houses"];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"apt_id"] = @(self.apt_id);
+    param[@"storey_id"] = @(self.storey_id);
+    param[@"page"] = @(page);
+    param[@"page_size"] = @(page_size);
+
+
+    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+
+            NSMutableArray *mutArr = [NSMutableArray arrayWithArray:self.dataArray];
+            /**胖糊: 数组转化模型 */
+            NSArray *arr = [JYRoomListModel objectArrayWithKeyValuesArray:result[@"bizobj"][@"data"][@"apartment_list"]];
+            [mutArr addObjectsFromArray:arr];
+
+            self.dataArray = mutArr;
+
+            [self.collectionView reloadData];
+            [self.collectionView.mj_footer endRefreshing];
+        }
+    } failure:^(NSError *error) {
+        [self.collectionView.mj_footer endRefreshing];
+    }];
+
 }
 
 
@@ -179,11 +230,15 @@
 #pragma mark - 网络请求->房间列表
 - (void)getNetwork {
     
-    
+
+    page = 1;
+    page_size = 10;
     NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/houses"];
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"apt_id"] = @(self.apt_id);
     param[@"storey_id"] = @(self.storey_id);
+    param[@"page"] = @(page);
+    param[@"page_size"] = @(page_size);
     
     
     [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
