@@ -53,14 +53,14 @@
 // 获取信息
 - (void)getNotice
 {
-    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/notice"];
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/is_dashboard"];
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"token"] = [JYUserInfoManager getUserToken];
     [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
         if ([result[@"error_code"] isEqual:@(0)]) {
-            NSArray *images = result[@"bizobj"];
-            if (images.count > 0) {
-                self.headerView.unreaderCount = 1;
+            NSNumber *isRead = result[@"bizobj"][@"is_read"];
+            if ([isRead  isEqual: @(0)]) {
+                self.headerView.unreaderCount = 0;
             } else {
                 self.headerView.unreaderCount = 1;
             }

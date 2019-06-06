@@ -61,7 +61,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-// 根据WebView对于即将跳转的HTTP请求头信息和相关信息来决定是否跳转
+// 根据WebView对于即将跳转的HTTP 相关信息来决定是否跳转
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     
 //    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
