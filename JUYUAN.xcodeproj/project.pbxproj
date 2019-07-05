@@ -108,6 +108,8 @@
 		97AB0C0F2253004600072426 /* JYShoppingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AB0C0E2253004600072426 /* JYShoppingController.m */; };
 		97AB0C122253043400072426 /* JYShoppingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AB0C112253043400072426 /* JYShoppingHeaderView.m */; };
 		97AB0C142253044200072426 /* JYShoppingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97AB0C132253044200072426 /* JYShoppingHeaderView.xib */; };
+		97AC559822CA3B2500D7F2DA /* CZUpdataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AC559622CA3B2500D7F2DA /* CZUpdataView.m */; };
+		97AC559922CA3B2500D7F2DA /* CZUpdataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97AC559722CA3B2500D7F2DA /* CZUpdataView.xib */; };
 		97BC3911223A3B2000DC4D67 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BC390F223A3B2000DC4D67 /* AlipaySDK.framework */; };
 		97BC3912223A3B2000DC4D67 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97BC3910223A3B2000DC4D67 /* AlipaySDK.bundle */; };
 		97BC3915223A3B5E00DC4D67 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BC3914223A3B5E00DC4D67 /* libc++.tbd */; };
@@ -357,6 +359,9 @@
 		97AB0C102253043400072426 /* JYShoppingHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYShoppingHeaderView.h; sourceTree = "<group>"; };
 		97AB0C112253043400072426 /* JYShoppingHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYShoppingHeaderView.m; sourceTree = "<group>"; };
 		97AB0C132253044200072426 /* JYShoppingHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYShoppingHeaderView.xib; sourceTree = "<group>"; };
+		97AC559522CA3B2500D7F2DA /* CZUpdataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZUpdataView.h; sourceTree = "<group>"; };
+		97AC559622CA3B2500D7F2DA /* CZUpdataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZUpdataView.m; sourceTree = "<group>"; };
+		97AC559722CA3B2500D7F2DA /* CZUpdataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CZUpdataView.xib; sourceTree = "<group>"; };
 		97BC390F223A3B2000DC4D67 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		97BC3910223A3B2000DC4D67 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		97BC3914223A3B5E00DC4D67 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -485,6 +490,9 @@
 		940B6A2322265E560065312E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				97AC559522CA3B2500D7F2DA /* CZUpdataView.h */,
+				97AC559622CA3B2500D7F2DA /* CZUpdataView.m */,
+				97AC559722CA3B2500D7F2DA /* CZUpdataView.xib */,
 				9789A39F22264863007874F3 /* JYRoomReservationController.h */,
 				9789A3A022264863007874F3 /* JYRoomReservationController.m */,
 				9789A3A122264863007874F3 /* JYRoomReservationController.xib */,
@@ -1190,6 +1198,7 @@
 				9789A2BC22262A99007874F3 /* LaunchScreen.storyboard in Resources */,
 				94DD4E1C2227AF120074324E /* JYForgetWordViewController.xib in Resources */,
 				9789A355222636E4007874F3 /* MJRefresh.bundle in Resources */,
+				97AC559922CA3B2500D7F2DA /* CZUpdataView.xib in Resources */,
 				977E80A8225C81980041A126 /* JYShoppingCollectionCell.xib in Resources */,
 				940B6A3A2226853A0065312E /* JYServiceHeaderView.xib in Resources */,
 				9789A39622263759007874F3 /* SVProgressHUD.bundle in Resources */,
@@ -1249,6 +1258,7 @@
 				97EA6AD92228DBB30010770F /* UIView+WebCache.m in Sources */,
 				97BC392A223A3C5E00DC4D67 /* JYAlipayTool.m in Sources */,
 				9789A31D222636D4007874F3 /* MJProperty.m in Sources */,
+				97AC559822CA3B2500D7F2DA /* CZUpdataView.m in Sources */,
 				940B6A2F222676B70065312E /* JYServiceTableViewCell.m in Sources */,
 				97AB0C0F2253004600072426 /* JYShoppingController.m in Sources */,
 				9789A39522263759007874F3 /* SVIndefiniteAnimatedView.m in Sources */,

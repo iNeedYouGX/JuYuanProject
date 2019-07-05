@@ -19,6 +19,7 @@
 
 #import "JYAlipayTool.h"
 #import "JYWXPayTool.h"
+#import "CZUpdataView.h"
 
 @interface JYRoomReservationController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -94,6 +95,8 @@
     [self.view addSubview:self.tableView];
     //创建刷新控件
     [self setupRefresh];
+    // 获取版本号
+    self.getVersion();
 }
 #pragma mark -- end
 
@@ -158,6 +161,30 @@
         // 结束刷新
         [self.tableView.mj_footer endRefreshing];
     }];
+}
+
+// 加载数据
+- (void (^)(void))getVersion
+{
+    return ^ {
+        NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/version"];
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+            if ([result[@"error_code"] isEqual:@(0)]) {
+                NSString *curVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+                NSString *version = result[@"bizobj"][@"version"] != [NSNull null] ? result[@"bizobj"][@"version"] : @"";
+                if ([curVersion compare:version] == NSOrderedAscending) {
+                    // 判断是否更新
+                    CZUpdataView *backView = [CZUpdataView updataView];
+                    backView.versionMessage = result[@"data"];
+                    backView.frame = [UIScreen mainScreen].bounds;
+                    backView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+                    [[UIApplication sharedApplication].keyWindow addSubview: backView];
+                }
+            }
+        } failure:^(NSError *error) {
+        }];
+    };
 }
 
 

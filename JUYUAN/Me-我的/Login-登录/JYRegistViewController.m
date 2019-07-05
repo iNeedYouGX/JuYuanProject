@@ -72,6 +72,10 @@
 -(BOOL)textView:(UITextView * )textView shouldInteractWithURL:(NSURL* )URL inRange:(NSRange)characterRange {
     if ([[URL scheme] isEqualToString:@"fuwuxiwyi"]) {
         NSLog(@"fuwuxiwyi点击");
+        JYHtmlDetailViewController *htmlVc = [[JYHtmlDetailViewController alloc] init];
+        htmlVc.urlString = @"https://apartment.pinecc.cn/public/frontend/index.html#/Agreement";
+        //        [self.navigationController pushViewController:htmlVc animated:true];
+        [self presentViewController:htmlVc animated:NO completion:nil];
         return NO;
     }
     return YES;

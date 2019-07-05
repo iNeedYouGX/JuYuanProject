@@ -61,5 +61,6 @@
 
 #import "CZProgressHUD.h"
 #import "UIView+GXExtension.h"
+#import "JYHtmlDetailViewController.h"
  
 #endif /* PrefixHeader_pch */

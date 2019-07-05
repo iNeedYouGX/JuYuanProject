@@ -122,6 +122,7 @@
 
 - (void)navControllerPop
 {
+    [self dismissViewControllerAnimated:NO completion:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
