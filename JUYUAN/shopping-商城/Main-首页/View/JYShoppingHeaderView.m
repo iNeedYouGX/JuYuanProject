@@ -23,24 +23,47 @@
 @property (nonatomic, strong) CZTextField *textField;
 /** 轮播图 */
 @property (nonatomic, strong) CZScollerImageTool *imageView;
+/** 未读按钮 */
+@property (nonatomic, strong) UILabel *unreadLabel;
 @end
 
 @implementation JYShoppingHeaderView
 - (void)setUnreaderCount:(NSInteger)unreaderCount
 {
     _unreaderCount = unreaderCount;
-    //    if (unreaderCount <= 0) {
-    //        self.unreadLabel.hidden = YES;
-    //    } else {
-    //        self.unreadLabel.hidden = NO;
-    //        self.unreadLabel.text = [NSString stringWithFormat:@"%ld", (long)unreaderCount];
-    //    }
+        if (unreaderCount <= 0) {
+            self.unreadLabel.hidden = YES;
+        } else {
+            self.unreadLabel.hidden = NO;
+            self.unreadLabel.text = [NSString stringWithFormat:@"%ld", (long)unreaderCount];
+        }
 
-    if (unreaderCount <= 0) {
-        [self.msgButton setImage:[UIImage imageNamed:@"tz2"] forState:UIControlStateNormal];
-    } else {
-        [self.msgButton setImage:[UIImage imageNamed:@"tz1"] forState:UIControlStateNormal];
+//    if (unreaderCount <= 0) {
+//        [self.msgButton setImage:[UIImage imageNamed:@"tz2"] forState:UIControlStateNormal];
+//    } else {
+//        [self.msgButton setImage:[UIImage imageNamed:@"tz1"] forState:UIControlStateNormal];
+//    }
+}
+
+- (UILabel *)unreadLabel
+{
+    if (_unreadLabel == nil) {
+        UILabel *unreadLabel = [[UILabel alloc] init];
+        //    unreadLabel.hidden = YES;
+        unreadLabel.userInteractionEnabled = NO;
+        self.unreadLabel = unreadLabel;
+        unreadLabel.x = CZGetX(self.msgButton) - 10;
+        unreadLabel.y = self.msgButton.y;
+        unreadLabel.textColor = CZGlobalWhiteBg;
+        unreadLabel.font = [UIFont systemFontOfSize:11];
+        unreadLabel.textAlignment = NSTextAlignmentCenter;
+        unreadLabel.size = CGSizeMake(15, 15);
+        unreadLabel.backgroundColor = [UIColor redColor];
+        unreadLabel.layer.cornerRadius = unreadLabel.width / 2.0;
+        unreadLabel.layer.masksToBounds = YES;
+        [self addSubview:unreadLabel];
     }
+    return _unreadLabel;
 }
 
 - (IBAction)msgButtonAction:(id)sender {
@@ -53,7 +76,7 @@
 
 - (IBAction)shoppingCart:(id)sender {
     JYHtmlDetailViewController *htmlVC = [[JYHtmlDetailViewController alloc] init];
-    htmlVC.urlString = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/cartList?token=%@",[JYUserInfoManager getUserToken]];
+    htmlVC.urlString = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/cartList?token=%@&aptId=%@",[JYUserInfoManager getUserToken], [JYUserInfoManager getUserHouseNumber]];
     NSLog(@"%@",htmlVC.urlString);
     UIViewController *navVc = [self viewController];
     [navVc.navigationController pushViewController:htmlVC animated:true];

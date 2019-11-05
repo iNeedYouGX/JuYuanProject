@@ -15,6 +15,8 @@
 /** <#注释#> */
 @property (nonatomic, weak) IBOutlet UIView *imagesView;
 @property (weak, nonatomic) IBOutlet UIButton *msgButton;
+/** 未读按钮 */
+@property (nonatomic, strong) UILabel *unreadLabel;
 
 @end
 
@@ -23,17 +25,42 @@
 - (void)setUnreaderCount:(NSInteger)unreaderCount
 {
     _unreaderCount = unreaderCount;
-
     if (unreaderCount <= 0) {
-        [self.msgButton setImage:[UIImage imageNamed:@"tz2"] forState:UIControlStateNormal];
+        self.unreadLabel.hidden = YES;
     } else {
-        [self.msgButton setImage:[UIImage imageNamed:@"tz1"] forState:UIControlStateNormal];
+        self.unreadLabel.hidden = NO;
+        self.unreadLabel.text = [NSString stringWithFormat:@"%ld", (long)unreaderCount > 99 ? 99 : (long)unreaderCount];
     }
+}
+
+- (UILabel *)unreadLabel
+{
+    if (_unreadLabel == nil) {
+        UILabel *unreadLabel = [[UILabel alloc] init];
+        //    unreadLabel.hidden = YES;
+        unreadLabel.userInteractionEnabled = NO;
+        self.unreadLabel = unreadLabel;
+        unreadLabel.x = CZGetX(self.msgButton) - 10;
+        unreadLabel.y = self.msgButton.y;
+        unreadLabel.textColor = CZGlobalWhiteBg;
+        unreadLabel.font = [UIFont systemFontOfSize:11];
+        unreadLabel.textAlignment = NSTextAlignmentCenter;
+        unreadLabel.size = CGSizeMake(15, 15);
+        unreadLabel.backgroundColor = [UIColor redColor];
+        unreadLabel.layer.cornerRadius = unreadLabel.width / 2.0;
+        unreadLabel.layer.masksToBounds = YES;
+        [self addSubview:unreadLabel];
+    }
+    return _unreadLabel;
 }
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+
+    [self layoutIfNeeded];
+
+
 
 }
 - (void)controlMegButtonHide:(BOOL)hide {

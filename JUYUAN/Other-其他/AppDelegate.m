@@ -10,6 +10,7 @@
 #import "CZTabBarController.h"
 #import "AlipaySDK/AlipaySDK.h"
 #import "JYWXPayTool.h"
+#import "CZGuideTool.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +22,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[CZTabBarController alloc] init];
+    // 设置引导页
+    [CZGuideTool chooseRootViewController:self.window];
     [self.window makeKeyAndVisible];
     
     
@@ -33,6 +35,11 @@
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
+    if ([url.absoluteString hasPrefix:@"juyuanapp://https//"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"openURLWithParam" object:nil userInfo:@{@"url" : url.absoluteString}];
+
+    }
+
     if ([url.host isEqualToString:@"safepay"]) {
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {

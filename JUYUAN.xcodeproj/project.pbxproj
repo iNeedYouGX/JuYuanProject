@@ -110,6 +110,8 @@
 		97AB0C142253044200072426 /* JYShoppingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97AB0C132253044200072426 /* JYShoppingHeaderView.xib */; };
 		97AC559822CA3B2500D7F2DA /* CZUpdataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AC559622CA3B2500D7F2DA /* CZUpdataView.m */; };
 		97AC559922CA3B2500D7F2DA /* CZUpdataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97AC559722CA3B2500D7F2DA /* CZUpdataView.xib */; };
+		97AF9ACB23118AD900AE2DE2 /* CZGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AF9AC823118AD800AE2DE2 /* CZGuideController.m */; };
+		97AF9ACC23118AD900AE2DE2 /* CZGuideTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AF9AC923118AD900AE2DE2 /* CZGuideTool.m */; };
 		97BC3911223A3B2000DC4D67 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BC390F223A3B2000DC4D67 /* AlipaySDK.framework */; };
 		97BC3912223A3B2000DC4D67 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97BC3910223A3B2000DC4D67 /* AlipaySDK.bundle */; };
 		97BC3915223A3B5E00DC4D67 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BC3914223A3B5E00DC4D67 /* libc++.tbd */; };
@@ -362,6 +364,10 @@
 		97AC559522CA3B2500D7F2DA /* CZUpdataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZUpdataView.h; sourceTree = "<group>"; };
 		97AC559622CA3B2500D7F2DA /* CZUpdataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZUpdataView.m; sourceTree = "<group>"; };
 		97AC559722CA3B2500D7F2DA /* CZUpdataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CZUpdataView.xib; sourceTree = "<group>"; };
+		97AF9AC723118AD800AE2DE2 /* CZGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZGuideController.h; sourceTree = "<group>"; };
+		97AF9AC823118AD800AE2DE2 /* CZGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZGuideController.m; sourceTree = "<group>"; };
+		97AF9AC923118AD900AE2DE2 /* CZGuideTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZGuideTool.m; sourceTree = "<group>"; };
+		97AF9ACA23118AD900AE2DE2 /* CZGuideTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZGuideTool.h; sourceTree = "<group>"; };
 		97BC390F223A3B2000DC4D67 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		97BC3910223A3B2000DC4D67 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		97BC3914223A3B5E00DC4D67 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -703,6 +709,10 @@
 		9789A2CA22262DBD007874F3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				97AF9AC723118AD800AE2DE2 /* CZGuideController.h */,
+				97AF9AC823118AD800AE2DE2 /* CZGuideController.m */,
+				97AF9ACA23118AD900AE2DE2 /* CZGuideTool.h */,
+				97AF9AC923118AD900AE2DE2 /* CZGuideTool.m */,
 				9789A2CD22262DBD007874F3 /* CZTabBarController.h */,
 				9789A2CB22262DBD007874F3 /* CZTabBarController.m */,
 				9789A2CC22262DBD007874F3 /* CZNavigationController.h */,
@@ -1224,6 +1234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9789A38922263751007874F3 /* NSArray+MASAdditions.m in Sources */,
+				97AF9ACC23118AD900AE2DE2 /* CZGuideTool.m in Sources */,
 				9789A31C222636D4007874F3 /* NSObject+MJKeyValue.m in Sources */,
 				9789A365222636E4007874F3 /* MJRefreshAutoFooter.m in Sources */,
 				9789A35D222636E4007874F3 /* MJRefreshAutoGifFooter.m in Sources */,
@@ -1308,6 +1319,7 @@
 				97EA6ACB2228DBB30010770F /* SDWebImageCompat.m in Sources */,
 				9789A38C22263751007874F3 /* MASViewConstraint.m in Sources */,
 				97EA6AE92228F5A70010770F /* UIButton+CZExtension.m in Sources */,
+				97AF9ACB23118AD900AE2DE2 /* CZGuideController.m in Sources */,
 				9789A366222636E4007874F3 /* MJRefreshComponent.m in Sources */,
 				97EA6AC12228DBB30010770F /* MKAnnotationView+WebCache.m in Sources */,
 				940B6A34222678170065312E /* JYServiceCollectionViewCell.m in Sources */,
@@ -1483,9 +1495,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = G583M5JELZ;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 333D93R4R3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/JUYUAN/Other-其他/Tool/支付宝",
@@ -1501,14 +1514,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/JUYUAN/Other-其他/Tool/微信支付/WechtSDK1.8.2",
 				);
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"-Objc",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.testtest.test2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.juyuan.development;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = GXTEXTProvisioning;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE_SPECIFIER = distributionPro;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1516,9 +1530,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = G583M5JELZ;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 333D93R4R3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/JUYUAN/Other-其他/Tool/支付宝",
@@ -1534,14 +1549,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/JUYUAN/Other-其他/Tool/微信支付/WechtSDK1.8.2",
 				);
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"-Objc",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.testtest.test2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.juyuan.development;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = GXTEXTProvisioning;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE_SPECIFIER = distributionPro;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

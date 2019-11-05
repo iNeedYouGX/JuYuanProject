@@ -37,6 +37,7 @@
     NSInteger page ;
     NSInteger page_size ;
 }
+
 // 获取信息
 - (void)getNotice
 {
@@ -46,17 +47,18 @@
     [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
         if ([result[@"error_code"] isEqual:@(0)]) {
             NSNumber *isRead = result[@"bizobj"][@"is_read"];
+
             if ([isRead  isEqual: @(0)]) {
                 self.search.unreaderCount = 0;
             } else {
-                self.search.unreaderCount = 1;
+                self.search.unreaderCount = [result[@"bizobj"][@"count"] integerValue];
+//                self.search.unreaderCount = 100;
             }
         }
     } failure:^(NSError *error) {
 
     }];
 }
-
 
 - (JYHtmlDetailViewController *)htmlVC {
     if (_htmlVC == nil) {
@@ -98,8 +100,8 @@
     // 获取版本号
     self.getVersion();
 }
-#pragma mark -- end
 
+#pragma mark -- end
 - (void)setupRefresh
 {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(reloadNewDiscover)];

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CZProgressHUD : UIView
+
 + (instancetype)showProgressHUDWithText:(NSString *)text;
 + (void)hideAfterDelay:(NSTimeInterval)delay;
+
 @end

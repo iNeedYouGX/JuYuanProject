@@ -20,6 +20,8 @@
 @property (nonatomic, strong) JYServiceHeaderView *headerView;
 @property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, strong) JYHtmlDetailViewController *htmlVC;
+/** 未读按钮 */
+@property (nonatomic, strong) UILabel *unreadLabel;
 
 @end
 
@@ -62,7 +64,7 @@
             if ([isRead  isEqual: @(0)]) {
                 self.headerView.unreaderCount = 0;
             } else {
-                self.headerView.unreaderCount = 1;
+                self.headerView.unreaderCount = [result[@"bizobj"][@"count"] integerValue];
             }
         }
     } failure:^(NSError *error) {

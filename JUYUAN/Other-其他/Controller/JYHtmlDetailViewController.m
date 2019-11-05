@@ -11,7 +11,7 @@
 #import "JYLoginController.h"
 #import "JYUserInfoManager.h"
 
-@interface JYHtmlDetailViewController ()<WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler>
+@interface JYHtmlDetailViewController ()<WKUIDelegate,WKNavigationDelegate, WKScriptMessageHandler>
 @property (nonatomic, strong) WKWebView *webView;
 @end
 
@@ -23,6 +23,21 @@
     
     NSString *postLoginCenterNotfi = @"postLoginCenterNotfi";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotifi) name:postLoginCenterNotfi object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openURLWithParam:) name:@"openURLWithParam" object:nil];
+
+
+
+}
+
+- (void)openURLWithParam:(NSNotification *)notif
+{
+    NSLog(@"%@", notif.userInfo);
+    NSString *url = notif.userInfo[@"url"];
+    url = [url componentsSeparatedByString:@"https"][1];
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https:%@%@", url, [JYUserInfoManager getUserToken]]]];
+    [_webView loadRequest:request];
 }
 
 - (void)receiveNotifi

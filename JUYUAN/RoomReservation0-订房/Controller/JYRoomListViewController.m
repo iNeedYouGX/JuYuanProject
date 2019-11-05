@@ -17,6 +17,8 @@
 
 @interface JYRoomListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *msgButton;
+/** 未读按钮 */
+@property (nonatomic, strong) UILabel *unreadLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *apartmentLabel;
 
@@ -52,6 +54,12 @@
 {
     NSInteger page ;
     NSInteger page_size ;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self getNotice];
 }
 
 - (void)viewDidLoad {
@@ -344,6 +352,49 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
+// 获取信息
+- (void)getNotice
+{
+    NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/is_dashboard"];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"token"] = [JYUserInfoManager getUserToken];
+    [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
+        if ([result[@"error_code"] isEqual:@(0)]) {
+            NSNumber *isRead = result[@"bizobj"][@"is_read"];
+
+            if ([isRead  isEqual: @(0)]) {
+                self.unreadLabel.hidden = YES;
+            } else {
+                NSInteger unreaderCount = [result[@"bizobj"][@"count"] integerValue];
+                self.unreadLabel.hidden = NO;
+                self.unreadLabel.text = [NSString stringWithFormat:@"%ld", (long)unreaderCount > 99 ? 99 : (long)unreaderCount];
+                //                self.search.unreaderCount = 100;
+            }
+        }
+    } failure:^(NSError *error) {}];
+}
+
+- (UILabel *)unreadLabel
+{
+    if (_unreadLabel == nil) {
+        UILabel *unreadLabel = [[UILabel alloc] init];
+        //    unreadLabel.hidden = YES;
+        unreadLabel.userInteractionEnabled = NO;
+        self.unreadLabel = unreadLabel;
+        unreadLabel.x = CZGetX(self.msgButton) - 10;
+        unreadLabel.y = self.msgButton.y + 13;
+        unreadLabel.textColor = CZGlobalWhiteBg;
+        unreadLabel.font = [UIFont systemFontOfSize:11];
+        unreadLabel.textAlignment = NSTextAlignmentCenter;
+        unreadLabel.size = CGSizeMake(15, 15);
+        unreadLabel.backgroundColor = [UIColor redColor];
+        unreadLabel.layer.cornerRadius = unreadLabel.width / 2.0;
+        unreadLabel.layer.masksToBounds = YES;
+        [self.view addSubview:unreadLabel];
+    }
+    return _unreadLabel;
+}
 - (IBAction)msgAction:(id)sender {
     if ([JYUserInfoManager getUserToken].length > 0) {
         JYHtmlDetailViewController *htmlVc = [[JYHtmlDetailViewController alloc] init];

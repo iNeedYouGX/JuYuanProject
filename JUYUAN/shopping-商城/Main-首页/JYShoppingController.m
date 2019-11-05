@@ -230,7 +230,7 @@
             if ([isRead  isEqual: @(0)]) {
                 self.headerView.unreaderCount = 0;
             } else {
-                self.headerView.unreaderCount = 1;
+                self.headerView.unreaderCount = [result[@"bizobj"][@"count"] integerValue];
             }
         }
     } failure:^(NSError *error) {
@@ -273,13 +273,24 @@
                 [self.backView removeFromSuperview];
                 // 有房间号
                 self.storeyArray = result[@"bizobj"];
+                NSMutableArray *arr = [NSMutableArray array];
+                for (NSDictionary *dic in self.storeyArray) {
+                    if (![dic[@"user_house_id"] isKindOfClass:[NSNull class]]) {
+                        [arr addObject:dic];
+                    }
+                }
+                self.storeyArray = [NSArray arrayWithArray:arr];
+
+
                 if (!self.rightBtn) {                
-                    [self setupUserNumberBtn:result[@"bizobj"][0][@"store_name"]]; 
+                    [self setupUserNumberBtn:self.storeyArray[0][@"store_name"]];
                     [self.view addSubview:self.titlesView];
                     [self changeButtonUI];
-                } 
-                self.userHouseNumber = result[@"bizobj"][0][@"user_house_id"];
-                [JYUserInfoManager saveUserHouseNumber:self.userHouseNumber];
+                }
+                if (self.userHouseNumber.length == 0) {
+                    self.userHouseNumber = [NSString stringWithFormat:@"%@", self.storeyArray[0][@"user_house_id"]];
+                    [JYUserInfoManager saveUserHouseNumber:self.userHouseNumber];
+                }
                 // 获取热卖数据
                 [self getHotSaleDataSource];
             } else {
@@ -528,7 +539,7 @@
         if ([self.storeyArray[i][@"user_house_id"] integerValue] == btn.tag) {
             [self.rightBtn setTitle:self.storeyArray[i][@"store_name"] forState:UIControlStateNormal];
             [self.rightBtn sizeToFit];
-            self.userHouseNumber = self.storeyArray[i][@"user_house_id"];
+            self.userHouseNumber = [NSString stringWithFormat:@"%@", self.storeyArray[i][@"user_house_id"]];
             [JYUserInfoManager saveUserHouseNumber:self.userHouseNumber];
             // 获取热卖数据
             [self getHotSaleDataSource];
