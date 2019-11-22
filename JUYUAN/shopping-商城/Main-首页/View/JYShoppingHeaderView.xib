@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,13 +17,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="489" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商城" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1F-tc-rg4">
-                            <rect key="frame" x="20" y="16.5" width="45" height="27"/>
+                            <rect key="frame" x="15" y="16.5" width="45" height="27"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEw-Y5-Uh8">
-                            <rect key="frame" x="434" y="10" width="35" height="40"/>
+                            <rect key="frame" x="439" y="10" width="35" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="55N-3u-mmf"/>
                                 <constraint firstAttribute="height" constant="40" id="XhO-Ge-HTJ"/>
@@ -36,7 +34,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fcw-Ms-hEu">
-                            <rect key="frame" x="384" y="10" width="50" height="40"/>
+                            <rect key="frame" x="389" y="10" width="50" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="2yJ-j6-dBm"/>
                                 <constraint firstAttribute="height" constant="40" id="Ifr-WJ-FWr"/>
@@ -54,19 +52,19 @@
                         <constraint firstAttribute="height" constant="60" id="H38-kE-pvN"/>
                         <constraint firstItem="PEw-Y5-Uh8" firstAttribute="top" secondItem="SG2-RQ-s7v" secondAttribute="top" constant="10" id="KNF-qZ-ZUj"/>
                         <constraint firstItem="Fcw-Ms-hEu" firstAttribute="centerY" secondItem="h1F-tc-rg4" secondAttribute="centerY" id="KqH-Hi-pd5"/>
-                        <constraint firstItem="h1F-tc-rg4" firstAttribute="leading" secondItem="SG2-RQ-s7v" secondAttribute="leading" constant="20" id="opn-g6-Ol5"/>
-                        <constraint firstAttribute="trailing" secondItem="PEw-Y5-Uh8" secondAttribute="trailing" constant="20" id="ygr-mO-th3"/>
+                        <constraint firstItem="h1F-tc-rg4" firstAttribute="leading" secondItem="SG2-RQ-s7v" secondAttribute="leading" constant="15" id="opn-g6-Ol5"/>
+                        <constraint firstAttribute="trailing" secondItem="PEw-Y5-Uh8" secondAttribute="trailing" constant="15" id="ygr-mO-th3"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyO-d5-Nnp">
-                    <rect key="frame" x="20" y="60" width="449" height="34"/>
+                    <rect key="frame" x="10" y="60" width="469" height="34"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="M3n-cS-bKf"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDg-nd-wGV">
-                    <rect key="frame" x="20" y="116" width="449" height="125"/>
+                    <rect key="frame" x="10" y="116" width="469" height="125"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="125" id="uTs-dJ-G0M"/>
@@ -76,11 +74,11 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="SG2-RQ-s7v" secondAttribute="trailing" id="4Oy-3e-Zv5"/>
-                <constraint firstAttribute="trailing" secondItem="eyO-d5-Nnp" secondAttribute="trailing" constant="20" id="5NQ-Zx-5iE"/>
-                <constraint firstAttribute="trailing" secondItem="FDg-nd-wGV" secondAttribute="trailing" constant="20" id="H20-56-7Rk"/>
+                <constraint firstAttribute="trailing" secondItem="eyO-d5-Nnp" secondAttribute="trailing" constant="10" id="5NQ-Zx-5iE"/>
+                <constraint firstAttribute="trailing" secondItem="FDg-nd-wGV" secondAttribute="trailing" constant="10" id="H20-56-7Rk"/>
                 <constraint firstItem="FDg-nd-wGV" firstAttribute="top" secondItem="eyO-d5-Nnp" secondAttribute="bottom" constant="22" id="JQ4-Bt-sOr"/>
-                <constraint firstItem="FDg-nd-wGV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ZY1-RI-ibc"/>
-                <constraint firstItem="eyO-d5-Nnp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="a6e-qO-e2A"/>
+                <constraint firstItem="FDg-nd-wGV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="ZY1-RI-ibc"/>
+                <constraint firstItem="eyO-d5-Nnp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="a6e-qO-e2A"/>
                 <constraint firstItem="SG2-RQ-s7v" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hlH-E3-zXN"/>
                 <constraint firstItem="eyO-d5-Nnp" firstAttribute="top" secondItem="SG2-RQ-s7v" secondAttribute="bottom" id="ihj-PN-FQW"/>
                 <constraint firstItem="SG2-RQ-s7v" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="sfu-S6-A8k"/>
@@ -94,7 +92,7 @@
                 <outlet property="searchView" destination="eyO-d5-Nnp" id="qZC-S2-yKW"/>
                 <outlet property="topView" destination="SG2-RQ-s7v" id="UC2-Re-gvE"/>
             </connections>
-            <point key="canvasLocation" x="-2022" y="-335"/>
+            <point key="canvasLocation" x="-1849" y="-390"/>
         </view>
     </objects>
     <resources>

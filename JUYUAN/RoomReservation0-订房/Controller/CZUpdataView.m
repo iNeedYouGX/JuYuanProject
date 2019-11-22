@@ -29,7 +29,6 @@
 - (IBAction)gotoUpdata
 {
     //跳转到App Store
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-services:///?action=download-manifest&url=https://raw.githubusercontent.com/iNeedYouGX/plistDownLoad/master/test.plist"]];
 }
 
 /** 删除自己 */
@@ -43,9 +42,6 @@
     _versionMessage = versionMessage;
     self.versionLabel.text = versionMessage[@"version"];
     self.chengeContent.text = versionMessage[@"description"];
-//    if ([versionMessage[@"needUpdate"] integerValue] == 1) {    
-//        self.delectBtn.hidden = YES;
-//    }
 }
 
 

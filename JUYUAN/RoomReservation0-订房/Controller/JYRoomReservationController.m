@@ -176,12 +176,12 @@
                 NSString *curVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
                 NSString *version = result[@"bizobj"][@"version"] != [NSNull null] ? result[@"bizobj"][@"version"] : @"";
                 if ([curVersion compare:version] == NSOrderedAscending) {
-                    // 判断是否更新
-                    CZUpdataView *backView = [CZUpdataView updataView];
-                    backView.versionMessage = result[@"data"];
-                    backView.frame = [UIScreen mainScreen].bounds;
-                    backView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
-                    [[UIApplication sharedApplication].keyWindow addSubview: backView];
+//                    // 判断是否更新
+//                    CZUpdataView *backView = [CZUpdataView updataView];
+//                    backView.versionMessage = result[@"data"];
+//                    backView.frame = [UIScreen mainScreen].bounds;
+//                    backView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+//                    [[UIApplication sharedApplication].keyWindow addSubview: backView];
                 }
             }
         } failure:^(NSError *error) {

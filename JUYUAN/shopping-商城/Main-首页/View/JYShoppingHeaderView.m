@@ -98,7 +98,7 @@
 - (CZScollerImageTool *)imageView
 {
     if (_imageView == nil) {
-        _imageView = [[CZScollerImageTool alloc] initWithFrame:CGRectMake(0, 0, SCR_WIDTH - 40, 125)];
+        _imageView = [[CZScollerImageTool alloc] initWithFrame:CGRectMake(0, 0, SCR_WIDTH - 20, 125)];
         
         __weak typeof(self) weakSelf = self;
         _imageView.block = ^(NSInteger index) {
@@ -118,7 +118,8 @@
 {
     CZTextField *textF = [[CZTextField alloc] init];
     textF.placeholderStr = @"";
-    textF.width = SCR_WIDTH - 40;
+
+    textF.width = SCR_WIDTH - 20;
     textF.height = self.searchView.height;
     self.textField = textF;
     self.textField.delegate = self;
