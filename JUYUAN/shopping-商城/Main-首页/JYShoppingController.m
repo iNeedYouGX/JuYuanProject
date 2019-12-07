@@ -243,7 +243,11 @@
 {
     NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/mall/ad"];
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    param[@"token"] = [JYUserInfoManager getUserToken];
+    if ([JYUserInfoManager getUserToken].length > 0) {
+        param[@"token"] = [JYUserInfoManager getUserToken];
+    } else {
+        param[@"token"] = @"108_3692ed3aff5315c118720f616f6cfec1";
+    }
     
 //    [CZProgressHUD showProgressHUDWithText:nil];
     [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
@@ -263,7 +267,11 @@
 {
     NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/mall/user_house"];
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    param[@"token"] = [JYUserInfoManager getUserToken];
+    if ([JYUserInfoManager getUserToken].length > 0) {
+        param[@"token"] = [JYUserInfoManager getUserToken];
+    } else {
+        param[@"token"] = @"108_3692ed3aff5315c118720f616f6cfec1";
+    }
     
 //    [CZProgressHUD showProgressHUDWithText:nil];
     [GXNetTool GetNetWithUrl:url body:param header:nil response:GXResponseStyleJSON success:^(id result) {
@@ -324,7 +332,11 @@
 {
     NSString *url = [JPSERVER_URL stringByAppendingPathComponent:@"/api/v1/mall/goods"];
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    param[@"token"] = [JYUserInfoManager getUserToken];
+    if ([JYUserInfoManager getUserToken].length > 0) {
+        param[@"token"] = [JYUserInfoManager getUserToken];
+    } else {
+        param[@"token"] = @"108_3692ed3aff5315c118720f616f6cfec1";
+    }
     param[@"is_hot"] = @(1);
     param[@"store_id"] = self.userHouseNumber;
     
@@ -442,18 +454,18 @@
     [super viewWillAppear:animated];
     // 获取信息
     [self getNotice];
-    if ([JYUserInfoManager getUserToken].length > 0) {
+//    if ([JYUserInfoManager getUserToken].length > 0) {
         // 获取轮播图数据
         [self getDataSource];
         // 获取房间号数据和热卖数据
         [self getUser_houseDataSource];
-    } else {
-        JYLoginController *loginView = [[JYLoginController alloc] init];
-        [self presentViewController:loginView animated:YES completion:^{
-            UITabBarController *tabbar = (UITabBarController *)[[UIApplication sharedApplication].keyWindow rootViewController];
-            tabbar.selectedIndex = 0;
-        }];
-    }
+//    } else {
+//        JYLoginController *loginView = [[JYLoginController alloc] init];
+//        [self presentViewController:loginView animated:YES completion:^{
+//            UITabBarController *tabbar = (UITabBarController *)[[UIApplication sharedApplication].keyWindow rootViewController];
+//            tabbar.selectedIndex = 0;
+//        }];
+//    }
 }
 
 #pragma mark -- end
@@ -533,7 +545,7 @@
 
 // 点击选择楼层
 - (void)btnAction:(UIButton *)btn {
-    self.userHouseNumber = [NSString stringWithFormat:@"%ld", btn.tag];;
+    self.userHouseNumber = [NSString stringWithFormat:@"%ld", (long)btn.tag];;
     [self changeButtonUI];
     for (int i = 0; i < self.storeyArray.count; i++) {
         if ([self.storeyArray[i][@"user_house_id"] integerValue] == btn.tag) {

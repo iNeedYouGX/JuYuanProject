@@ -10,6 +10,7 @@
 #import "JYHtmlDetailViewController.h"
 #import "JYShoppingDetailCell.h"
 #import "JYUserInfoManager.h" // 用户信息
+#import "JYLoginController.h"
 
 @interface JYShoppingCell ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (strong, nonatomic) UICollectionView *collectionView;
@@ -68,15 +69,26 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    NSDictionary *paramDic = self.hotSaleDataArr[indexPath.row];
-    JYHtmlDetailViewController *vc = [[JYHtmlDetailViewController alloc] init];
-    //    NSString *name = [self.apartmentName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSString *html = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/goodsDetail?token=%@&goodsId=%@&aptId=%@", [JYUserInfoManager getUserToken], paramDic[@"goods_id"],  [JYUserInfoManager getUserHouseNumber]];
-    NSLog(@"%@", html);
-    vc.urlString = html;
-    UIViewController *navVc = [self viewController];
-    [navVc.navigationController pushViewController:vc animated:YES];
+    if ([JYUserInfoManager getUserToken].length > 0) {
+        NSDictionary *paramDic = self.hotSaleDataArr[indexPath.row];
+        JYHtmlDetailViewController *vc = [[JYHtmlDetailViewController alloc] init];
+        //    NSString *name = [self.apartmentName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        NSString *html = [NSString stringWithFormat:@"https://apartment.pinecc.cn/public/frontend/index.html#/goodsDetail?token=%@&goodsId=%@&aptId=%@", [JYUserInfoManager getUserToken], paramDic[@"goods_id"],  [JYUserInfoManager getUserHouseNumber]];
+        NSLog(@"%@", html);
+        vc.urlString = html;
+        UIViewController *navVc = [self viewController];
+        [navVc.navigationController pushViewController:vc animated:YES];
+    } else {
+        JYLoginController *loginView = [[JYLoginController alloc] init];
+        UIViewController *navVc = [self viewController];
+        [navVc presentViewController:loginView animated:YES completion:^{
+            UITabBarController *tabbar = (UITabBarController *)[[UIApplication sharedApplication].keyWindow rootViewController];
+            tabbar.selectedIndex = 0;
+        }];
+    }
+
+
+
 }
 
 // 找到父控制器
