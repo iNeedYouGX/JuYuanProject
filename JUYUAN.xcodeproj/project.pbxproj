@@ -130,6 +130,8 @@
 		97BC393D223A498A00DC4D67 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BC393C223A498A00DC4D67 /* Security.framework */; };
 		97BC393F223A49CA00DC4D67 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BC393E223A49CA00DC4D67 /* libsqlite3.0.tbd */; };
 		97BC3942223A54DA00DC4D67 /* JYWXPayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC3941223A54DA00DC4D67 /* JYWXPayTool.m */; };
+		97BD7C7423C2D56000271A27 /* UserAgreementAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BD7C7223C2D56000271A27 /* UserAgreementAlert.m */; };
+		97BD7C7523C2D56000271A27 /* UserAgreementAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97BD7C7323C2D56000271A27 /* UserAgreementAlert.xib */; };
 		97EA6A7D2228DB860010770F /* PlanPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EA6A792228DB860010770F /* PlanPageControl.m */; };
 		97EA6A7E2228DB860010770F /* PlanADScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EA6A7A2228DB860010770F /* PlanADScrollView.m */; };
 		97EA6A7F2228DB860010770F /* PlanADCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EA6A7C2228DB860010770F /* PlanADCollectionViewCell.m */; };
@@ -391,6 +393,9 @@
 		97BC393E223A49CA00DC4D67 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		97BC3940223A54DA00DC4D67 /* JYWXPayTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYWXPayTool.h; sourceTree = "<group>"; };
 		97BC3941223A54DA00DC4D67 /* JYWXPayTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYWXPayTool.m; sourceTree = "<group>"; };
+		97BD7C7123C2D56000271A27 /* UserAgreementAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAgreementAlert.h; sourceTree = "<group>"; };
+		97BD7C7223C2D56000271A27 /* UserAgreementAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAgreementAlert.m; sourceTree = "<group>"; };
+		97BD7C7323C2D56000271A27 /* UserAgreementAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserAgreementAlert.xib; sourceTree = "<group>"; };
 		97EA6A772228DB860010770F /* PlanADScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanADScrollView.h; sourceTree = "<group>"; };
 		97EA6A782228DB860010770F /* PlanADCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanADCollectionViewCell.h; sourceTree = "<group>"; };
 		97EA6A792228DB860010770F /* PlanPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPageControl.m; sourceTree = "<group>"; };
@@ -496,6 +501,7 @@
 		940B6A2322265E560065312E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				97BD7C7023C2D4EB00271A27 /* 弹框新加弹框 */,
 				97AC559522CA3B2500D7F2DA /* CZUpdataView.h */,
 				97AC559622CA3B2500D7F2DA /* CZUpdataView.m */,
 				97AC559722CA3B2500D7F2DA /* CZUpdataView.xib */,
@@ -1036,6 +1042,16 @@
 			path = WechtSDK1.8.2;
 			sourceTree = "<group>";
 		};
+		97BD7C7023C2D4EB00271A27 /* 弹框新加弹框 */ = {
+			isa = PBXGroup;
+			children = (
+				97BD7C7123C2D56000271A27 /* UserAgreementAlert.h */,
+				97BD7C7223C2D56000271A27 /* UserAgreementAlert.m */,
+				97BD7C7323C2D56000271A27 /* UserAgreementAlert.xib */,
+			);
+			path = "弹框新加弹框";
+			sourceTree = "<group>";
+		};
 		97EA6A762228DB860010770F /* PlanADScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1204,6 +1220,7 @@
 				9789A3A822264872007874F3 /* JYServiceController.xib in Resources */,
 				94DD4E262227B7FC0074324E /* JYRoomListCollectionViewCell.xib in Resources */,
 				940B6A30222676B70065312E /* JYServiceTableViewCell.xib in Resources */,
+				97BD7C7523C2D56000271A27 /* UserAgreementAlert.xib in Resources */,
 				97AB0C142253044200072426 /* JYShoppingHeaderView.xib in Resources */,
 				9789A2BC22262A99007874F3 /* LaunchScreen.storyboard in Resources */,
 				94DD4E1C2227AF120074324E /* JYForgetWordViewController.xib in Resources */,
@@ -1267,6 +1284,7 @@
 				9789A35B222636E4007874F3 /* MJRefreshBackNormalFooter.m in Sources */,
 				97BC3942223A54DA00DC4D67 /* JYWXPayTool.m in Sources */,
 				97EA6AD92228DBB30010770F /* UIView+WebCache.m in Sources */,
+				97BD7C7423C2D56000271A27 /* UserAgreementAlert.m in Sources */,
 				97BC392A223A3C5E00DC4D67 /* JYAlipayTool.m in Sources */,
 				9789A31D222636D4007874F3 /* MJProperty.m in Sources */,
 				97AC559822CA3B2500D7F2DA /* CZUpdataView.m in Sources */,
@@ -1495,9 +1513,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 333D93R4R3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1514,14 +1532,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/JUYUAN/Other-其他/Tool/微信支付/WechtSDK1.8.2",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"-Objc",
 					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.juyuan.apartment1122;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = deveJuYuan1122;
+				PROVISIONING_PROFILE_SPECIFIER = distrJuYuan1122;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1530,9 +1548,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 333D93R4R3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1549,14 +1567,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/JUYUAN/Other-其他/Tool/微信支付/WechtSDK1.8.2",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"-Objc",
 					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.juyuan.apartment1122;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = deveJuYuan1122;
+				PROVISIONING_PROFILE_SPECIFIER = distrJuYuan1122;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

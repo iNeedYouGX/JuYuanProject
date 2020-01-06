@@ -21,6 +21,8 @@
 #import "JYWXPayTool.h"
 #import "CZUpdataView.h"
 
+#import "UserAgreementAlert.h"
+
 @interface JYRoomReservationController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headerView;
@@ -73,6 +75,12 @@
     [super viewWillAppear:animated];
     // 获取信息
     [self getNotice];
+
+    NSString *agree = [[NSUserDefaults standardUserDefaults] objectForKey:@"agreement"];
+    if (![agree isEqualToString:@"yes"]) {
+        UserAgreementAlert *alert = [[UserAgreementAlert alloc] init];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 - (void)viewDidLoad {

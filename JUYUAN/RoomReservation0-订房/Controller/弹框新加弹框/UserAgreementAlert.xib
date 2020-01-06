@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserAgreementAlert">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="感谢你信任并使用8901公寓!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0f-Qz-aXQ">
+                    <rect key="frame" x="85" y="53" width="205" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlb-5a-mVd">
+                    <rect key="frame" x="26" y="119" width="75.5" height="17"/>
+                    <string key="text">亲爱的用户:
+</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我们依据最新的监管要求制定了" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T05-dM-VOt">
+                    <rect key="frame" x="26" y="156" width="200" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLa-tI-3t3">
+                    <rect key="frame" x="226" y="149.5" width="92" height="30"/>
+                    <state key="normal" title="《用户协议》"/>
+                    <connections>
+                        <action selector="UserAgreementAction:" destination="-1" eventType="touchUpInside" id="zhA-sj-p3m"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="及" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxa-ha-i7h">
+                    <rect key="frame" x="317" y="156" width="15" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmV-NJ-phb">
+                    <rect key="frame" x="26" y="169" width="92" height="30"/>
+                    <state key="normal" title="《隐私政策》"/>
+                    <connections>
+                        <action selector="PrivacyPolicyAction:" destination="-1" eventType="touchUpInside" id="1CG-Za-owM"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请您仔细阅读相关条款,充分理解您" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJp-Hn-4pq">
+                    <rect key="frame" x="119" y="175.5" width="219" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yV-B0-41S">
+                    <rect key="frame" x="26" y="195" width="323" height="67"/>
+                    <string key="text">在使用本软件过程中我们可能收集、使用或共享您个人信息的情形,为方便您了解自己的权利,重点说明如下:
+</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvj-pa-iY9">
+                    <rect key="frame" x="26" y="278" width="323" height="217.5"/>
+                    <string key="text">1、帮您顺利完成合同
+为了完成您合同的签订、支付,并充分履行合同期间我
+们的法律义务,我们会向您收集必要的个人信息.在法律
+允许的情况下,必要的额外信息可能会通过第三方合作
+方获得.
+2、未经您的同意,我们不会将上述信息共享给第三方,
+或用于您未授权的其他用途.
+
+我们将不断完善技术和安全管理,保护您的个人信息.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAP-Jf-SnN">
+                    <rect key="frame" x="26" y="538" width="323" height="36"/>
+                    <color key="backgroundColor" red="0.99215686270000003" green="0.81960784310000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="w1H-pH-AMM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                    <state key="normal" title="同意">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="18"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="agreementBun:" destination="-1" eventType="touchUpInside" id="Tae-oH-fSp"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="pmV-NJ-phb" firstAttribute="leading" secondItem="dlb-5a-mVd" secondAttribute="leading" id="1fa-9J-HNT"/>
+                <constraint firstItem="7yV-B0-41S" firstAttribute="leading" secondItem="dlb-5a-mVd" secondAttribute="leading" id="2Rn-Cs-WvS"/>
+                <constraint firstItem="NAP-Jf-SnN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4GB-pZ-rJs"/>
+                <constraint firstItem="PLa-tI-3t3" firstAttribute="centerY" secondItem="T05-dM-VOt" secondAttribute="centerY" id="4Xq-an-jHI"/>
+                <constraint firstItem="pmV-NJ-phb" firstAttribute="top" secondItem="T05-dM-VOt" secondAttribute="bottom" constant="-4" id="4on-d5-PK3"/>
+                <constraint firstItem="tJp-Hn-4pq" firstAttribute="leading" secondItem="pmV-NJ-phb" secondAttribute="trailing" constant="1" id="8yL-ni-hWh"/>
+                <constraint firstItem="P0f-Qz-aXQ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="53" id="9Pr-ZW-Sc7"/>
+                <constraint firstItem="NAP-Jf-SnN" firstAttribute="top" secondItem="jvj-pa-iY9" secondAttribute="bottom" constant="42.5" id="DSJ-Xt-yMz"/>
+                <constraint firstItem="T05-dM-VOt" firstAttribute="leading" secondItem="dlb-5a-mVd" secondAttribute="leading" id="GCf-yO-QVz"/>
+                <constraint firstItem="jvj-pa-iY9" firstAttribute="leading" secondItem="dlb-5a-mVd" secondAttribute="leading" id="IEb-bA-sw7"/>
+                <constraint firstItem="PLa-tI-3t3" firstAttribute="leading" secondItem="T05-dM-VOt" secondAttribute="trailing" id="JVx-Ty-mnx"/>
+                <constraint firstItem="PLa-tI-3t3" firstAttribute="centerY" secondItem="T05-dM-VOt" secondAttribute="centerY" id="MOw-po-XrC"/>
+                <constraint firstItem="dlb-5a-mVd" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="26" id="MYR-Sa-17v"/>
+                <constraint firstItem="NAP-Jf-SnN" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="26" id="OwE-VD-DUS"/>
+                <constraint firstItem="jvj-pa-iY9" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="26" id="P3T-Kp-3Qb"/>
+                <constraint firstItem="jxa-ha-i7h" firstAttribute="leading" secondItem="T05-dM-VOt" secondAttribute="trailing" constant="91" id="bVG-MO-0Ca"/>
+                <constraint firstItem="dlb-5a-mVd" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="119" id="bmx-RI-tws"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="7yV-B0-41S" secondAttribute="trailing" constant="26" id="esk-cs-OD8"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="NAP-Jf-SnN" secondAttribute="trailing" constant="26" id="gdy-Rq-vQM"/>
+                <constraint firstItem="jvj-pa-iY9" firstAttribute="top" secondItem="7yV-B0-41S" secondAttribute="bottom" constant="16" id="jbA-W1-bBQ"/>
+                <constraint firstItem="jxa-ha-i7h" firstAttribute="centerY" secondItem="PLa-tI-3t3" secondAttribute="centerY" id="ndD-Xy-HbP"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="jvj-pa-iY9" secondAttribute="trailing" constant="26" id="qJE-9w-AFX"/>
+                <constraint firstItem="T05-dM-VOt" firstAttribute="top" secondItem="dlb-5a-mVd" secondAttribute="bottom" constant="20" id="qPy-mi-XxI"/>
+                <constraint firstItem="tJp-Hn-4pq" firstAttribute="centerY" secondItem="pmV-NJ-phb" secondAttribute="centerY" id="u6T-fa-1Ig"/>
+                <constraint firstItem="P0f-Qz-aXQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="u97-k8-wq7"/>
+                <constraint firstItem="7yV-B0-41S" firstAttribute="top" secondItem="pmV-NJ-phb" secondAttribute="bottom" constant="-4" id="wUp-35-USk"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="-638" y="-79"/>
+        </view>
+    </objects>
+</document>

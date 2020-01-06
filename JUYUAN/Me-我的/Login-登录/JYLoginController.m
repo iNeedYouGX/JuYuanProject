@@ -49,8 +49,18 @@
 
 @implementation JYLoginController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.modalPresentationStyle = UIModalPresentationFullScreen;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.loginButton.layer.cornerRadius = 22;
     self.bottomViewHeight.constant = 80 + kBottomSafeHeight;
     self.pageType = 0;
